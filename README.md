@@ -1,12 +1,12 @@
-# Monorepo Template
+# Clients
 
-A monorepo template used within the Galaxy.
+API Clients used within the Galaxy.
 
 
 ## Installation
 
 ```bash
-npm install --save-dev @theholocron/monorepo-template
+npm install --save-dev @theholocron/clients
 ```
 
 ## Usage
@@ -15,4 +15,4 @@ npm install --save-dev @theholocron/monorepo-template
 
 ## Documentation
 
-Check out [The Holocron Archive](https://docs.theholocron.dev/projects/monorepo-template/) for more information.
+Check out [The Holocron Archive](https://docs.theholocron.dev/projects/clients/) for more information.
