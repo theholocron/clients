@@ -37,7 +37,7 @@
     "@theholocron/prettier-config": "^3.5.1",
     "@theholocron/tsconfig": "^3.5.1",
     "@tsconfig/node-lts": "^22.0.2",
-    "vite": "^7.0.5"
+    "vite": "^7.1.5"
   },
   "packageManager": "npm@9.5.0",
   "bundlewatch": {
