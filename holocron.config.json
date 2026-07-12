@@ -22,7 +22,6 @@
   "providers": {
     "source": "github",
     "ci": "github",
-    "secrets": "github",
-    "environments": "github"
+    "secrets": "github"
   }
 }
