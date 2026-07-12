@@ -1,21 +1,24 @@
 # AUTO-GENERATED — do not edit directly.
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
-# Synced:  2026-07-12T21:14:37.600Z
+# Synced:  2026-07-12T21:14:37.598Z
 # Tool:    holocron setup
 # Changes: run `holocron setup` to regenerate.
-name: PR Bookkeeping
+name: Test
 
 on: # yamllint disable-line rule:truthy
+  push:
+    branches: [main, alpha]
   pull_request:
-    types:
-      - opened
-      - edited
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
-  bookkeeping:
-    uses: theholocron/.github/.github/workflows/bookkeeping-pr.yml@main
+  test:
+    name: Test
+    uses: theholocron/.github/.github/workflows/test.yml@main
     secrets: inherit
