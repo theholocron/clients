@@ -1,0 +1,21 @@
+packages:
+  - 'packages/*'
+
+# Shared dep versions used across packages.
+catalog:
+  '@theholocron/commitlint-config': ^6.0.0
+  '@theholocron/eslint-config': ^6.0.0
+  '@theholocron/lint-staged-config': ^6.0.0
+  '@theholocron/prettier-config': ^6.0.0
+  '@theholocron/tsconfig': ^6.0.0
+  '@theholocron/tsdown-config': ^6.0.0
+  '@theholocron/vitest-config': ^6.0.0
+  '@vitest/eslint-plugin': ^1.6.23
+  eslint: ^10.7.0
+  eslint-plugin-n: ^18.2.2
+  globals: ^17.7.0
+  tsdown: ^0.22.5
+  tsx: ^4.23.0
+  vitest: ^4.1.10
+  '@vitest/coverage-v8': ^4.1.10
+  typescript: ^5.9.3

@@ -4,6 +4,10 @@
     "build": {},
     "lint": {},
     "release": {},
-    "test": {}
+    "test": {},
+    "test:coverage": {
+      "dependsOn": ["build"]
+    },
+    "typecheck": {}
   }
 }
