@@ -80,6 +80,7 @@ Desktop.ini
 
 # Dependency Managers
 node_modules
+.pnpm-store
 .turbo
 
 # Locally Built Stuff
@@ -87,3 +88,8 @@ super-linter-output
 coverage
 reports
 dist
+
+# Credentials — never commit service account keys
+packages/google/src/key.json
+*.key.json
+service-account*.json

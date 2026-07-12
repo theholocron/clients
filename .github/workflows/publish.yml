@@ -1,45 +1,59 @@
-name: Publish
+name: Release
 
 on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run semantic-release --dry-run (true = preview only, no publish)"
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
-  publish-npm:
-    name: Publish to NPM
+  release:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: write
+      issues: write
       pull-requests: write
-    runs-on: ubuntu-latest
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout repository
+      - name: Checkout
+        uses: actions/checkout@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          persist-credentials: false
 
-      - uses: actions/setup-node@v4
-        name: Setup Node.js
-        with:
-          cache: npm
-          node-version: 22.x
+      - uses: theholocron/.github/.github/actions/setup@main
+        name: Setup
 
-      - run: npm ci
-        name: Install dependencies
+      - name: Ensure npm supports OIDC Trusted Publishing
+        run: npm install -g npm@latest sigstore
 
-      - run: npm run build
-        name: Compile library
+      - run: pnpm install --frozen-lockfile
+        name: Install
 
-      - uses: changesets/action@v1
-        name: Publish to NPM
-        with:
-          title: "chore(release): 🦋 version packages"
-          commit: "chore(release): 🦋 version packages"
-          version: npx changeset version
-          publish: npx changeset publish
+      - run: pnpm build
+        name: Build
+
+      - name: Verify
+        run: |
+          pnpm typecheck
+          pnpm lint
+          pnpm test
+
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            pnpm exec semantic-release --dry-run
+          else
+            pnpm exec semantic-release
+          fi
