@@ -1,18 +1,29 @@
-# Clients
+# @theholocron/clients
 
-API Clients used within the Galaxy.
+Monorepo of API clients and shared HTTP primitives used across the Galaxy.
 
+## Packages
 
-## Installation
+| Package | Version | Description |
+|---------|---------|-------------|
+| [`@theholocron/http-client`](./packages/http-client) | [![npm](https://img.shields.io/npm/v/@theholocron/http-client)](https://www.npmjs.com/package/@theholocron/http-client) | Shared HTTP primitives — `createRestClient`, `createResolveToken`, `ProviderApiError` |
+| [`@theholocron/jira-client`](./packages/jira-client) | [![npm](https://img.shields.io/npm/v/@theholocron/jira-client)](https://www.npmjs.com/package/@theholocron/jira-client) | TypeScript client for the Jira REST API |
+| [`@theholocron/google-client`](./packages/google-client) | [![npm](https://img.shields.io/npm/v/@theholocron/google-client)](https://www.npmjs.com/package/@theholocron/google-client) | TypeScript client for Google Workspace (Docs, Sheets) |
+| [`@theholocron/zendesk-client`](./packages/zendesk-client) | [![npm](https://img.shields.io/npm/v/@theholocron/zendesk-client)](https://www.npmjs.com/package/@theholocron/zendesk-client) | TypeScript client for the Zendesk API |
+| [`@theholocron/confluence-client`](./packages/confluence-client) | [![npm](https://img.shields.io/npm/v/@theholocron/confluence-client)](https://www.npmjs.com/package/@theholocron/confluence-client) | TypeScript client for the Confluence API |
+
+## Development
+
+This repo uses [pnpm workspaces](https://pnpm.io/workspaces) and [Turbo](https://turbo.build).
 
 ```bash
-npm install --save-dev @theholocron/clients
+pnpm install       # install all deps
+pnpm build         # build all packages
+pnpm test          # test all packages
+pnpm typecheck     # typecheck all packages
+pnpm lint          # lint all packages
 ```
 
-## Usage
+## Releases
 
-<!-- add in usage -->
-
-## Documentation
-
-Check out [The Holocron Archive](https://docs.theholocron.dev/projects/clients/) for more information.
+Releases are automated via [semantic-release](https://semantic-release.gitbook.io) on push to `main`. All packages are versioned and published in lockstep. See [releases](https://github.com/theholocron/clients/releases).
