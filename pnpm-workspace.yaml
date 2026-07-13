@@ -3,7 +3,7 @@ packages:
 
 # Shared dep versions used across packages.
 catalog:
-  '@theholocron/commitlint-config': ^6.0.0
+  '@theholocron/commitlint-config': ^6.0.1
   '@theholocron/eslint-config': ^6.0.0
   '@theholocron/lint-staged-config': ^6.0.0
   '@theholocron/prettier-config': ^6.0.0

@@ -21,7 +21,8 @@
     "typecheck": "pnpm -r --filter './packages/*' typecheck"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.1",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
@@ -40,6 +41,11 @@
     "semantic-release": "^25.0.5",
     "turbo": "^2.5.5",
     "typescript": "catalog:"
+  },
+  "pnpm": {
+    "overrides": {
+      "@commitlint/config-conventional": "^19.8.1"
+    }
   },
   "packageManager": "pnpm@10.34.4",
   "engines": {
