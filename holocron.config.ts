@@ -3,7 +3,8 @@ import { defineConfig } from "@theholocron/cli";
 export default defineConfig({
 	project: {
 		name: "clients",
-		description: "API clients and shared HTTP primitives for theholocron tooling.",
+		description:
+			"API clients and shared HTTP primitives for theholocron tooling.",
 		repo: "theholocron/clients",
 		repoPolicy: {
 			preset: "strict",
@@ -31,6 +32,14 @@ export default defineConfig({
 		source: "github",
 		ci: "github",
 		secrets: "github",
-		issues: ["github", { labels: { inProgress: "status:in-progress", inReview: "status:in-review" } }],
+		issues: [
+			"github",
+			{
+				labels: {
+					inProgress: "status:in-progress",
+					inReview: "status:in-review",
+				},
+			},
+		],
 	},
 });
