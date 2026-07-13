@@ -21,6 +21,8 @@ Three repos, one rule per concern:
 
 ## Code patterns
 
+- **Package manager: pnpm only.** Never use `npm` or `yarn`. Run workspace-wide tasks through Turbo (`pnpm test`, `pnpm build`, etc.); run single-package tasks with `pnpm --filter <name> <script>`.
+- **No `any` in TypeScript.** Use `unknown` for values of genuinely unknown shape and narrow with type guards. Use generics instead of `any` in function signatures. `as never` and `as unknown as T` are acceptable for internal casts where the type system can't follow; `any` is not.
 - **ESLint override:** `n/no-unpublished-import` is disabled in every
   package's `eslint.config.js`. This is a known false positive for the
   TypeScript `src/ → dist/` build model — `files[]` in `package.json`
