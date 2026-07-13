@@ -123,7 +123,7 @@ describe("issues (extended)", () => {
 	it("searches via GET /search with query params", async () => {
 		stub = mockFetch([{ body: { issues: [], total: 0 } }]);
 		vi.stubGlobal("fetch", stub.mock);
-		await client.issues.search({ jql: "project = PROJ AND status = Open", maxResults: "10" });
+		await client.issues.search({ jql: "project = PROJ AND status = Open", maxResults: 10 });
 		expect(stub.calls[0]?.method).toBe("GET");
 		expect(stub.calls[0]?.url).toContain("/search");
 		expect(stub.calls[0]?.url).toContain("jql=");
