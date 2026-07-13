@@ -1,3 +1,5 @@
+<!-- editorconfig-checker-disable-file -->
+
 # CLAUDE.md
 
 Conventions for working on the `theholocron/clients` monorepo.
