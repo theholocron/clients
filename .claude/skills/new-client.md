@@ -193,14 +193,18 @@ import type { <Vendor>Thing } from "./types.js";
 export function <resources>(rest: RestClient) {
 	return {
 		get(id: string): Promise<<Vendor>Thing> {
-			return rest.get(`/<resources>/${id}`);
+			return rest.request<<Vendor>Thing>(`/<resources>/${id}`);
 		},
 
 		create(payload: Partial<<Vendor>Thing>): Promise<<Vendor>Thing> {
-			return rest.post("/<resources>/", payload);
+			return rest.request<<Vendor>Thing>("/<resources>/", {
+				method: "POST",
+				body: payload,
+			});
 		},
 
 		// add more methods as needed
+		// delete: (id: string) => rest.request<void>(`/<resources>/${id}`, { method: "DELETE", expectNoContent: true }),
 	};
 }
 ```
