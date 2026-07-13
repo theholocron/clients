@@ -4,13 +4,13 @@ Monorepo of API clients and shared HTTP primitives used across the Galaxy.
 
 ## Packages
 
-| Package | Version | Description |
-|---------|---------|-------------|
-| [`@theholocron/http-client`](./packages/http-client) | [![npm](https://img.shields.io/npm/v/@theholocron/http-client)](https://www.npmjs.com/package/@theholocron/http-client) | Shared HTTP primitives — `createRestClient`, `createResolveToken`, `ProviderApiError` |
-| [`@theholocron/jira-client`](./packages/jira-client) | [![npm](https://img.shields.io/npm/v/@theholocron/jira-client)](https://www.npmjs.com/package/@theholocron/jira-client) | TypeScript client for the Jira REST API |
-| [`@theholocron/google-client`](./packages/google-client) | [![npm](https://img.shields.io/npm/v/@theholocron/google-client)](https://www.npmjs.com/package/@theholocron/google-client) | TypeScript client for Google Workspace (Docs, Sheets) |
-| [`@theholocron/zendesk-client`](./packages/zendesk-client) | [![npm](https://img.shields.io/npm/v/@theholocron/zendesk-client)](https://www.npmjs.com/package/@theholocron/zendesk-client) | TypeScript client for the Zendesk API |
-| [`@theholocron/confluence-client`](./packages/confluence-client) | [![npm](https://img.shields.io/npm/v/@theholocron/confluence-client)](https://www.npmjs.com/package/@theholocron/confluence-client) | TypeScript client for the Confluence API |
+| Package                                                          | Version                                                                                                                             | Description                                                                           |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [`@theholocron/http-client`](./packages/http-client)             | [![npm](https://img.shields.io/npm/v/@theholocron/http-client)](https://www.npmjs.com/package/@theholocron/http-client)             | Shared HTTP primitives — `createRestClient`, `createResolveToken`, `ProviderApiError` |
+| [`@theholocron/jira-client`](./packages/jira-client)             | [![npm](https://img.shields.io/npm/v/@theholocron/jira-client)](https://www.npmjs.com/package/@theholocron/jira-client)             | TypeScript client for the Jira REST API                                               |
+| [`@theholocron/google-client`](./packages/google-client)         | [![npm](https://img.shields.io/npm/v/@theholocron/google-client)](https://www.npmjs.com/package/@theholocron/google-client)         | TypeScript client for Google Workspace (Docs, Sheets)                                 |
+| [`@theholocron/zendesk-client`](./packages/zendesk-client)       | [![npm](https://img.shields.io/npm/v/@theholocron/zendesk-client)](https://www.npmjs.com/package/@theholocron/zendesk-client)       | TypeScript client for the Zendesk API                                                 |
+| [`@theholocron/confluence-client`](./packages/confluence-client) | [![npm](https://img.shields.io/npm/v/@theholocron/confluence-client)](https://www.npmjs.com/package/@theholocron/confluence-client) | TypeScript client for the Confluence API                                              |
 
 ## Development
 
