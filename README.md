@@ -1,6 +1,6 @@
 # @theholocron/clients
 
-Monorepo of API clients and shared HTTP primitives used across the Galaxy.
+API clients and shared HTTP primitives used across the Galaxy.
 
 ## Packages
 
@@ -26,4 +26,4 @@ pnpm lint          # lint all packages
 
 ## Releases
 
-Releases are automated via [semantic-release](https://semantic-release.gitbook.io) on push to `main`. All packages are versioned and published in lockstep. See [releases](https://github.com/theholocron/clients/releases).
+Releases are automated via [semantic-release](https://semantic-release.gitbook.io) on push to `main`. All packages are versioned and published in lockstep. See [CHANGELOG.md](CHANGELOG.md) for the release history.
