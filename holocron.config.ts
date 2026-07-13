@@ -22,6 +22,7 @@ export default defineConfig({
 			"codeql",
 			"review",
 			"audit",
+			{ name: "release", with: { "run-build": true } },
 			"dependencies",
 			"bookkeeping-pr",
 			"stale",
