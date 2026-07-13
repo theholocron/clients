@@ -22,7 +22,7 @@ Add to `pnpm-workspace.yaml`:
 
 ```yaml
 packages:
-  - packages/<slug>-client
+    - packages/<slug>-client
 ```
 
 Then run `pnpm install` from the repo root.
@@ -35,62 +35,62 @@ Then run `pnpm install` from the repo root.
 
 ```json
 {
-  "name": "@theholocron/<slug>-client",
-  "version": "0.0.0",
-  "description": "A TypeScript client for the <Vendor> API",
-  "homepage": "https://github.com/theholocron/clients/tree/main/packages/<slug>-client#readme",
-  "bugs": "https://github.com/theholocron/clients/issues",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theholocron/clients.git",
-    "directory": "packages/<slug>-client"
-  },
-  "license": "GPL-3.0",
-  "author": "Newton Koumantzelis",
-  "type": "module",
-  "main": "./src/index.ts",
-  "exports": { ".": "./src/index.ts" },
-  "scripts": {
-    "build": "tsdown",
-    "lint": "eslint .",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@theholocron/http-client": "^0.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@theholocron/eslint-config": "catalog:",
-    "@theholocron/tsconfig": "catalog:",
-    "@theholocron/tsdown-config": "catalog:",
-    "@theholocron/vitest-config": "catalog:",
-    "@vitest/coverage-v8": "catalog:",
-    "@vitest/eslint-plugin": "catalog:",
-    "eslint": "catalog:",
-    "eslint-plugin-n": "catalog:",
-    "globals": "catalog:",
-    "tsdown": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public",
-    "main": "./dist/index.mjs",
-    "types": "./dist/index.d.mts",
-    "exports": {
-      ".": {
-        "types": "./dist/index.d.mts",
-        "import": "./dist/index.mjs",
-        "default": "./dist/index.mjs"
-      }
-    }
-  },
-  "files": ["dist", "README.md"],
-  "engines": { "node": ">=22.0.0" },
-  "releases": "https://github.com/theholocron/clients/releases"
+	"name": "@theholocron/<slug>-client",
+	"version": "0.0.0",
+	"description": "A TypeScript client for the <Vendor> API",
+	"homepage": "https://github.com/theholocron/clients/tree/main/packages/<slug>-client#readme",
+	"bugs": "https://github.com/theholocron/clients/issues",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/theholocron/clients.git",
+		"directory": "packages/<slug>-client"
+	},
+	"license": "GPL-3.0",
+	"author": "Newton Koumantzelis",
+	"type": "module",
+	"main": "./src/index.ts",
+	"exports": { ".": "./src/index.ts" },
+	"scripts": {
+		"build": "tsdown",
+		"lint": "eslint .",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@theholocron/http-client": "^0.1.0"
+	},
+	"devDependencies": {
+		"@types/node": "^22.0.0",
+		"@theholocron/eslint-config": "catalog:",
+		"@theholocron/tsconfig": "catalog:",
+		"@theholocron/tsdown-config": "catalog:",
+		"@theholocron/vitest-config": "catalog:",
+		"@vitest/coverage-v8": "catalog:",
+		"@vitest/eslint-plugin": "catalog:",
+		"eslint": "catalog:",
+		"eslint-plugin-n": "catalog:",
+		"globals": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
+	},
+	"publishConfig": {
+		"access": "public",
+		"main": "./dist/index.mjs",
+		"types": "./dist/index.d.mts",
+		"exports": {
+			".": {
+				"types": "./dist/index.d.mts",
+				"import": "./dist/index.mjs",
+				"default": "./dist/index.mjs"
+			}
+		}
+	},
+	"files": ["dist", "README.md"],
+	"engines": { "node": ">=22.0.0" },
+	"releases": "https://github.com/theholocron/clients/releases"
 }
 ```
 
@@ -98,11 +98,11 @@ Then run `pnpm install` from the repo root.
 
 ```json
 {
-  "display": "<Vendor> API Client",
-  "extends": "@theholocron/tsconfig/node-lts",
-  "compilerOptions": { "baseUrl": "./", "outDir": "./dist" },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+	"display": "<Vendor> API Client",
+	"extends": "@theholocron/tsconfig/node-lts",
+	"compilerOptions": { "baseUrl": "./", "outDir": "./dist" },
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"]
 }
 ```
 
@@ -339,7 +339,7 @@ describe("<resources>", () => {
 ```md
 # `@theholocron/<slug>-client`
 
-TypeScript client for the [<Vendor> API](<vendor-docs-url>).
+TypeScript client for the [<Vendor> API](vendor-docs-url).
 
 ## Install
 
@@ -352,7 +352,7 @@ pnpm add @theholocron/<slug>-client
 \`\`\`ts
 import { create<Vendor>Client } from "@theholocron/<slug>-client";
 
-const client = create<Vendor>Client({ token: process.env.<VENDOR>_TOKEN! });
+const client = create<Vendor>Client({ token: process.env.<VENDOR>\_TOKEN! });
 const thing = await client.<resources>.get("id");
 \`\`\`
 
