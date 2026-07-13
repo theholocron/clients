@@ -36,6 +36,7 @@ Three repos, one rule per concern:
 
 ## Workflow
 
+- **Always open a PR — never push directly to the default branch.** Even for small fixes: create a branch, push it, open a PR. This lets CI run, keeps history reviewable, and respects branch protection. The only exception is bootstrapping a brand-new repo before protection is set up.
 - **Conventional Commits.** `feat:` / `fix:` / `chore(deps):` / `docs:` /
   `ci:` / `test:` — semantic-release uses these for the changelog.
 - **Always `git commit -s`** (DCO). `Signed-off-by:` trailer required.
