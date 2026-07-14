@@ -22,7 +22,7 @@ Add to `pnpm-workspace.yaml`:
 
 ```yaml
 packages:
-    - packages/<slug>-client
+  - packages/<slug>-client
 ```
 
 Then run `pnpm install` from the repo root.
