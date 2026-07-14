@@ -22,7 +22,7 @@ Add to `pnpm-workspace.yaml`:
 
 ```yaml
 packages:
-    - packages/<slug>-client
+  - packages/<slug>-client
 ```
 
 Then run `pnpm install` from the repo root.
@@ -35,62 +35,62 @@ Then run `pnpm install` from the repo root.
 
 ```json
 {
-	"name": "@theholocron/<slug>-client",
-	"version": "0.0.0",
-	"description": "A TypeScript client for the <Vendor> API",
-	"homepage": "https://github.com/theholocron/clients/tree/main/packages/<slug>-client#readme",
-	"bugs": "https://github.com/theholocron/clients/issues",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/theholocron/clients.git",
-		"directory": "packages/<slug>-client"
-	},
-	"license": "GPL-3.0",
-	"author": "Newton Koumantzelis",
-	"type": "module",
-	"main": "./src/index.ts",
-	"exports": { ".": "./src/index.ts" },
-	"scripts": {
-		"build": "tsdown",
-		"lint": "eslint .",
-		"test": "vitest run",
-		"test:watch": "vitest",
-		"test:coverage": "vitest run --coverage",
-		"typecheck": "tsc --noEmit"
-	},
-	"dependencies": {
-		"@theholocron/http-client": "^0.1.0"
-	},
-	"devDependencies": {
-		"@types/node": "^22.0.0",
-		"@theholocron/eslint-config": "catalog:",
-		"@theholocron/tsconfig": "catalog:",
-		"@theholocron/tsdown-config": "catalog:",
-		"@theholocron/vitest-config": "catalog:",
-		"@vitest/coverage-v8": "catalog:",
-		"@vitest/eslint-plugin": "catalog:",
-		"eslint": "catalog:",
-		"eslint-plugin-n": "catalog:",
-		"globals": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:",
-		"vitest": "catalog:"
-	},
-	"publishConfig": {
-		"access": "public",
-		"main": "./dist/index.mjs",
-		"types": "./dist/index.d.mts",
-		"exports": {
-			".": {
-				"types": "./dist/index.d.mts",
-				"import": "./dist/index.mjs",
-				"default": "./dist/index.mjs"
-			}
-		}
-	},
-	"files": ["dist", "README.md"],
-	"engines": { "node": ">=22.0.0" },
-	"releases": "https://github.com/theholocron/clients/releases"
+  "name": "@theholocron/<slug>-client",
+  "version": "0.0.0",
+  "description": "A TypeScript client for the <Vendor> API",
+  "homepage": "https://github.com/theholocron/clients/tree/main/packages/<slug>-client#readme",
+  "bugs": "https://github.com/theholocron/clients/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theholocron/clients.git",
+    "directory": "packages/<slug>-client"
+  },
+  "license": "GPL-3.0",
+  "author": "Newton Koumantzelis",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "build": "tsdown",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@theholocron/http-client": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@theholocron/eslint-config": "catalog:",
+    "@theholocron/tsconfig": "catalog:",
+    "@theholocron/tsdown-config": "catalog:",
+    "@theholocron/vitest-config": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/eslint-plugin": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-n": "catalog:",
+    "globals": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "import": "./dist/index.mjs",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "files": ["dist", "README.md"],
+  "engines": { "node": ">=22.0.0" },
+  "releases": "https://github.com/theholocron/clients/releases"
 }
 ```
 
@@ -98,11 +98,11 @@ Then run `pnpm install` from the repo root.
 
 ```json
 {
-	"display": "<Vendor> API Client",
-	"extends": "@theholocron/tsconfig/node-lts",
-	"compilerOptions": { "baseUrl": "./", "outDir": "./dist" },
-	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules", "dist"]
+  "display": "<Vendor> API Client",
+  "extends": "@theholocron/tsconfig/node-lts",
+  "compilerOptions": { "baseUrl": "./", "outDir": "./dist" },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
 ```
 
@@ -125,16 +125,16 @@ import { library } from "@theholocron/eslint-config/bundles/library";
 
 /** @type {import("eslint").Linter.Config} */
 const config = [
-	...library(),
-	{
-		rules: {
-			// src/ compiles to dist/ via tsdown; files[] lists dist/ so every
-			// relative src/ import is flagged as unpublished. False positive
-			// for the TypeScript src→dist build model.
-			"n/no-unpublished-import": "off",
-		},
-	},
-	{ ignores: ["dist/**", "coverage/**"] },
+  ...library(),
+  {
+    rules: {
+      // src/ compiles to dist/ via tsdown; files[] lists dist/ so every
+      // relative src/ import is flagged as unpublished. False positive
+      // for the TypeScript src→dist build model.
+      "n/no-unpublished-import": "off",
+    },
+  },
+  { ignores: ["dist/**", "coverage/**"] },
 ];
 
 export default config;
@@ -148,8 +148,8 @@ export default config;
 
 ```ts
 export interface <Vendor>Thing {
-	id: string;
-	// ...
+  id: string;
+  // ...
 }
 ```
 
@@ -162,19 +162,19 @@ for dependency injection (required for testing without global stubs).
 import { createRestClient, type RestClient } from "@theholocron/http-client";
 
 export interface <Vendor>ClientOptions {
-	/** API token / key. */
-	token: string;
-	/** Override fetch for testing. Defaults to globalThis.fetch. */
-	fetch?: typeof fetch;
+  /** API token / key. */
+  token: string;
+  /** Override fetch for testing. Defaults to globalThis.fetch. */
+  fetch?: typeof fetch;
 }
 
 export function create<Vendor>RestClient(opts: <Vendor>ClientOptions): RestClient {
-	return createRestClient({
-		baseUrl: "<BASE_URL>",
-		token: opts.token,
-		vendor: "<Vendor>",
-		fetch: opts.fetch,
-	});
+  return createRestClient({
+    baseUrl: "<BASE_URL>",
+    token: opts.token,
+    vendor: "<Vendor>",
+    fetch: opts.fetch,
+  });
 }
 ```
 
@@ -191,21 +191,21 @@ import type { RestClient } from "@theholocron/http-client";
 import type { <Vendor>Thing } from "./types.js";
 
 export function <resources>(rest: RestClient) {
-	return {
-		get(id: string): Promise<<Vendor>Thing> {
-			return rest.request<<Vendor>Thing>(`/<resources>/${id}`);
-		},
+  return {
+    get(id: string): Promise<<Vendor>Thing> {
+      return rest.request<<Vendor>Thing>(`/<resources>/${id}`);
+    },
 
-		create(payload: Partial<<Vendor>Thing>): Promise<<Vendor>Thing> {
-			return rest.request<<Vendor>Thing>("/<resources>/", {
-				method: "POST",
-				body: payload,
-			});
-		},
+    create(payload: Partial<<Vendor>Thing>): Promise<<Vendor>Thing> {
+      return rest.request<<Vendor>Thing>("/<resources>/", {
+        method: "POST",
+        body: payload,
+      });
+    },
 
-		// add more methods as needed
-		// delete: (id: string) => rest.request<void>(`/<resources>/${id}`, { method: "DELETE", expectNoContent: true }),
-	};
+    // add more methods as needed
+    // delete: (id: string) => rest.request<void>(`/<resources>/${id}`, { method: "DELETE", expectNoContent: true }),
+  };
 }
 ```
 
@@ -219,11 +219,11 @@ export type { <Vendor>ClientOptions } from "./client.js";
 export type * from "./types.js";
 
 export function create<Vendor>Client(opts: <Vendor>ClientOptions) {
-	const rest = create<Vendor>RestClient(opts);
-	return {
-		<resources>: <resources>(rest),
-		// add more resource groups here
-	};
+  const rest = create<Vendor>RestClient(opts);
+  return {
+    <resources>: <resources>(rest),
+    // add more resource groups here
+  };
 }
 ```
 
@@ -257,36 +257,36 @@ Every package gets its own `stubFetch` — no global stubs.
 import { vi } from "vitest";
 
 export interface FetchCall {
-	url: string;
-	method: string;
-	headers: Record<string, string>;
-	body: unknown;
+  url: string;
+  method: string;
+  headers: Record<string, string>;
+  body: unknown;
 }
 
 export function stubFetch(
-	responses: Array<{ status?: number; body?: unknown; text?: string }>,
+  responses: Array<{ status?: number; body?: unknown; text?: string }>,
 ) {
-	const calls: FetchCall[] = [];
-	let i = 0;
-	const mock = vi.fn(async (input: string | URL, init?: RequestInit) => {
-		const url = typeof input === "string" ? input : input.toString();
-		const body =
-			typeof init?.body === "string"
-				? JSON.parse(init.body)
-				: (init?.body ?? null);
-		calls.push({
-			url,
-			method: (init?.method ?? "GET").toUpperCase(),
-			headers: (init?.headers as Record<string, string>) ?? {},
-			body,
-		});
-		const next = responses[i++] ?? { status: 200, body: {} };
-		const status = next.status ?? 200;
-		if (status === 204) return new Response(null, { status });
-		const text = next.text ?? JSON.stringify(next.body ?? {});
-		return new Response(text, { status });
-	});
-	return { fetch: mock as unknown as typeof fetch, calls };
+  const calls: FetchCall[] = [];
+  let i = 0;
+  const mock = vi.fn(async (input: string | URL, init?: RequestInit) => {
+    const url = typeof input === "string" ? input : input.toString();
+    const body =
+      typeof init?.body === "string"
+        ? JSON.parse(init.body)
+        : (init?.body ?? null);
+    calls.push({
+      url,
+      method: (init?.method ?? "GET").toUpperCase(),
+      headers: (init?.headers as Record<string, string>) ?? {},
+      body,
+    });
+    const next = responses[i++] ?? { status: 200, body: {} };
+    const status = next.status ?? 200;
+    if (status === 204) return new Response(null, { status });
+    const text = next.text ?? JSON.stringify(next.body ?? {});
+    return new Response(text, { status });
+  });
+  return { fetch: mock as unknown as typeof fetch, calls };
 }
 ```
 
@@ -302,37 +302,37 @@ import { stubFetch } from "./helpers.js";
 const TOKEN = "test-token";
 
 function makeClient(responses: Parameters<typeof stubFetch>[0]) {
-	const { fetch, calls } = stubFetch(responses);
-	const client = create<Vendor>Client({ token: TOKEN, fetch });
-	return { client, calls };
+  const { fetch, calls } = stubFetch(responses);
+  const client = create<Vendor>Client({ token: TOKEN, fetch });
+  return { client, calls };
 }
 
 describe("<resources>", () => {
-	it("GET /<resources>/:id", async () => {
-		const { client, calls } = makeClient([{ body: { id: "1" } }]);
-		await client.<resources>.get("1");
-		expect(calls[0]?.method).toBe("GET");
-		expect(calls[0]?.url).toContain("/<resources>/1");
-	});
+  it("GET /<resources>/:id", async () => {
+    const { client, calls } = makeClient([{ body: { id: "1" } }]);
+    await client.<resources>.get("1");
+    expect(calls[0]?.method).toBe("GET");
+    expect(calls[0]?.url).toContain("/<resources>/1");
+  });
 
-	it("sends Authorization header", async () => {
-		const { client, calls } = makeClient([{ body: { id: "1" } }]);
-		await client.<resources>.get("1");
-		expect(calls[0]?.headers.authorization).toBe(`Bearer ${TOKEN}`);
-	});
+  it("sends Authorization header", async () => {
+    const { client, calls } = makeClient([{ body: { id: "1" } }]);
+    await client.<resources>.get("1");
+    expect(calls[0]?.headers.authorization).toBe(`Bearer ${TOKEN}`);
+  });
 
-	it("POST /<resources>/", async () => {
-		const { client, calls } = makeClient([{ status: 201, body: { id: "2" } }]);
-		await client.<resources>.create({ /* payload */ });
-		expect(calls[0]?.method).toBe("POST");
-	});
+  it("POST /<resources>/", async () => {
+    const { client, calls } = makeClient([{ status: 201, body: { id: "2" } }]);
+    await client.<resources>.create({ /* payload */ });
+    expect(calls[0]?.method).toBe("POST");
+  });
 
-	it("returns undefined on 204", async () => {
-		const { client, calls } = makeClient([{ status: 204 }]);
-		const result = await client.<resources>.create({});
-		expect(result).toBeUndefined();
-		expect(calls).toHaveLength(1);
-	});
+  it("returns undefined on 204", async () => {
+    const { client, calls } = makeClient([{ status: 204 }]);
+    const result = await client.<resources>.create({});
+    expect(result).toBeUndefined();
+    expect(calls).toHaveLength(1);
+  });
 });
 ```
 

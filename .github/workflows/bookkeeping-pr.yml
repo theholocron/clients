@@ -1,6 +1,6 @@
 # AUTO-GENERATED — do not edit directly.
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
-# Synced:  2026-07-14T20:54:44.510Z
+# Synced:  2026-07-14T21:28:34.858Z
 # Tool:    holocron setup
 # Changes: run `holocron setup` to regenerate.
 name: PR Bookkeeping
