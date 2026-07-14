@@ -3,6 +3,8 @@ packages:
 
 # Shared dep versions used across packages.
 catalog:
+  '@theholocron/cli': 2.0.0-alpha.22
+  '@theholocron/holocron-plugin-github': 2.0.0-alpha.22
   '@theholocron/commitlint-config': ^6.0.1
   '@theholocron/eslint-config': ^6.0.0
   '@theholocron/lint-staged-config': ^6.0.0

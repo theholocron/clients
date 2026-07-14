@@ -22,6 +22,8 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
+    "@theholocron/cli": "catalog:",
+    "@theholocron/holocron-plugin-github": "catalog:",
     "@commitlint/config-conventional": "^19.8.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^7.1.0",
