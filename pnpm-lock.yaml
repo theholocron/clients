@@ -53,11 +53,11 @@ catalogs:
       version: 4.1.10
   holocron:
     '@theholocron/cli':
-      specifier: 2.0.0-alpha.23
-      version: 2.0.0-alpha.23
+      specifier: 2.0.0-alpha.24
+      version: 2.0.0-alpha.24
     '@theholocron/holocron-plugin-github':
-      specifier: 2.0.0-alpha.23
-      version: 2.0.0-alpha.23
+      specifier: 2.0.0-alpha.24
+      version: 2.0.0-alpha.24
 
 overrides:
   '@commitlint/config-conventional': ^19.8.1
@@ -83,7 +83,7 @@ importers:
         version: 10.0.1(semantic-release@25.0.6(typescript@5.9.3))
       '@theholocron/cli':
         specifier: catalog:holocron
-        version: 2.0.0-alpha.23
+        version: 2.0.0-alpha.24
       '@theholocron/commitlint-config':
         specifier: 'catalog:'
         version: 6.0.1(@commitlint/cli@19.8.1(@types/node@26.1.1)(typescript@5.9.3))(@commitlint/config-conventional@19.8.1)
@@ -92,7 +92,7 @@ importers:
         version: 6.0.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.6.1)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))
       '@theholocron/holocron-plugin-github':
         specifier: catalog:holocron
-        version: 2.0.0-alpha.23(@theholocron/cli@2.0.0-alpha.23)
+        version: 2.0.0-alpha.24(@theholocron/cli@2.0.0-alpha.24)
       '@theholocron/lint-staged-config':
         specifier: 'catalog:'
         version: 6.0.0(husky@9.1.7)(lint-staged@16.4.0)
@@ -1033,8 +1033,8 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@theholocron/cli@2.0.0-alpha.23':
-    resolution: {integrity: sha512-bj6WMyCybSEEpVlsJwoHFAAxEFB/MXYeTsZMBoDqN7yJKA0V5wxVYKjqUCrzGmAcn7h+7p2PYmWrRHsxTwi2nQ==}
+  '@theholocron/cli@2.0.0-alpha.24':
+    resolution: {integrity: sha512-HFjL1V/gnf8sLSuiMwqXP32Lc7W2/o97bzKPGVhWwj7LI6eGMHqCNjN5S9e2rEwIPFa1/tfTnfZEtAObQjhLWg==}
     hasBin: true
 
   '@theholocron/commitlint-config@6.0.1':
@@ -1070,10 +1070,10 @@ packages:
       eslint-plugin-storybook:
         optional: true
 
-  '@theholocron/holocron-plugin-github@2.0.0-alpha.23':
-    resolution: {integrity: sha512-i0ideg/TdiLRYfMx+gm0VT57B8XBC3hxyLvibdAhdwWsHdSn9rVuDaSeJQ8ijI9C0e6EHPAKmGwpIoz5PZbsHg==}
+  '@theholocron/holocron-plugin-github@2.0.0-alpha.24':
+    resolution: {integrity: sha512-2bwqy0jUjvHzLboG6CoCbEZuImZzbfMzgdKFd549EketJq0FAKFKLKVDLvQI5PpNk2XYJQVk1lcmmld432NL7A==}
     peerDependencies:
-      '@theholocron/cli': 2.0.0-alpha.23
+      '@theholocron/cli': 2.0.0-alpha.24
 
   '@theholocron/http-client@0.1.0':
     resolution: {integrity: sha512-ul45D9F1nQmfbQ5x6Q4zQT20mBnmCZ7HmpSpXWvQPAf0kI8pZfd7rvpuc2fkXBI7w5uDfH+KFoaCGpzL+HDyoA==}
@@ -2637,8 +2637,8 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
-  nanoid@3.3.15:
-    resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
+  nanoid@3.3.16:
+    resolution: {integrity: sha512-bzlKTyNJ7+LdGIIwy8ijFpIqEQIvafahV7eYykJ8Cvh42EdJeODoJ6gUJXpQJvej1BddH8OqTXZNE/KfbWAu8Q==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -2922,8 +2922,8 @@ packages:
     resolution: {integrity: sha512-C+VUP+8jis7EsQZIhDYmS5qlNtjv2yP4SNtjXK9AP1ZcTRlnSfuumaTnRfYZnYgUUYVIKqL0fRvmUGDV2fmp6g==}
     engines: {node: '>=4'}
 
-  postcss@8.5.17:
-    resolution: {integrity: sha512-J7EF+8X+CzRPaJPOv9Ck2wNWJvGnnl3PcNPAdGg6GTLjyVpyQ0yATMSXRFRV01BviT/9Gwuc3rjEyJbDJG9a4w==}
+  postcss@8.5.19:
+    resolution: {integrity: sha512-Mz8SaolMd8nB+G13WkORcxQKHZ/NE4xXevtkJHVuG+guo9/wYKlIMTKAqGdEmYOXR2ijPjTYNHssizdaVSUNdQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -4239,7 +4239,7 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@theholocron/cli@2.0.0-alpha.23':
+  '@theholocron/cli@2.0.0-alpha.24':
     dependencies:
       '@napi-rs/keyring': 1.3.0
       '@theholocron/http-client': 0.1.0
@@ -4261,9 +4261,9 @@ snapshots:
       '@vitest/eslint-plugin': 1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10)
       eslint-plugin-n: 18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)
 
-  '@theholocron/holocron-plugin-github@2.0.0-alpha.23(@theholocron/cli@2.0.0-alpha.23)':
+  '@theholocron/holocron-plugin-github@2.0.0-alpha.24(@theholocron/cli@2.0.0-alpha.24)':
     dependencies:
-      '@theholocron/cli': 2.0.0-alpha.23
+      '@theholocron/cli': 2.0.0-alpha.24
       libsodium-wrappers: 0.7.16
 
   '@theholocron/http-client@0.1.0': {}
@@ -4448,7 +4448,7 @@ snapshots:
       obug: 2.1.3
       std-env: 4.2.0
       tinyrainbow: 3.1.0
-      vitest: 4.1.10(@types/node@22.20.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.4(@types/node@22.20.1)(esbuild@0.28.1)(jiti@2.6.1)(tsx@4.23.1)(yaml@2.9.0))
+      vitest: 4.1.10(@types/node@26.1.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.4(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.6.1)(tsx@4.23.1)(yaml@2.9.0))
 
   '@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10)':
     dependencies:
@@ -4458,7 +4458,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)
       typescript: 5.9.3
-      vitest: 4.1.10(@types/node@22.20.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.4(@types/node@22.20.1)(esbuild@0.28.1)(jiti@2.6.1)(tsx@4.23.1)(yaml@2.9.0))
+      vitest: 4.1.10(@types/node@26.1.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.4(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.6.1)(tsx@4.23.1)(yaml@2.9.0))
     transitivePeerDependencies:
       - supports-color
 
@@ -5756,7 +5756,7 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nanoid@3.3.15: {}
+  nanoid@3.3.16: {}
 
   natural-compare@1.4.0: {}
 
@@ -5941,9 +5941,9 @@ snapshots:
       find-up: 2.1.0
       load-json-file: 4.0.0
 
-  postcss@8.5.17:
+  postcss@8.5.19:
     dependencies:
-      nanoid: 3.3.15
+      nanoid: 3.3.16
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -6458,7 +6458,7 @@ snapshots:
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.5
-      postcss: 8.5.17
+      postcss: 8.5.19
       rolldown: 1.1.5
       tinyglobby: 0.2.17
     optionalDependencies:
@@ -6473,7 +6473,7 @@ snapshots:
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.5
-      postcss: 8.5.17
+      postcss: 8.5.19
       rolldown: 1.1.5
       tinyglobby: 0.2.17
     optionalDependencies:
