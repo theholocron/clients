@@ -6,18 +6,12 @@ settings:
 
 catalogs:
   default:
-    '@theholocron/cli':
-      specifier: 2.0.0-alpha.22
-      version: 2.0.0-alpha.22
     '@theholocron/commitlint-config':
       specifier: ^6.0.1
       version: 6.0.1
     '@theholocron/eslint-config':
       specifier: ^6.0.0
       version: 6.0.0
-    '@theholocron/holocron-plugin-github':
-      specifier: 2.0.0-alpha.22
-      version: 2.0.0-alpha.22
     '@theholocron/lint-staged-config':
       specifier: ^6.0.0
       version: 6.0.0
@@ -57,6 +51,13 @@ catalogs:
     vitest:
       specifier: ^4.1.10
       version: 4.1.10
+  holocron:
+    '@theholocron/cli':
+      specifier: 2.0.0-alpha.22
+      version: 2.0.0-alpha.22
+    '@theholocron/holocron-plugin-github':
+      specifier: 2.0.0-alpha.22
+      version: 2.0.0-alpha.22
 
 overrides:
   '@commitlint/config-conventional': ^19.8.1
@@ -81,7 +82,7 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(semantic-release@25.0.6(typescript@5.9.3))
       '@theholocron/cli':
-        specifier: 'catalog:'
+        specifier: catalog:holocron
         version: 2.0.0-alpha.22
       '@theholocron/commitlint-config':
         specifier: 'catalog:'
@@ -90,7 +91,7 @@ importers:
         specifier: 'catalog:'
         version: 6.0.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.6.1)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))
       '@theholocron/holocron-plugin-github':
-        specifier: 'catalog:'
+        specifier: catalog:holocron
         version: 2.0.0-alpha.22(@theholocron/cli@2.0.0-alpha.22)
       '@theholocron/lint-staged-config':
         specifier: 'catalog:'
