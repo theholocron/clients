@@ -8,12 +8,6 @@ export default defineConfig({
 		repo: "theholocron/clients",
 		repoPolicy: {
 			preset: "strict",
-			requiredChecks: [
-				"DCO",
-				"Lint / Lint",
-				"Test / Test",
-				"Typecheck / Typecheck",
-			],
 		},
 		workflows: [
 			"lint",
