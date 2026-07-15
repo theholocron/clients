@@ -53,11 +53,11 @@ catalogs:
       version: 4.1.10
   holocron:
     '@theholocron/cli':
-      specifier: 2.0.0-alpha.34
-      version: 2.0.0-alpha.34
+      specifier: 2.0.0-alpha.35
+      version: 2.0.0-alpha.35
     '@theholocron/holocron-plugin-github':
-      specifier: 2.0.0-alpha.34
-      version: 2.0.0-alpha.34
+      specifier: 2.0.0-alpha.35
+      version: 2.0.0-alpha.35
 
 overrides:
   '@commitlint/config-conventional': ^19.8.1
@@ -83,7 +83,7 @@ importers:
         version: 10.0.1(semantic-release@25.0.6(typescript@5.9.3))
       '@theholocron/cli':
         specifier: catalog:holocron
-        version: 2.0.0-alpha.34
+        version: 2.0.0-alpha.35
       '@theholocron/commitlint-config':
         specifier: 'catalog:'
         version: 6.0.1(@commitlint/cli@19.8.1(@types/node@26.1.1)(typescript@5.9.3))(@commitlint/config-conventional@19.8.1)
@@ -92,7 +92,7 @@ importers:
         version: 6.0.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.6.1)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))
       '@theholocron/holocron-plugin-github':
         specifier: catalog:holocron
-        version: 2.0.0-alpha.34(@theholocron/cli@2.0.0-alpha.34)
+        version: 2.0.0-alpha.35(@theholocron/cli@2.0.0-alpha.35)
       '@theholocron/lint-staged-config':
         specifier: 'catalog:'
         version: 6.0.0(husky@9.1.7)(lint-staged@16.4.0)
@@ -1033,8 +1033,8 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@theholocron/cli@2.0.0-alpha.34':
-    resolution: {integrity: sha512-Th9NnOKogK5IcNKhd2UNgcMvWpt243ePrzIE0zfwR+rBo9r9E3qWZp51Zxy21XnH0GpQI3GLWsM6vLla0y5z+A==}
+  '@theholocron/cli@2.0.0-alpha.35':
+    resolution: {integrity: sha512-QbI10tcT9/tW/ZePxNNJwrDAvDZNbwhL4bfaIWeLKq/8VGWhN0m5w2xV4wCwA1Ap69+jIF2EvxUwNhOx2QtNSw==}
     hasBin: true
 
   '@theholocron/commitlint-config@6.0.1':
@@ -1070,10 +1070,10 @@ packages:
       eslint-plugin-storybook:
         optional: true
 
-  '@theholocron/holocron-plugin-github@2.0.0-alpha.34':
-    resolution: {integrity: sha512-e1iRygwO4UUyJGN5KyrlGl5rJGTcxBzxnT8M/3+Z7RIB3Mdaphuu9qjtgKpbqMsLzQCFEpcPjlx8VfkTM6TL8A==}
+  '@theholocron/holocron-plugin-github@2.0.0-alpha.35':
+    resolution: {integrity: sha512-K9pKt6gV4nxN/wLvyxW5ezURCHnfmZiu/IjrcVnwyNPWBSmP7qCKPLTXUE8H8NEl+SI6HMNj5Qtkpk129Ur5aw==}
     peerDependencies:
-      '@theholocron/cli': 2.0.0-alpha.34
+      '@theholocron/cli': 2.0.0-alpha.35
 
   '@theholocron/http-client@0.1.0':
     resolution: {integrity: sha512-ul45D9F1nQmfbQ5x6Q4zQT20mBnmCZ7HmpSpXWvQPAf0kI8pZfd7rvpuc2fkXBI7w5uDfH+KFoaCGpzL+HDyoA==}
@@ -4239,7 +4239,7 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@theholocron/cli@2.0.0-alpha.34':
+  '@theholocron/cli@2.0.0-alpha.35':
     dependencies:
       '@napi-rs/keyring': 1.3.0
       '@theholocron/http-client': 0.1.0
@@ -4261,9 +4261,9 @@ snapshots:
       '@vitest/eslint-plugin': 1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10)
       eslint-plugin-n: 18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)
 
-  '@theholocron/holocron-plugin-github@2.0.0-alpha.34(@theholocron/cli@2.0.0-alpha.34)':
+  '@theholocron/holocron-plugin-github@2.0.0-alpha.35(@theholocron/cli@2.0.0-alpha.35)':
     dependencies:
-      '@theholocron/cli': 2.0.0-alpha.34
+      '@theholocron/cli': 2.0.0-alpha.35
       libsodium-wrappers: 0.7.16
 
   '@theholocron/http-client@0.1.0': {}
