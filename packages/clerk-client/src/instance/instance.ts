@@ -8,6 +8,7 @@ export interface ClerkInstance {
 
 export function instance(rest: RestClient) {
 	return {
-		get: (): Promise<ClerkInstance> => rest.request<ClerkInstance>("/instance"),
+		get: (): Promise<ClerkInstance> =>
+			rest.request<ClerkInstance>("/instance"),
 	};
 }
