@@ -367,7 +367,25 @@ const thing = await client.<resources>.get("id");
 
 ---
 
-## 7. Checklist before opening a PR
+## 7. Register in `.releaserc.json`
+
+Add the new package to the `prepareCmd` array in `.releaserc.json` so it
+gets bumped in every lockstep release. The array is alphabetically sorted:
+
+```json
+['packages/confluence-client','packages/<slug>-client','packages/google-client',...]
+```
+
+Also set the initial `version` in `package.json` to match the current
+lockstep version (check the latest GitHub release tag, e.g. `0.3.1`).
+
+**This is required.** Skipping it means the package is published once by
+`publish-initial` but never included in future releases — it stays frozen
+at the initial version while all other packages advance.
+
+---
+
+## 8. Checklist before opening a PR
 
 - [ ] `pnpm install` — workspace symlink created
 - [ ] `pnpm --filter @theholocron/<slug>-client typecheck` passes
@@ -377,9 +395,11 @@ const thing = await client.<resources>.get("id");
 - [ ] `src/types.ts` covers every shape returned or accepted by implemented methods
 - [ ] Auth header scheme matches the vendor's spec (Bearer / Basic / Token / custom)
 - [ ] `README.md` has a working usage example
+- [ ] `packages/<slug>-client` added to `prepareCmd` in `.releaserc.json`
+- [ ] `version` in `package.json` set to current lockstep version
 - [ ] Run `holocron setup` so `.alexrc.json` stays current
 
-## 8. First publish
+## 9. First publish
 
 New packages need a one-time manual publish before OIDC Trusted Publishing
 takes over. See the root `README.md` for the `holocron npm publish-initial`
