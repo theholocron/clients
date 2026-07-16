@@ -35,7 +35,7 @@ export function secrets(rest: RestClient) {
 					`${scopeBase(repo, scope)}/secrets`,
 				)
 				.then((r: SecretsListResponse) =>
-					r.secrets.map((s: { name: string }) => s.name)
+					r.secrets.map((s: { name: string }) => s.name),
 				),
 
 		getPublicKey: (
