@@ -182,8 +182,8 @@ importers:
   packages/github-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: workspace:*
-        version: link:../http-client
+        specifier: ^0.2.3
+        version: 0.2.3
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -1123,6 +1123,10 @@ packages:
 
   '@theholocron/http-client@0.1.0':
     resolution: {integrity: sha512-ul45D9F1nQmfbQ5x6Q4zQT20mBnmCZ7HmpSpXWvQPAf0kI8pZfd7rvpuc2fkXBI7w5uDfH+KFoaCGpzL+HDyoA==}
+
+  '@theholocron/http-client@0.2.3':
+    resolution: {integrity: sha512-C/39cotDB9Wzps72cO0S05y3yZeFHMWYgmHYlbSVNArLJ+Au6+y4r2E/SuMg+PgFzYay8xp/855tnggpfAmf3w==}
+    engines: {node: '>=22.0.0'}
 
   '@theholocron/lint-staged-config@6.1.0':
     resolution: {integrity: sha512-vW9yg6zhDTJiFRQDlWP+ReHDRWXuBsO7iXiR7SYYVhqY8EG/YHg7g4VwqXLBoG+cAe7rUlNKj6GXw5hoqaJ51Q==}
@@ -4307,6 +4311,8 @@ snapshots:
       libsodium-wrappers: 0.7.16
 
   '@theholocron/http-client@0.1.0': {}
+
+  '@theholocron/http-client@0.2.3': {}
 
   '@theholocron/lint-staged-config@6.1.0(husky@9.1.7)(lint-staged@16.4.0)':
     dependencies:

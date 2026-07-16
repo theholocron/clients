@@ -41,7 +41,7 @@ export function workflows(rest: RestClient) {
 				: `${repoBase(repo)}/actions/runs`;
 			return rest
 				.request<WorkflowRunsResponse>(path)
-				.then((r) => r.workflow_runs);
+				.then((r: WorkflowRunsResponse) => r.workflow_runs);
 		},
 
 		getRun: (

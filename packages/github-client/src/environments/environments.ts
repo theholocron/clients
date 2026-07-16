@@ -26,7 +26,7 @@ export function environments(rest: RestClient) {
 				.request<EnvironmentsListResponse>(
 					`${repoBase(repo)}/environments`,
 				)
-				.then((r) => r.environments),
+				.then((r: EnvironmentsListResponse) => r.environments),
 
 		upsertEnvironment: (
 			repo: string,
