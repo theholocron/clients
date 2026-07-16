@@ -30,6 +30,7 @@
     "@semantic-release/git": "^10.0.1",
     "@theholocron/commitlint-config": "catalog:",
     "@theholocron/eslint-config": "catalog:",
+    "@theholocron/semantic-release-config": "catalog:",
     "@theholocron/lint-staged-config": "catalog:",
     "@theholocron/prettier-config": "catalog:",
     "@theholocron/tsconfig": "catalog:",
