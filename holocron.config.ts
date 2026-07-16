@@ -9,7 +9,15 @@ export default defineConfig({
 		repo: {
 			name: "theholocron/clients",
 			protection: "strict",
-			topics: ["api", "api-client", "client", "http-client", "nodejs", "rest", "typescript"],
+			topics: [
+				"api",
+				"api-client",
+				"client",
+				"http-client",
+				"nodejs",
+				"rest",
+				"typescript",
+			],
 			properties: {
 				lifecycle: "active",
 				open_source: true,
