@@ -1,13 +1,29 @@
 import { defineConfig } from "@theholocron/cli";
+import type { HolocronConfig } from "@theholocron/cli";
 
 export default defineConfig({
 	project: {
 		name: "clients",
 		description:
 			"API clients and shared HTTP primitives for theholocron tooling.",
-		repo: "theholocron/clients",
-		repoPolicy: {
-			preset: "strict",
+		repo: {
+			name: "theholocron/clients",
+			protection: "strict",
+			topics: [
+				"api",
+				"api-client",
+				"client",
+				"http-client",
+				"nodejs",
+				"rest",
+				"typescript",
+			],
+			properties: {
+				lifecycle: "active",
+				open_source: true,
+				runtime_environment: "node",
+				uses_external_packages: true,
+			},
 		},
 		workflows: [
 			"lint",
@@ -37,4 +53,4 @@ export default defineConfig({
 			},
 		],
 	},
-});
+} satisfies HolocronConfig);
