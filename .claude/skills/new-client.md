@@ -408,7 +408,7 @@ existing `overrides:` block handle deduplication:
 ```yaml
 # pnpm-workspace.yaml in holocron
 catalog:
-  '@theholocron/<slug>-client': ^<version>
+  "@theholocron/<slug>-client": ^<version>
 ```
 
 Then reference it as `catalog:` in the consuming `package.json`.
