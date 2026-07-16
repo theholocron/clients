@@ -59,7 +59,7 @@ Then run `pnpm install` from the repo root.
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@theholocron/http-client": "^0.1.0"
+    "@theholocron/http-client": "<current-lockstep-version>"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
@@ -399,7 +399,25 @@ at the initial version while all other packages advance.
 - [ ] `version` in `package.json` set to current lockstep version
 - [ ] Run `holocron setup` so `.alexrc.json` stays current
 
-## 9. First publish
+## 9. Update the consuming workspace
+
+If the new client will be consumed by `theholocron/holocron` (or
+another workspace), add it to that workspace's catalog and let the
+existing `overrides:` block handle deduplication:
+
+```yaml
+# pnpm-workspace.yaml in holocron
+catalog:
+  "@theholocron/<slug>-client": ^<version>
+```
+
+Then reference it as `catalog:` in the consuming `package.json`.
+No additional `overrides:` entry is needed — the existing
+`@theholocron/http-client` override already covers the transitive dep.
+
+---
+
+## 10. First publish
 
 New packages need a one-time manual publish before OIDC Trusted Publishing
 takes over. See the root `README.md` for the `holocron npm publish-initial`
