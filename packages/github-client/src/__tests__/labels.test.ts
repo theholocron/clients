@@ -12,13 +12,19 @@ describe("labels", () => {
 		const { fetch, calls } = stubFetch([{ body: RAW_LABELS }]);
 		const client = createGitHubClient({ token: TOKEN, fetch });
 		const result = await client.labels.listLabels(REPO);
-		expect(calls[0]?.url).toContain("/repos/theholocron/test-repo/labels?per_page=100");
+		expect(calls[0]?.url).toContain(
+			"/repos/theholocron/test-repo/labels?per_page=100",
+		);
 		expect(calls[0]?.method).toBe("GET");
 		expect(result).toEqual(RAW_LABELS);
 	});
 
 	it("POST /repos/{owner}/{name}/labels", async () => {
-		const body = { name: "chore", color: "ededed", description: "Maintenance" };
+		const body = {
+			name: "chore",
+			color: "ededed",
+			description: "Maintenance",
+		};
 		const { fetch, calls } = stubFetch([{ body }]);
 		const client = createGitHubClient({ token: TOKEN, fetch });
 		await client.labels.createLabel(REPO, body);
@@ -28,7 +34,9 @@ describe("labels", () => {
 	});
 
 	it("PATCH /repos/{owner}/{name}/labels/{name}", async () => {
-		const { fetch, calls } = stubFetch([{ body: { name: "bug", color: "ff0000", description: null } }]);
+		const { fetch, calls } = stubFetch([
+			{ body: { name: "bug", color: "ff0000", description: null } },
+		]);
 		const client = createGitHubClient({ token: TOKEN, fetch });
 		await client.labels.updateLabel(REPO, "bug", { color: "ff0000" });
 		expect(calls[0]?.method).toBe("PATCH");

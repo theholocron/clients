@@ -18,7 +18,10 @@ describe("secrets", () => {
 			{ body: { total_count: 1, secrets: [{ name: "DB_URL" }] } },
 		]);
 		const client = createGitHubClient({ token: TOKEN, fetch });
-		await client.secrets.listSecrets(REPO, { kind: "environment", name: "staging" });
+		await client.secrets.listSecrets(REPO, {
+			kind: "environment",
+			name: "staging",
+		});
 		expect(calls[0]?.url).toContain("/environments/staging/secrets");
 	});
 
@@ -27,14 +30,21 @@ describe("secrets", () => {
 			{ body: { total_count: 1, secrets: [{ name: "ORG_SECRET" }] } },
 		]);
 		const client = createGitHubClient({ token: TOKEN, fetch });
-		await client.secrets.listSecrets(REPO, { kind: "organization", org: "theholocron" });
+		await client.secrets.listSecrets(REPO, {
+			kind: "organization",
+			org: "theholocron",
+		});
 		expect(calls[0]?.url).toContain("/orgs/theholocron/actions/secrets");
 	});
 
 	it("GET public key", async () => {
-		const { fetch, calls } = stubFetch([{ body: { key_id: "1", key: "abc" } }]);
+		const { fetch, calls } = stubFetch([
+			{ body: { key_id: "1", key: "abc" } },
+		]);
 		const client = createGitHubClient({ token: TOKEN, fetch });
-		const result = await client.secrets.getPublicKey(REPO, { kind: "repo" });
+		const result = await client.secrets.getPublicKey(REPO, {
+			kind: "repo",
+		});
 		expect(calls[0]?.url).toContain("/secrets/public-key");
 		expect(result.key_id).toBe("1");
 	});

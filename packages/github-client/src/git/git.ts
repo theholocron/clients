@@ -60,15 +60,23 @@ export function git(rest: RestClient) {
 		getCommit: (repo: string, sha: string): Promise<GitCommit> =>
 			rest.request<GitCommit>(`${repoBase(repo)}/git/commits/${sha}`),
 
-		getTree: (repo: string, sha: string, recursive = false): Promise<GitTree> =>
+		getTree: (
+			repo: string,
+			sha: string,
+			recursive = false,
+		): Promise<GitTree> =>
 			rest.request<GitTree>(
-				`${repoBase(repo)}/git/trees/${sha}${recursive ? "?recursive=1" : ""}`
+				`${repoBase(repo)}/git/trees/${sha}${recursive ? "?recursive=1" : ""}`,
 			),
 
 		getContents: (repo: string, path: string): Promise<GitContents> =>
 			rest.request<GitContents>(`${repoBase(repo)}/contents/${path}`),
 
-		createBlob: (repo: string, content: string, encoding = "utf-8"): Promise<GitBlob> =>
+		createBlob: (
+			repo: string,
+			content: string,
+			encoding = "utf-8",
+		): Promise<GitBlob> =>
 			rest.request<GitBlob>(`${repoBase(repo)}/git/blobs`, {
 				method: "POST",
 				body: { content, encoding },
@@ -76,8 +84,13 @@ export function git(rest: RestClient) {
 
 		createTree: (
 			repo: string,
-			tree: Array<{ path: string; mode: string; type: string; sha: string }>,
-			baseTree?: string
+			tree: Array<{
+				path: string;
+				mode: string;
+				type: string;
+				sha: string;
+			}>,
+			baseTree?: string,
 		): Promise<GitTree> =>
 			rest.request<GitTree>(`${repoBase(repo)}/git/trees`, {
 				method: "POST",
@@ -88,7 +101,7 @@ export function git(rest: RestClient) {
 			repo: string,
 			message: string,
 			tree: string,
-			parents: string[]
+			parents: string[],
 		): Promise<GitCommit> =>
 			rest.request<GitCommit>(`${repoBase(repo)}/git/commits`, {
 				method: "POST",
@@ -101,7 +114,12 @@ export function git(rest: RestClient) {
 				body: { ref, sha },
 			}),
 
-		updateRef: (repo: string, ref: string, sha: string, force = false): Promise<GitRef> =>
+		updateRef: (
+			repo: string,
+			ref: string,
+			sha: string,
+			force = false,
+		): Promise<GitRef> =>
 			rest.request<GitRef>(`${repoBase(repo)}/git/refs/${ref}`, {
 				method: "PATCH",
 				body: { sha, force },

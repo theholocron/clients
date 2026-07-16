@@ -16,8 +16,14 @@ export function repos(rest: RestClient) {
 		getRepo: (repo: string): Promise<GitHubRepo> =>
 			rest.request<GitHubRepo>(repoBase(repo)),
 
-		updateRepo: (repo: string, settings: Record<string, unknown>): Promise<void> =>
-			rest.request<void>(repoBase(repo), { method: "PATCH", body: settings }),
+		updateRepo: (
+			repo: string,
+			settings: Record<string, unknown>,
+		): Promise<void> =>
+			rest.request<void>(repoBase(repo), {
+				method: "PATCH",
+				body: settings,
+			}),
 
 		getContents: (repo: string, path: string): Promise<GitHubContents> =>
 			rest.request<GitHubContents>(`${repoBase(repo)}/contents/${path}`),

@@ -18,10 +18,17 @@ export type { GitHubClientOptions } from "./utils.js";
 export type { GitHubContents, GitHubRepo } from "./repos/repos.js";
 export type { CodeScanningSetupResult } from "./security/security.js";
 export type { GitHubRuleset } from "./rulesets/rulesets.js";
-export type { GitHubWorkflowRun, WorkflowRunFilter } from "./workflows/workflows.js";
+export type {
+	GitHubWorkflowRun,
+	WorkflowRunFilter,
+} from "./workflows/workflows.js";
 export type { GitHubPublicKey, SecretScope } from "./secrets/secrets.js";
 export type { GitHubEnvironment } from "./environments/environments.js";
-export type { GitHubIssue, GitHubMilestone, IssueSearchParams } from "./issues/issues.js";
+export type {
+	GitHubIssue,
+	GitHubMilestone,
+	IssueSearchParams,
+} from "./issues/issues.js";
 export type { GitHubLabel } from "./labels/labels.js";
 export type {
 	CreatePullInput,

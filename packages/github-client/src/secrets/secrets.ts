@@ -31,17 +31,24 @@ export function secrets(rest: RestClient) {
 	return {
 		listSecrets: (repo: string, scope: SecretScope): Promise<string[]> =>
 			rest
-				.request<SecretsListResponse>(`${scopeBase(repo, scope)}/secrets`)
+				.request<SecretsListResponse>(
+					`${scopeBase(repo, scope)}/secrets`,
+				)
 				.then((r) => r.secrets.map((s) => s.name)),
 
-		getPublicKey: (repo: string, scope: SecretScope): Promise<GitHubPublicKey> =>
-			rest.request<GitHubPublicKey>(`${scopeBase(repo, scope)}/secrets/public-key`),
+		getPublicKey: (
+			repo: string,
+			scope: SecretScope,
+		): Promise<GitHubPublicKey> =>
+			rest.request<GitHubPublicKey>(
+				`${scopeBase(repo, scope)}/secrets/public-key`,
+			),
 
 		putSecret: (
 			repo: string,
 			scope: SecretScope,
 			name: string,
-			body: Record<string, unknown>
+			body: Record<string, unknown>,
 		): Promise<void> =>
 			rest.request<void>(`${scopeBase(repo, scope)}/secrets/${name}`, {
 				method: "PUT",
@@ -49,7 +56,11 @@ export function secrets(rest: RestClient) {
 				expectNoContent: true,
 			}),
 
-		deleteSecret: (repo: string, scope: SecretScope, name: string): Promise<void> =>
+		deleteSecret: (
+			repo: string,
+			scope: SecretScope,
+			name: string,
+		): Promise<void> =>
 			rest.request<void>(`${scopeBase(repo, scope)}/secrets/${name}`, {
 				method: "DELETE",
 				expectNoContent: true,
