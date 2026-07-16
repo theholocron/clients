@@ -12,7 +12,9 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 
 describe("webhooks.ensureSvixApp", () => {
 	it("POST /webhooks/svix", async () => {
-		const { client, calls } = makeClient([{ body: { svix_app_id: "app_1" } }]);
+		const { client, calls } = makeClient([
+			{ body: { svix_app_id: "app_1" } },
+		]);
 		const result = await client.webhooks.ensureSvixApp();
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/webhooks/svix");
