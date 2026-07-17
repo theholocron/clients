@@ -59,7 +59,7 @@ Then run `pnpm install` from the repo root.
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@theholocron/http-client": "^0.1.0"
+    "@theholocron/http-client": "<current-lockstep-version>"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
@@ -367,7 +367,25 @@ const thing = await client.<resources>.get("id");
 
 ---
 
-## 7. Checklist before opening a PR
+## 7. Register in `.releaserc.json`
+
+Add the new package to the `prepareCmd` array in `.releaserc.json` so it
+gets bumped in every lockstep release. The array is alphabetically sorted:
+
+```json
+['packages/confluence-client','packages/<slug>-client','packages/google-client',...]
+```
+
+Also set the initial `version` in `package.json` to match the current
+lockstep version (check the latest GitHub release tag, e.g. `0.3.1`).
+
+**This is required.** Skipping it means the package is published once by
+`publish-initial` but never included in future releases — it stays frozen
+at the initial version while all other packages advance.
+
+---
+
+## 8. Checklist before opening a PR
 
 - [ ] `pnpm install` — workspace symlink created
 - [ ] `pnpm --filter @theholocron/<slug>-client typecheck` passes
@@ -377,10 +395,50 @@ const thing = await client.<resources>.get("id");
 - [ ] `src/types.ts` covers every shape returned or accepted by implemented methods
 - [ ] Auth header scheme matches the vendor's spec (Bearer / Basic / Token / custom)
 - [ ] `README.md` has a working usage example
+- [ ] `packages/<slug>-client` added to `prepareCmd` in `.releaserc.json`
+- [ ] `version` in `package.json` set to current lockstep version
 - [ ] Run `holocron setup` so `.alexrc.json` stays current
 
-## 8. First publish
+## 9. Update the consuming workspace
+
+If the new client will be consumed by `theholocron/holocron` (or
+another workspace), add it to that workspace's catalog and let the
+existing `overrides:` block handle deduplication:
+
+```yaml
+# pnpm-workspace.yaml in holocron
+catalog:
+  "@theholocron/<slug>-client": ^<version>
+```
+
+Then reference it as `catalog:` in the consuming `package.json`.
+No additional `overrides:` entry is needed — the existing
+`@theholocron/http-client` override already covers the transitive dep.
+
+---
+
+## 10. First publish
 
 New packages need a one-time manual publish before OIDC Trusted Publishing
-takes over. See the root `README.md` for the `holocron npm publish-initial`
-workflow.
+takes over. After the PR merges and the lockstep release runs, the new
+package will be skipped by OIDC (it doesn't exist on npm yet). Publish it
+manually from the clients repo root:
+
+```sh
+npm login --auth-type=web
+pnpm exec holocron npm publish-initial --tag latest --otp <6-digit-code>
+```
+
+`--otp` is required if your npm account has 2FA for writes enabled.
+`--tag latest` overrides the command's default of `alpha`.
+
+The command publishes all workspace packages — packages that already exist
+on npm will be skipped harmlessly. Once complete, set up OIDC Trusted
+Publishing for the new package so future lockstep releases work
+automatically:
+
+```
+https://www.npmjs.com/package/@theholocron/<slug>-client/access
+```
+
+Publisher settings: **GitHub Actions · org: theholocron · repo: clients · workflow: release.yml**
