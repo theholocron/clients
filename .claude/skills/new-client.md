@@ -420,5 +420,25 @@ No additional `overrides:` entry is needed — the existing
 ## 10. First publish
 
 New packages need a one-time manual publish before OIDC Trusted Publishing
-takes over. See the root `README.md` for the `holocron npm publish-initial`
-workflow.
+takes over. After the PR merges and the lockstep release runs, the new
+package will be skipped by OIDC (it doesn't exist on npm yet). Publish it
+manually from the clients repo root:
+
+```sh
+npm login --auth-type=web
+pnpm exec holocron npm publish-initial --tag latest --otp <6-digit-code>
+```
+
+`--otp` is required if your npm account has 2FA for writes enabled.
+`--tag latest` overrides the command's default of `alpha`.
+
+The command publishes all workspace packages — packages that already exist
+on npm will be skipped harmlessly. Once complete, set up OIDC Trusted
+Publishing for the new package so future lockstep releases work
+automatically:
+
+```
+https://www.npmjs.com/package/@theholocron/<slug>-client/access
+```
+
+Publisher settings: **GitHub Actions · org: theholocron · repo: clients · workflow: release.yml**
