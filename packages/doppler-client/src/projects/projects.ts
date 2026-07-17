@@ -19,7 +19,10 @@ export function projects(rest: RestClient) {
 		): Promise<DopplerProjectResponse> =>
 			rest.request<DopplerProjectResponse>("/projects", {
 				method: "POST",
-				body: { name, ...(description !== undefined ? { description } : {}) },
+				body: {
+					name,
+					...(description !== undefined ? { description } : {}),
+				},
 			}),
 	};
 }
