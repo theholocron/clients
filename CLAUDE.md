@@ -18,7 +18,7 @@ Conventions for working on the `theholocron/clients` monorepo.
 ## Code patterns
 
 - **ESLint override:** `n/no-unpublished-import` is disabled in every
-  package's `eslint.config.js`. This is a known false positive for the
+  package's `eslint.config.ts`. This is a known false positive for the
   TypeScript `src/ → dist/` build model — `files[]` in `package.json`
   lists `dist/`, so every relative `src/` import is flagged. Keep the
   rule off at project level; do not push it to the org config.
