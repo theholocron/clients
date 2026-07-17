@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createNeonClient } from "../index.js";
 import { stubFetch } from "./helpers.js";
 
-const TOKEN = "napi_test_abc123";
+const TOKEN = "neon-test-pat";
 
 describe("createNeonClient", () => {
 	it("sends Bearer authorization header", async () => {
