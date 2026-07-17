@@ -7,11 +7,12 @@ API clients and shared HTTP primitives used across the Galaxy.
 | Package                                                          | Description                                                                           |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | [`@theholocron/http-client`](./packages/http-client)             | Shared HTTP primitives — `createRestClient`, `createResolveToken`, `ProviderApiError` |
-| [`@theholocron/github-client`](./packages/github-client)         | TypeScript client for the GitHub REST API                                             |
-| [`@theholocron/jira-client`](./packages/jira-client)             | TypeScript client for the Jira REST API                                               |
-| [`@theholocron/google-client`](./packages/google-client)         | TypeScript client for Google Workspace (Docs, Sheets)                                 |
-| [`@theholocron/zendesk-client`](./packages/zendesk-client)       | TypeScript client for the Zendesk API                                                 |
+| [`@theholocron/clerk-client`](./packages/clerk-client)           | TypeScript client for the Clerk Backend API                                           |
 | [`@theholocron/confluence-client`](./packages/confluence-client) | TypeScript client for the Confluence API                                              |
+| [`@theholocron/github-client`](./packages/github-client)         | TypeScript client for the GitHub REST API                                             |
+| [`@theholocron/google-client`](./packages/google-client)         | TypeScript client for Google Workspace (Docs, Sheets)                                 |
+| [`@theholocron/jira-client`](./packages/jira-client)             | TypeScript client for the Jira REST API                                               |
+| [`@theholocron/zendesk-client`](./packages/zendesk-client)       | TypeScript client for the Zendesk API                                                 |
 
 ## Development
 
