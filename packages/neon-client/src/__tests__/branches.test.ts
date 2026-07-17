@@ -16,7 +16,11 @@ describe("branches.list", () => {
 			{
 				body: {
 					branches: [
-						{ id: "br_main", name: "main", created_at: "2026-06-29T00:00:00Z" },
+						{
+							id: "br_main",
+							name: "main",
+							created_at: "2026-06-29T00:00:00Z",
+						},
 					],
 				},
 			},
@@ -34,7 +38,13 @@ describe("branches.create", () => {
 		const { client, calls } = makeClient([
 			{
 				status: 201,
-				body: { branch: { id: "br_new", name: "feat/x", created_at: "2026-06-29T00:00:00Z" } },
+				body: {
+					branch: {
+						id: "br_new",
+						name: "feat/x",
+						created_at: "2026-06-29T00:00:00Z",
+					},
+				},
 			},
 		]);
 		const result = await client.branches.create(PROJECT_ID, {
@@ -52,16 +62,29 @@ describe("branches.create", () => {
 
 	it("passes parent_id through when provided", async () => {
 		const { client, calls } = makeClient([
-			{ status: 201, body: { branch: { id: "br_new", name: "feat", created_at: "t" } } },
+			{
+				status: 201,
+				body: {
+					branch: { id: "br_new", name: "feat", created_at: "t" },
+				},
+			},
 		]);
-		await client.branches.create(PROJECT_ID, { name: "feat", parent_id: "br_main" });
+		await client.branches.create(PROJECT_ID, {
+			name: "feat",
+			parent_id: "br_main",
+		});
 		const body = calls[0]?.body as { branch: Record<string, unknown> };
 		expect(body.branch.parent_id).toBe("br_main");
 	});
 
 	it("omits endpoints when not provided", async () => {
 		const { client, calls } = makeClient([
-			{ status: 201, body: { branch: { id: "br_new", name: "feat", created_at: "t" } } },
+			{
+				status: 201,
+				body: {
+					branch: { id: "br_new", name: "feat", created_at: "t" },
+				},
+			},
 		]);
 		await client.branches.create(PROJECT_ID, { name: "feat" });
 		expect(calls[0]?.body).not.toHaveProperty("endpoints");
@@ -73,7 +96,9 @@ describe("branches.destroy", () => {
 		const { client, calls } = makeClient([{ status: 204 }]);
 		await client.branches.destroy(PROJECT_ID, "br_feat");
 		expect(calls[0]?.method).toBe("DELETE");
-		expect(calls[0]?.url).toContain(`/projects/${PROJECT_ID}/branches/br_feat`);
+		expect(calls[0]?.url).toContain(
+			`/projects/${PROJECT_ID}/branches/br_feat`,
+		);
 	});
 
 	it("URL-encodes branch names with slashes", async () => {
@@ -88,7 +113,9 @@ describe("branches.restore", () => {
 		const { client, calls } = makeClient([{ status: 200, body: {} }]);
 		await client.branches.restore(PROJECT_ID, "br_feat", "br_main");
 		expect(calls[0]?.method).toBe("POST");
-		expect(calls[0]?.url).toContain(`/projects/${PROJECT_ID}/branches/br_feat/restore`);
+		expect(calls[0]?.url).toContain(
+			`/projects/${PROJECT_ID}/branches/br_feat/restore`,
+		);
 		expect(calls[0]?.body).toEqual({ source_branch_id: "br_main" });
 	});
 });

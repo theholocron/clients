@@ -43,7 +43,7 @@ await neon.databases.runSql(
   "my-project-id",
   branch.id,
   "neondb",
-  'CREATE EXTENSION IF NOT EXISTS "pgvector"'
+  'CREATE EXTENSION IF NOT EXISTS "pgvector"',
 );
 
 // Restore a branch to another branch's state

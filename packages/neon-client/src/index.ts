@@ -6,9 +6,20 @@ import { users } from "./users/users.js";
 
 export type { NeonClientOptions } from "./utils.js";
 
-export type { NeonBranch, NeonBranchesResponse, NeonBranchResponse, CreateNeonBranchInput } from "./branches/branches.js";
-export type { NeonConnectionUriParams, NeonConnectionUriResponse } from "./connection/connection.js";
-export type { NeonDatabase, NeonDatabasesResponse } from "./databases/databases.js";
+export type {
+	NeonBranch,
+	NeonBranchesResponse,
+	NeonBranchResponse,
+	CreateNeonBranchInput,
+} from "./branches/branches.js";
+export type {
+	NeonConnectionUriParams,
+	NeonConnectionUriResponse,
+} from "./connection/connection.js";
+export type {
+	NeonDatabase,
+	NeonDatabasesResponse,
+} from "./databases/databases.js";
 export type { NeonMe } from "./users/users.js";
 
 export function createNeonClient(opts: NeonClientOptions) {

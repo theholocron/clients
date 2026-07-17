@@ -21,7 +21,9 @@ describe("connection.uri", () => {
 			role_name: "neondb_owner",
 		});
 		expect(calls[0]?.method).toBe("GET");
-		expect(calls[0]?.url).toContain(`/projects/${PROJECT_ID}/connection_uri`);
+		expect(calls[0]?.url).toContain(
+			`/projects/${PROJECT_ID}/connection_uri`,
+		);
 		expect(calls[0]?.url).toContain("branch_id=br_main");
 		expect(calls[0]?.url).toContain("database_name=neondb");
 		expect(calls[0]?.url).toContain("role_name=neondb_owner");
