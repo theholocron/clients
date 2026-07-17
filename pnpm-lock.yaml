@@ -142,8 +142,8 @@ importers:
   packages/clerk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.6.0
+        version: 0.6.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -188,8 +188,8 @@ importers:
   packages/confluence-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.6.0
+        version: 0.6.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -234,8 +234,8 @@ importers:
   packages/doppler-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.6.0
+        version: 0.6.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -280,8 +280,8 @@ importers:
   packages/github-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.6.0
+        version: 0.6.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -465,8 +465,8 @@ importers:
   packages/zendesk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.6.0
+        version: 0.6.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -1222,8 +1222,8 @@ packages:
   '@theholocron/http-client@0.1.0':
     resolution: {integrity: sha512-ul45D9F1nQmfbQ5x6Q4zQT20mBnmCZ7HmpSpXWvQPAf0kI8pZfd7rvpuc2fkXBI7w5uDfH+KFoaCGpzL+HDyoA==}
 
-  '@theholocron/http-client@0.5.0':
-    resolution: {integrity: sha512-W1JO8JCsAXf/koPzxAPAZqdG1rkXrsEfW/TpRL0vW9lFYrbsUWkyEH850bR5wOiYUL2J0ZgjEB18rRn4BAPhPA==}
+  '@theholocron/http-client@0.6.0':
+    resolution: {integrity: sha512-e3Y42FmikXGuP1Par2oNT1tJfiA13Qg1Ek8TK3xjWu2hReJOUr+PrNw+yDjJkJfDu0G+ihGdHuQzIydlq8ro0Q==}
     engines: {node: '>=22.0.0'}
 
   '@theholocron/lint-staged-config@6.1.0':
@@ -4425,7 +4425,7 @@ snapshots:
 
   '@theholocron/http-client@0.1.0': {}
 
-  '@theholocron/http-client@0.5.0': {}
+  '@theholocron/http-client@0.6.0': {}
 
   '@theholocron/lint-staged-config@6.1.0(husky@9.1.7)(lint-staged@16.4.0)':
     dependencies:
