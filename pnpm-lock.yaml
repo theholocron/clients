@@ -142,8 +142,8 @@ importers:
   packages/clerk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.5.0
+        version: 0.5.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -188,8 +188,8 @@ importers:
   packages/confluence-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.5.0
+        version: 0.5.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -280,8 +280,8 @@ importers:
   packages/github-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.2.3
-        version: 0.2.3
+        specifier: ^0.5.0
+        version: 0.5.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -465,8 +465,8 @@ importers:
   packages/zendesk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.5.0
+        version: 0.5.0
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -1221,14 +1221,6 @@ packages:
 
   '@theholocron/http-client@0.1.0':
     resolution: {integrity: sha512-ul45D9F1nQmfbQ5x6Q4zQT20mBnmCZ7HmpSpXWvQPAf0kI8pZfd7rvpuc2fkXBI7w5uDfH+KFoaCGpzL+HDyoA==}
-
-  '@theholocron/http-client@0.2.3':
-    resolution: {integrity: sha512-C/39cotDB9Wzps72cO0S05y3yZeFHMWYgmHYlbSVNArLJ+Au6+y4r2E/SuMg+PgFzYay8xp/855tnggpfAmf3w==}
-    engines: {node: '>=22.0.0'}
-
-  '@theholocron/http-client@0.3.2':
-    resolution: {integrity: sha512-SYrAwP78Akjch0+dxCbkt870ck/OcpJyAgEZw5kfhmb22s1AtMPz6g6YrotzE4ZVyOVTiQpSBQUO/qUpCthHZw==}
-    engines: {node: '>=22.0.0'}
 
   '@theholocron/http-client@0.5.0':
     resolution: {integrity: sha512-W1JO8JCsAXf/koPzxAPAZqdG1rkXrsEfW/TpRL0vW9lFYrbsUWkyEH850bR5wOiYUL2J0ZgjEB18rRn4BAPhPA==}
@@ -4432,10 +4424,6 @@ snapshots:
       libsodium-wrappers: 0.7.16
 
   '@theholocron/http-client@0.1.0': {}
-
-  '@theholocron/http-client@0.2.3': {}
-
-  '@theholocron/http-client@0.3.2': {}
 
   '@theholocron/http-client@0.5.0': {}
 

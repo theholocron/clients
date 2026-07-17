@@ -25,7 +25,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@theholocron/http-client": "^0.1.0"
+    "@theholocron/http-client": "^0.6.0"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
