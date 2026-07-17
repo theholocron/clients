@@ -12,7 +12,15 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 describe("secrets.get", () => {
 	it("GET /configs/config/secret with project, config, name params", async () => {
 		const { client, calls } = makeClient([
-			{ body: { name: "DB_URL", value: { raw: "postgres://...", computed: "postgres://..." } } },
+			{
+				body: {
+					name: "DB_URL",
+					value: {
+						raw: "postgres://...",
+						computed: "postgres://...",
+					},
+				},
+			},
 		]);
 		const result = await client.secrets.get("my-project", "dev", "DB_URL");
 		expect(calls[0]?.method).toBe("GET");
@@ -30,7 +38,10 @@ describe("secrets.list", () => {
 			{
 				body: {
 					secrets: {
-						DB_URL: { raw: "postgres://...", computed: "postgres://..." },
+						DB_URL: {
+							raw: "postgres://...",
+							computed: "postgres://...",
+						},
 						API_KEY: { raw: "key123", computed: "key123" },
 					},
 				},
@@ -49,7 +60,9 @@ describe("secrets.list", () => {
 describe("secrets.update", () => {
 	it("POST /configs/config/secrets with values map", async () => {
 		const { client, calls } = makeClient([{ body: { secrets: {} } }]);
-		await client.secrets.update("my-project", "dev", { NEW_KEY: "new-value" });
+		await client.secrets.update("my-project", "dev", {
+			NEW_KEY: "new-value",
+		});
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/configs/config/secrets");
 		expect(calls[0]?.body).toMatchObject({

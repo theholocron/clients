@@ -6,9 +6,15 @@ import { secrets } from "./secrets/secrets.js";
 
 export type { DopplerClientOptions } from "./utils.js";
 
-export type { DopplerEnvironment, DopplerEnvironmentsResponse } from "./environments/environments.js";
+export type {
+	DopplerEnvironment,
+	DopplerEnvironmentsResponse,
+} from "./environments/environments.js";
 export type { DopplerMe } from "./me/me.js";
-export type { DopplerProject, DopplerProjectResponse } from "./projects/projects.js";
+export type {
+	DopplerProject,
+	DopplerProjectResponse,
+} from "./projects/projects.js";
 export type {
 	DopplerSecret,
 	DopplerSecretValue,

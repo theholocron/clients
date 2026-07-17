@@ -11,7 +11,9 @@ export interface DopplerClientOptions {
 	fetch?: typeof fetch;
 }
 
-export function createDopplerRestClient(opts: DopplerClientOptions): RestClient {
+export function createDopplerRestClient(
+	opts: DopplerClientOptions,
+): RestClient {
 	return createRestClient({
 		baseUrl: opts.baseUrl ?? "https://api.doppler.com/v3",
 		token: opts.token,

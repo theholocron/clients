@@ -12,7 +12,15 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 describe("projects.create", () => {
 	it("POST /projects with name", async () => {
 		const { client, calls } = makeClient([
-			{ body: { project: { id: "1", name: "my-project", slug: "my-project" } } },
+			{
+				body: {
+					project: {
+						id: "1",
+						name: "my-project",
+						slug: "my-project",
+					},
+				},
+			},
 		]);
 		await client.projects.create("my-project");
 		expect(calls[0]?.method).toBe("POST");
