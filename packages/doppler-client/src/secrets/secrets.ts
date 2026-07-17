@@ -43,11 +43,10 @@ export function secrets(rest: RestClient) {
 		download: (
 			project: string,
 			config: string,
-			format = "json",
 		): Promise<Record<string, string>> =>
 			rest.request<Record<string, string>>(
 				"/configs/config/secrets/download",
-				{ query: { project, config, format } },
+				{ query: { project, config, format: "json" } },
 			),
 	};
 }

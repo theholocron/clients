@@ -74,7 +74,7 @@ describe("secrets.update", () => {
 });
 
 describe("secrets.download", () => {
-	it("GET /configs/config/secrets/download returns flat map", async () => {
+	it("GET /configs/config/secrets/download always uses format=json", async () => {
 		const { client, calls } = makeClient([
 			{ body: { DB_URL: "postgres://...", API_KEY: "key123" } },
 		]);
@@ -83,11 +83,5 @@ describe("secrets.download", () => {
 		expect(calls[0]?.url).toContain("/configs/config/secrets/download");
 		expect(calls[0]?.url).toContain("format=json");
 		expect(result.DB_URL).toBe("postgres://...");
-	});
-
-	it("passes custom format", async () => {
-		const { client, calls } = makeClient([{ body: {} }]);
-		await client.secrets.download("my-project", "dev", "dotenv");
-		expect(calls[0]?.url).toContain("format=dotenv");
 	});
 });
