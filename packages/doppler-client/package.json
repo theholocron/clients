@@ -1,13 +1,13 @@
 {
-  "name": "@theholocron/clerk-client",
+  "name": "@theholocron/doppler-client",
   "version": "0.6.0",
-  "description": "A TypeScript client for the Clerk Backend API",
-  "homepage": "https://github.com/theholocron/clients/tree/main/packages/clerk-client#readme",
+  "description": "A TypeScript client for the Doppler API",
+  "homepage": "https://github.com/theholocron/clients/tree/main/packages/doppler-client#readme",
   "bugs": "https://github.com/theholocron/clients/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theholocron/clients.git",
-    "directory": "packages/clerk-client"
+    "directory": "packages/doppler-client"
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
