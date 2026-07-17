@@ -18,10 +18,21 @@ Conventions for working on the `theholocron/clients` monorepo.
 ## Code patterns
 
 - **ESLint override:** `n/no-unpublished-import` is disabled in every
-  package's `eslint.config.js`. This is a known false positive for the
+  package's `eslint.config.ts`. This is a known false positive for the
   TypeScript `src/ → dist/` build model — `files[]` in `package.json`
   lists `dist/`, so every relative `src/` import is flagged. Keep the
   rule off at project level; do not push it to the org config.
+
+## Adding a new client package
+
+Use the `.claude/skills/new-client.md` skill. Two steps beyond the
+scaffolding that are easy to miss:
+
+1. Add `"packages/<slug>-client"` to the `prepareCmd` array in
+   `.releaserc.json` (keep alphabetical order). Omitting this leaves
+   the package frozen at its initial version while all others advance.
+2. Set the initial `version` in `package.json` to match the current
+   lockstep version (check the latest GitHub release tag).
 
 ## Quality
 
