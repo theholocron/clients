@@ -1,4 +1,7 @@
-import { createInfisicalRestClient, type InfisicalClientOptions } from "./utils.js";
+import {
+	createInfisicalRestClient,
+	type InfisicalClientOptions,
+} from "./utils.js";
 import { secrets } from "./secrets/secrets.js";
 import { workspaces } from "./workspaces/workspaces.js";
 

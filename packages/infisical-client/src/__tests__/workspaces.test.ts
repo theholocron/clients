@@ -12,7 +12,13 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 describe("workspaces.list", () => {
 	it("GET /v1/workspace", async () => {
 		const { client, calls } = makeClient([
-			{ body: { workspaces: [{ id: "ws1", name: "my-project", slug: "my-project" }] } },
+			{
+				body: {
+					workspaces: [
+						{ id: "ws1", name: "my-project", slug: "my-project" },
+					],
+				},
+			},
 		]);
 		const result = await client.workspaces.list();
 		expect(calls[0]?.method).toBe("GET");
@@ -54,7 +60,10 @@ describe("workspaces.create", () => {
 		await client.workspaces.create("my-project", "my-project");
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/v2/workspace");
-		expect(calls[0]?.body).toMatchObject({ projectName: "my-project", slug: "my-project" });
+		expect(calls[0]?.body).toMatchObject({
+			projectName: "my-project",
+			slug: "my-project",
+		});
 	});
 });
 
@@ -64,6 +73,9 @@ describe("workspaces.createEnvironment", () => {
 		await client.workspaces.createEnvironment("ws1", "Development", "dev");
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/v1/workspace/ws1/environments");
-		expect(calls[0]?.body).toMatchObject({ environmentName: "Development", environmentSlug: "dev" });
+		expect(calls[0]?.body).toMatchObject({
+			environmentName: "Development",
+			environmentSlug: "dev",
+		});
 	});
 });

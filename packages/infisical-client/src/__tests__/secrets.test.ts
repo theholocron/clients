@@ -13,7 +13,13 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 describe("secrets.list", () => {
 	it("GET /v3/secrets/raw with workspace query params", async () => {
 		const { client, calls } = makeClient([
-			{ body: { secrets: [{ secretKey: "DB_URL", secretValue: "postgres://..." }] } },
+			{
+				body: {
+					secrets: [
+						{ secretKey: "DB_URL", secretValue: "postgres://..." },
+					],
+				},
+			},
 		]);
 		const result = await client.secrets.list(SCOPE);
 		expect(calls[0]?.method).toBe("GET");
@@ -34,7 +40,14 @@ describe("secrets.list", () => {
 describe("secrets.get", () => {
 	it("GET /v3/secrets/raw/{name} with query params", async () => {
 		const { client, calls } = makeClient([
-			{ body: { secret: { secretKey: "DB_URL", secretValue: "postgres://..." } } },
+			{
+				body: {
+					secret: {
+						secretKey: "DB_URL",
+						secretValue: "postgres://...",
+					},
+				},
+			},
 		]);
 		const result = await client.secrets.get("DB_URL", SCOPE);
 		expect(calls[0]?.method).toBe("GET");
@@ -53,7 +66,10 @@ describe("secrets.get", () => {
 describe("secrets.create", () => {
 	it("POST /v3/secrets/raw/{name} with body", async () => {
 		const { client, calls } = makeClient([{ status: 200, body: {} }]);
-		await client.secrets.create("DB_URL", { ...SCOPE, secretValue: "postgres://..." });
+		await client.secrets.create("DB_URL", {
+			...SCOPE,
+			secretValue: "postgres://...",
+		});
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/v3/secrets/raw/DB_URL");
 		expect(calls[0]?.body).toMatchObject({
@@ -67,15 +83,24 @@ describe("secrets.create", () => {
 
 	it("respects explicit type override", async () => {
 		const { client, calls } = makeClient([{ status: 200, body: {} }]);
-		await client.secrets.create("MY_KEY", { ...SCOPE, secretValue: "val", type: "personal" });
-		expect((calls[0]?.body as Record<string, unknown>).type).toBe("personal");
+		await client.secrets.create("MY_KEY", {
+			...SCOPE,
+			secretValue: "val",
+			type: "personal",
+		});
+		expect((calls[0]?.body as Record<string, unknown>).type).toBe(
+			"personal",
+		);
 	});
 });
 
 describe("secrets.update", () => {
 	it("PATCH /v3/secrets/raw/{name} with body", async () => {
 		const { client, calls } = makeClient([{ status: 200, body: {} }]);
-		await client.secrets.update("DB_URL", { ...SCOPE, secretValue: "postgres://new" });
+		await client.secrets.update("DB_URL", {
+			...SCOPE,
+			secretValue: "postgres://new",
+		});
 		expect(calls[0]?.method).toBe("PATCH");
 		expect(calls[0]?.url).toContain("/v3/secrets/raw/DB_URL");
 		expect(calls[0]?.body).toMatchObject({

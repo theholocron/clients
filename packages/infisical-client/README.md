@@ -13,7 +13,9 @@ pnpm add @theholocron/infisical-client
 ```ts
 import { createInfisicalClient } from "@theholocron/infisical-client";
 
-const infisical = createInfisicalClient({ token: process.env.INFISICAL_TOKEN! });
+const infisical = createInfisicalClient({
+  token: process.env.INFISICAL_TOKEN!,
+});
 
 // List workspaces
 const { workspaces } = await infisical.workspaces.list();
