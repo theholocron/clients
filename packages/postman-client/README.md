@@ -28,16 +28,25 @@ const { collections } = await postman.collections.list("workspace-id");
 await postman.collections.delete("collection-uid");
 
 // Import an OpenAPI spec as a collection
-const { collections: imported } = await postman.import.openapi("workspace-id", spec);
+const { collections: imported } = await postman.import.openapi(
+  "workspace-id",
+  spec,
+);
 
 // List environments
 const { environments } = await postman.environments.list("workspace-id");
 
 // Create an environment
-await postman.environments.create("workspace-id", { name: "Production", values: [] });
+await postman.environments.create("workspace-id", {
+  name: "Production",
+  values: [],
+});
 
 // Update an environment
-await postman.environments.update("environment-uid", { name: "Production", values: [] });
+await postman.environments.update("environment-uid", {
+  name: "Production",
+  values: [],
+});
 
 // List Spec Hub specs
 const { specs } = await postman.specs.list("workspace-id");
@@ -49,7 +58,11 @@ await postman.specs.create("workspace-id", {
 });
 
 // Update a spec file
-await postman.specs.updateFile("spec-id", "index.json", JSON.stringify(updatedSpec));
+await postman.specs.updateFile(
+  "spec-id",
+  "index.json",
+  JSON.stringify(updatedSpec),
+);
 ```
 
 ## Status

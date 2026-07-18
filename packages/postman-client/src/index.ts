@@ -25,7 +25,10 @@ export type {
 	PostmanSpecsResponse,
 	PostmanCreateSpecInput,
 } from "./specs/specs.js";
-export type { PostmanWorkspace, PostmanWorkspacesResponse } from "./workspaces/workspaces.js";
+export type {
+	PostmanWorkspace,
+	PostmanWorkspacesResponse,
+} from "./workspaces/workspaces.js";
 
 export function createPostmanClient(opts: PostmanClientOptions) {
 	const rest = createPostmanRestClient(opts);

@@ -12,7 +12,11 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 describe("me.get", () => {
 	it("GET /me", async () => {
 		const { client, calls } = makeClient([
-			{ body: { user: { id: 1, username: "newton", email: "n@example.com" } } },
+			{
+				body: {
+					user: { id: 1, username: "newton", email: "n@example.com" },
+				},
+			},
 		]);
 		const result = await client.me.get();
 		expect(calls[0]?.method).toBe("GET");
@@ -24,7 +28,13 @@ describe("me.get", () => {
 describe("workspaces.list", () => {
 	it("GET /workspaces", async () => {
 		const { client, calls } = makeClient([
-			{ body: { workspaces: [{ id: "ws1", name: "My Workspace", type: "personal" }] } },
+			{
+				body: {
+					workspaces: [
+						{ id: "ws1", name: "My Workspace", type: "personal" },
+					],
+				},
+			},
 		]);
 		const result = await client.workspaces.list();
 		expect(calls[0]?.method).toBe("GET");
@@ -36,7 +46,11 @@ describe("workspaces.list", () => {
 describe("collections.list", () => {
 	it("GET /collections?workspace={id}", async () => {
 		const { client, calls } = makeClient([
-			{ body: { collections: [{ id: "c1", uid: "c1-uid", name: "My API" }] } },
+			{
+				body: {
+					collections: [{ id: "c1", uid: "c1-uid", name: "My API" }],
+				},
+			},
 		]);
 		const result = await client.collections.list("ws1");
 		expect(calls[0]?.method).toBe("GET");
@@ -58,7 +72,13 @@ describe("collections.delete", () => {
 describe("environments.list", () => {
 	it("GET /environments?workspace={id}", async () => {
 		const { client, calls } = makeClient([
-			{ body: { environments: [{ id: "e1", uid: "e1-uid", name: "Production" }] } },
+			{
+				body: {
+					environments: [
+						{ id: "e1", uid: "e1-uid", name: "Production" },
+					],
+				},
+			},
 		]);
 		const result = await client.environments.list("ws1");
 		expect(calls[0]?.url).toContain("/environments");
@@ -70,7 +90,12 @@ describe("environments.list", () => {
 describe("environments.create", () => {
 	it("POST /environments?workspace={id}", async () => {
 		const { client, calls } = makeClient([
-			{ status: 200, body: { environment: { id: "e2", uid: "e2-uid", name: "Staging" } } },
+			{
+				status: 200,
+				body: {
+					environment: { id: "e2", uid: "e2-uid", name: "Staging" },
+				},
+			},
 		]);
 		const env = { name: "Staging", values: [] };
 		await client.environments.create("ws1", env);
@@ -84,9 +109,21 @@ describe("environments.create", () => {
 describe("environments.update", () => {
 	it("PUT /environments/{uid}", async () => {
 		const { client, calls } = makeClient([
-			{ status: 200, body: { environment: { id: "e1", uid: "e1-uid", name: "Production" } } },
+			{
+				status: 200,
+				body: {
+					environment: {
+						id: "e1",
+						uid: "e1-uid",
+						name: "Production",
+					},
+				},
+			},
 		]);
-		const env = { name: "Production", values: [{ key: "URL", value: "https://prod" }] };
+		const env = {
+			name: "Production",
+			values: [{ key: "URL", value: "https://prod" }],
+		};
 		await client.environments.update("e1-uid", env);
 		expect(calls[0]?.method).toBe("PUT");
 		expect(calls[0]?.url).toContain("/environments/e1-uid");
@@ -97,7 +134,13 @@ describe("environments.update", () => {
 describe("specs.list", () => {
 	it("GET /specs?workspaceId={id}", async () => {
 		const { client, calls } = makeClient([
-			{ body: { specs: [{ id: "s1", name: "My API Spec", type: "OPENAPI:3.0" }] } },
+			{
+				body: {
+					specs: [
+						{ id: "s1", name: "My API Spec", type: "OPENAPI:3.0" },
+					],
+				},
+			},
 		]);
 		const result = await client.specs.list("ws1");
 		expect(calls[0]?.url).toContain("/specs");
@@ -109,9 +152,15 @@ describe("specs.list", () => {
 describe("specs.create", () => {
 	it("POST /specs?workspaceId={id} with name + files", async () => {
 		const { client, calls } = makeClient([
-			{ status: 200, body: { id: "s2", name: "New Spec", type: "OPENAPI:3.0" } },
+			{
+				status: 200,
+				body: { id: "s2", name: "New Spec", type: "OPENAPI:3.0" },
+			},
 		]);
-		await client.specs.create("ws1", { name: "New Spec", fileContent: '{"openapi":"3.0"}' });
+		await client.specs.create("ws1", {
+			name: "New Spec",
+			fileContent: '{"openapi":"3.0"}',
+		});
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/specs");
 		expect(calls[0]?.url).toContain("workspaceId=ws1");
@@ -136,7 +185,14 @@ describe("specs.updateFile", () => {
 describe("import.openapi", () => {
 	it("POST /import/openapi?workspace={id}", async () => {
 		const { client, calls } = makeClient([
-			{ status: 200, body: { collections: [{ id: "c2", uid: "c2-uid", name: "Imported" }] } },
+			{
+				status: 200,
+				body: {
+					collections: [
+						{ id: "c2", uid: "c2-uid", name: "Imported" },
+					],
+				},
+			},
 		]);
 		const spec = { openapi: "3.0.0", info: { title: "My API" } };
 		const result = await client.import.openapi("ws1", spec);
