@@ -43,7 +43,12 @@ await vercel.projects.update("project-id", {
 const { envs } = await vercel.env.list("project-id");
 
 // Set (upsert) an env var
-await vercel.env.set("project-id", "production", "API_URL", "https://api.example.com");
+await vercel.env.set(
+  "project-id",
+  "production",
+  "API_URL",
+  "https://api.example.com",
+);
 
 // Trigger a deployment
 const deployment = await vercel.deployments.trigger({

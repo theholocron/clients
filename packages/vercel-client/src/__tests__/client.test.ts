@@ -21,7 +21,11 @@ describe("createVercelClient", () => {
 
 	it("appends teamId to every request when provided", async () => {
 		const { fetch, calls } = stubFetch([{ body: { user: {} } }]);
-		const client = createVercelClient({ token: TOKEN, teamId: "team_abc", fetch });
+		const client = createVercelClient({
+			token: TOKEN,
+			teamId: "team_abc",
+			fetch,
+		});
 		await client.user.get();
 		expect(calls[0]?.url).toContain("teamId=team_abc");
 	});

@@ -12,7 +12,15 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 describe("user.get", () => {
 	it("GET /v2/user", async () => {
 		const { client, calls } = makeClient([
-			{ body: { user: { id: "u1", email: "n@example.com", username: "newton" } } },
+			{
+				body: {
+					user: {
+						id: "u1",
+						email: "n@example.com",
+						username: "newton",
+					},
+				},
+			},
 		]);
 		const result = await client.user.get();
 		expect(calls[0]?.method).toBe("GET");
@@ -47,12 +55,18 @@ describe("projects.get", () => {
 describe("projects.create", () => {
 	it("POST /v11/projects with name and framework", async () => {
 		const { client, calls } = makeClient([
-			{ status: 200, body: { id: "p2", name: "new-app", framework: "nextjs" } },
+			{
+				status: 200,
+				body: { id: "p2", name: "new-app", framework: "nextjs" },
+			},
 		]);
 		await client.projects.create({ name: "new-app", framework: "nextjs" });
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/v11/projects");
-		expect(calls[0]?.body).toMatchObject({ name: "new-app", framework: "nextjs" });
+		expect(calls[0]?.body).toMatchObject({
+			name: "new-app",
+			framework: "nextjs",
+		});
 	});
 
 	it("includes gitRepository when repo is provided", async () => {
@@ -71,17 +85,27 @@ describe("projects.update", () => {
 		const { client, calls } = makeClient([
 			{ body: { id: "p1", name: "my-app" } },
 		]);
-		await client.projects.update("p1", { previewDeploymentsDisabled: true });
+		await client.projects.update("p1", {
+			previewDeploymentsDisabled: true,
+		});
 		expect(calls[0]?.method).toBe("PATCH");
 		expect(calls[0]?.url).toContain("/v9/projects/p1");
-		expect(calls[0]?.body).toMatchObject({ previewDeploymentsDisabled: true });
+		expect(calls[0]?.body).toMatchObject({
+			previewDeploymentsDisabled: true,
+		});
 	});
 });
 
 describe("env.list", () => {
 	it("GET /v9/projects/{id}/env", async () => {
 		const { client, calls } = makeClient([
-			{ body: { envs: [{ id: "e1", key: "API_URL", target: ["production"] }] } },
+			{
+				body: {
+					envs: [
+						{ id: "e1", key: "API_URL", target: ["production"] },
+					],
+				},
+			},
 		]);
 		const result = await client.env.list("p1");
 		expect(calls[0]?.url).toContain("/v9/projects/p1/env");
@@ -110,7 +134,13 @@ describe("env.set", () => {
 describe("deployments.trigger", () => {
 	it("POST /v13/deployments with gitSource", async () => {
 		const { client, calls } = makeClient([
-			{ body: { id: "d1", url: "my-app.vercel.app", readyState: "BUILDING" } },
+			{
+				body: {
+					id: "d1",
+					url: "my-app.vercel.app",
+					readyState: "BUILDING",
+				},
+			},
 		]);
 		const result = await client.deployments.trigger({
 			projectName: "my-app",
@@ -128,7 +158,13 @@ describe("deployments.trigger", () => {
 
 	it("includes target when provided", async () => {
 		const { client, calls } = makeClient([
-			{ body: { id: "d1", url: "my-app.vercel.app", readyState: "QUEUED" } },
+			{
+				body: {
+					id: "d1",
+					url: "my-app.vercel.app",
+					readyState: "QUEUED",
+				},
+			},
 		]);
 		await client.deployments.trigger({
 			projectName: "my-app",
@@ -143,7 +179,13 @@ describe("deployments.trigger", () => {
 describe("deployments.get", () => {
 	it("GET /v13/deployments/{id}", async () => {
 		const { client, calls } = makeClient([
-			{ body: { id: "d1", url: "my-app.vercel.app", readyState: "READY" } },
+			{
+				body: {
+					id: "d1",
+					url: "my-app.vercel.app",
+					readyState: "READY",
+				},
+			},
 		]);
 		const result = await client.deployments.get("d1");
 		expect(calls[0]?.url).toContain("/v13/deployments/d1");

@@ -27,19 +27,25 @@ export interface VercelTriggerDeploymentInput {
 
 export function deployments(rest: RestClient) {
 	return {
-		trigger: (input: VercelTriggerDeploymentInput): Promise<VercelDeployment> =>
+		trigger: (
+			input: VercelTriggerDeploymentInput,
+		): Promise<VercelDeployment> =>
 			rest.request<VercelDeployment>("/v13/deployments", {
 				method: "POST",
 				body: {
 					name: input.projectName,
-					gitSource: { type: "github", ref: input.branch, repoId: input.repoId },
+					gitSource: {
+						type: "github",
+						ref: input.branch,
+						repoId: input.repoId,
+					},
 					...(input.target ? { target: input.target } : {}),
 				},
 			}),
 
 		get: (deploymentId: string): Promise<VercelDeployment> =>
 			rest.request<VercelDeployment>(
-				`/v13/deployments/${encodeURIComponent(deploymentId)}`
+				`/v13/deployments/${encodeURIComponent(deploymentId)}`,
 			),
 	};
 }
