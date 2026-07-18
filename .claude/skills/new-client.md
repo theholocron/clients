@@ -402,18 +402,37 @@ at the initial version while all other packages advance.
 ## 9. Update the consuming workspace
 
 If the new client will be consumed by `theholocron/holocron` (or
-another workspace), add it to that workspace's catalog and let the
-existing `overrides:` block handle deduplication:
+another workspace), add it to that workspace's catalog. Use the exact
+version from the latest git tag in the clients repo right before opening
+the migration PR (`git tag | sort -V | tail -1`), not the version set
+at branch creation — a release may have landed in between.
 
 ```yaml
 # pnpm-workspace.yaml in holocron
 catalog:
-  "@theholocron/<slug>-client": ^<version>
+  "@theholocron/<slug>-client": ^<X.Y.0>
 ```
 
-Then reference it as `catalog:` in the consuming `package.json`.
+Then reference it as `catalog:` in both `peerDependencies` and
+`devDependencies` of the consuming `package.json`:
+
+```json
+"peerDependencies": {
+  "@theholocron/<slug>-client": "catalog:"
+},
+"peerDependenciesMeta": {
+  "@theholocron/<slug>-client": { "optional": false }
+},
+"devDependencies": {
+  "@theholocron/<slug>-client": "catalog:"
+}
+```
+
 No additional `overrides:` entry is needed — the existing
 `@theholocron/http-client` override already covers the transitive dep.
+
+Then follow the plugin migration steps in
+`theholocron/holocron/.claude/skills/holocron-plugin.md` step 6.
 
 ---
 
