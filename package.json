@@ -48,7 +48,8 @@
   },
   "pnpm": {
     "overrides": {
-      "@commitlint/config-conventional": "^21.2.0"
+      "@commitlint/config-conventional": "^21.2.0",
+      "@commitlint/config-conventional>conventional-changelog-conventionalcommits": "7"
     }
   },
   "packageManager": "pnpm@10.34.4",
