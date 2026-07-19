@@ -1,0 +1,89 @@
+codecov:
+  require_ci_to_pass: true
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  status:
+    project:
+      default:
+        # Set to auto until coverage gaps in underserved packages are resolved (see #161).
+        # Long-term target matches the 80% threshold in @theholocron/vitest-config/bundles/library.
+        target: auto
+        threshold: 2%
+    patch:
+      default:
+        target: 80%
+        threshold: 2%
+
+comment:
+  layout: "reach,diff,flags,components"
+  behavior: default
+  require_changes: true
+
+component_management:
+  default_rules:
+    statuses:
+      - type: patch
+        target: 80%
+  individual_components:
+    - component_id: http-client
+      name: "http-client"
+      paths:
+        - packages/http-client/**
+
+    - component_id: clerk-client
+      name: "clerk-client"
+      paths:
+        - packages/clerk-client/**
+
+    - component_id: confluence-client
+      name: "confluence-client"
+      paths:
+        - packages/confluence-client/**
+
+    - component_id: doppler-client
+      name: "doppler-client"
+      paths:
+        - packages/doppler-client/**
+
+    - component_id: github-client
+      name: "github-client"
+      paths:
+        - packages/github-client/**
+
+    - component_id: google-client
+      name: "google-client"
+      paths:
+        - packages/google-client/**
+
+    - component_id: infisical-client
+      name: "infisical-client"
+      paths:
+        - packages/infisical-client/**
+
+    - component_id: jira-client
+      name: "jira-client"
+      paths:
+        - packages/jira-client/**
+
+    - component_id: neon-client
+      name: "neon-client"
+      paths:
+        - packages/neon-client/**
+
+    - component_id: postman-client
+      name: "postman-client"
+      paths:
+        - packages/postman-client/**
+
+    - component_id: vercel-client
+      name: "vercel-client"
+      paths:
+        - packages/vercel-client/**
+
+    - component_id: zendesk-client
+      name: "zendesk-client"
+      paths:
+        - packages/zendesk-client/**

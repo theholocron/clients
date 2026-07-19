@@ -33,6 +33,10 @@ scaffolding that are easy to miss:
    the package frozen at its initial version while all others advance.
 2. Set the initial `version` in `package.json` to match the current
    lockstep version (check the latest GitHub release tag).
+3. Add an entry to `codecov.yml` under `component_management.individual_components`
+   with `component_id: <slug>-client`, `name: "<slug>-client"`, and
+   `paths: [packages/<slug>-client/**]`.
+   (Will be automated by `holocron setup` once theholocron/holocron#168 ships.)
 
 ## Quality
 
