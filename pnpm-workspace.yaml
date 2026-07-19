@@ -5,6 +5,7 @@ packages:
 catalogs:
   holocron:
     '@theholocron/cli': 2.0.0-alpha.36
+    '@theholocron/holocron-config': ^7.2.0
     '@theholocron/holocron-plugin-github': 2.0.0-alpha.36
 
 # Shared dep versions used across packages.

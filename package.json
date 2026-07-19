@@ -23,6 +23,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
     "@theholocron/cli": "catalog:holocron",
+    "@theholocron/holocron-config": "catalog:holocron",
     "@theholocron/holocron-plugin-github": "catalog:holocron",
     "@commitlint/config-conventional": "^21.2.0",
     "@commitlint/types": "^21.2.0",
