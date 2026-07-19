@@ -1,60 +1,23 @@
 import { defineConfig } from "@theholocron/cli";
 import type { HolocronConfig } from "@theholocron/cli";
+import { theholocronNode } from "@theholocron/holocron-config";
 
+const defaults = theholocronNode();
 export default defineConfig({
 	project: {
 		name: "clients",
 		description:
 			"API clients and shared HTTP primitives for theholocron tooling.",
-		repo: {
-			name: "theholocron/clients",
-			protection: "strict",
-			topics: [
-				"api",
-				"api-client",
-				"client",
-				"confluence",
-				"google",
-				"http-client",
-				"jira",
-				"nodejs",
-				"rest",
-				"typescript",
-				"zendesk",
-			],
-			properties: {
-				lifecycle: "active",
-				open_source: true,
-				runtime_environment: "node",
-				uses_external_packages: true,
-			},
-		},
+		repo: "theholocron/clients",
+		repoPolicy: defaults.repoPolicy,
 		workflows: [
-			"lint",
-			"test",
-			"typecheck",
-			"codeql",
-			"review",
+			...defaults.workflows,
 			"audit",
 			{ name: "release", with: { "run-build": true } },
-			"dependencies",
-			"bookkeeping-pr",
-			"stale",
-			"greetings",
 		],
 	},
 	providers: {
-		source: "github",
-		ci: "github",
+		...defaults.providers,
 		secrets: "github",
-		issues: [
-			"github",
-			{
-				labels: {
-					inProgress: "status:in-progress",
-					inReview: "status:in-review",
-				},
-			},
-		],
 	},
 } satisfies HolocronConfig);
