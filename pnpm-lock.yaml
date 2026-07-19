@@ -58,6 +58,9 @@ catalogs:
     '@theholocron/cli':
       specifier: 2.0.0-alpha.36
       version: 2.0.0-alpha.36
+    '@theholocron/holocron-config':
+      specifier: ^7.2.0
+      version: 7.2.0
     '@theholocron/holocron-plugin-github':
       specifier: 2.0.0-alpha.36
       version: 2.0.0-alpha.36
@@ -97,6 +100,9 @@ importers:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
         version: 7.0.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.6.1)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))
+      '@theholocron/holocron-config':
+        specifier: catalog:holocron
+        version: 7.2.0(@theholocron/cli@2.0.0-alpha.36)
       '@theholocron/holocron-plugin-github':
         specifier: catalog:holocron
         version: 2.0.0-alpha.36(@theholocron/cli@2.0.0-alpha.36)
@@ -1421,6 +1427,12 @@ packages:
         optional: true
       eslint-plugin-storybook:
         optional: true
+
+  '@theholocron/holocron-config@7.2.0':
+    resolution: {integrity: sha512-eEQVNP5YGL1eA/ur8yjqbB4iq9khgL1jy2ZSR+8d7OSYjWMPe2osKL3GALF2qpaT9AjcVH9Enycy1kyDIviT9A==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      '@theholocron/cli': '>=2.0.0-alpha.1'
 
   '@theholocron/holocron-plugin-github@2.0.0-alpha.36':
     resolution: {integrity: sha512-78bPtIZ1JO3lmiykUjZLvbgiFPSq6c0v/EhLunuvqfU8X/f1DTBoYfzBDFdR6ALqOYuH9Xylyur/aEpgeIaKyg==}
@@ -4557,6 +4569,10 @@ snapshots:
     optionalDependencies:
       '@vitest/eslint-plugin': 1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10)
       eslint-plugin-n: 18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)
+
+  '@theholocron/holocron-config@7.2.0(@theholocron/cli@2.0.0-alpha.36)':
+    dependencies:
+      '@theholocron/cli': 2.0.0-alpha.36
 
   '@theholocron/holocron-plugin-github@2.0.0-alpha.36(@theholocron/cli@2.0.0-alpha.36)':
     dependencies:
