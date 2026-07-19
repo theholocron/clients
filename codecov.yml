@@ -29,61 +29,61 @@ component_management:
         target: 80%
   individual_components:
     - component_id: http-client
-      name: "@theholocron/http-client"
+      name: "http-client"
       paths:
         - packages/http-client/**
 
     - component_id: clerk-client
-      name: "@theholocron/clerk-client"
+      name: "clerk-client"
       paths:
         - packages/clerk-client/**
 
     - component_id: confluence-client
-      name: "@theholocron/confluence-client"
+      name: "confluence-client"
       paths:
         - packages/confluence-client/**
 
     - component_id: doppler-client
-      name: "@theholocron/doppler-client"
+      name: "doppler-client"
       paths:
         - packages/doppler-client/**
 
     - component_id: github-client
-      name: "@theholocron/github-client"
+      name: "github-client"
       paths:
         - packages/github-client/**
 
     - component_id: google-client
-      name: "@theholocron/google-client"
+      name: "google-client"
       paths:
         - packages/google-client/**
 
     - component_id: infisical-client
-      name: "@theholocron/infisical-client"
+      name: "infisical-client"
       paths:
         - packages/infisical-client/**
 
     - component_id: jira-client
-      name: "@theholocron/jira-client"
+      name: "jira-client"
       paths:
         - packages/jira-client/**
 
     - component_id: neon-client
-      name: "@theholocron/neon-client"
+      name: "neon-client"
       paths:
         - packages/neon-client/**
 
     - component_id: postman-client
-      name: "@theholocron/postman-client"
+      name: "postman-client"
       paths:
         - packages/postman-client/**
 
     - component_id: vercel-client
-      name: "@theholocron/vercel-client"
+      name: "vercel-client"
       paths:
         - packages/vercel-client/**
 
     - component_id: zendesk-client
-      name: "@theholocron/zendesk-client"
+      name: "zendesk-client"
       paths:
         - packages/zendesk-client/**
