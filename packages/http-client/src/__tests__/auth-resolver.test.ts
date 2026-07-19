@@ -72,7 +72,9 @@ describe("createResolveToken", () => {
 	it("falls back to process.env when env is not provided", () => {
 		process.env["HOLOCRON_TEST_TOKEN"] = "from-process-env";
 		try {
-			expect(resolveToken({ keyring: noKeyring })).toBe("from-process-env");
+			expect(resolveToken({ keyring: noKeyring })).toBe(
+				"from-process-env",
+			);
 		} finally {
 			delete process.env["HOLOCRON_TEST_TOKEN"];
 		}
@@ -93,7 +95,8 @@ describe("createResolveToken", () => {
 
 describe("createResolveToken — with getKeyringToken", () => {
 	it("uses getKeyringToken from config as the default keyring", () => {
-		const configKeyring = (p: string) => (p === "test" ? "from-config-kr" : null);
+		const configKeyring = (p: string) =>
+			p === "test" ? "from-config-kr" : null;
 		const resolver = createResolveToken({
 			envName: "HOLOCRON_TEST_TOKEN",
 			vendorEnvName: "TEST_TOKEN",

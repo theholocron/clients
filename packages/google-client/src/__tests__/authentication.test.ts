@@ -3,7 +3,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 // ── googleapis mock ──────────────────────────────────────────────────────────
 
 const mockGetToken = vi.fn();
-const mockGenerateAuthUrl = vi.fn().mockReturnValue("https://accounts.google.com/o/oauth2/auth");
+const mockGenerateAuthUrl = vi
+	.fn()
+	.mockReturnValue("https://accounts.google.com/o/oauth2/auth");
 const mockGetClient = vi.fn().mockResolvedValue({ type: "JWT" });
 
 class MockOAuth2 {
@@ -28,7 +30,10 @@ vi.mock("../key.js", () => ({
 
 // ── node:http mock ────────────────────────────────────────────────────────────
 
-type Handler = (req: { url: string }, res: { end: (s: string) => void }) => void;
+type Handler = (
+	req: { url: string },
+	res: { end: (s: string) => void },
+) => void;
 
 let capturedHandler: Handler | null = null;
 const mockServer = {
@@ -82,12 +87,16 @@ describe("googleAuth", () => {
 describe("oauth", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
-		mockGenerateAuthUrl.mockReturnValue("https://accounts.google.com/o/oauth2/auth");
+		mockGenerateAuthUrl.mockReturnValue(
+			"https://accounts.google.com/o/oauth2/auth",
+		);
 		mockGetClient.mockResolvedValue({ type: "JWT" });
-		mockServer.listen.mockImplementation((_port: number, cb?: () => void) => {
-			cb?.();
-			return mockServer;
-		});
+		mockServer.listen.mockImplementation(
+			(_port: number, cb?: () => void) => {
+				cb?.();
+				return mockServer;
+			},
+		);
 		capturedHandler = null;
 	});
 
@@ -153,7 +162,10 @@ describe("oauth", () => {
 		// Unrelated path — should be ignored
 		await capturedHandler!({ url: "/healthz" }, { end: vi.fn() });
 		// Now send the real callback
-		await capturedHandler!({ url: "/oauth2callback?code=abc" }, { end: vi.fn() });
+		await capturedHandler!(
+			{ url: "/oauth2callback?code=abc" },
+			{ end: vi.fn() },
+		);
 
 		await expect(promise).resolves.toBeDefined();
 	});
