@@ -77,7 +77,9 @@ describe("issues", () => {
 		await client.issues.addLabels(REPO, 42, ["bug", "help wanted"]);
 		expect(calls[0]?.method).toBe("POST");
 		expect(calls[0]?.url).toContain("/issues/42/labels");
-		expect(calls[0]?.body).toMatchObject({ labels: ["bug", "help wanted"] });
+		expect(calls[0]?.body).toMatchObject({
+			labels: ["bug", "help wanted"],
+		});
 	});
 
 	it("DELETE /repos/{owner}/{name}/issues/{number}/labels/{name}", async () => {
