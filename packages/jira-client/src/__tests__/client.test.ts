@@ -257,4 +257,18 @@ describe("links", () => {
 		const status = await client.links.create("PROJ-1", "PROJ-2", "Blocks");
 		expect(status).toBe(400);
 	});
+
+	it("rethrows transport failures (status 0) so createMany rejects", async () => {
+		const fetch = async () => {
+			throw new TypeError("fetch failed");
+		};
+		const client = createJiraClient({
+			host: HOST,
+			token: TOKEN,
+			fetch: fetch as unknown as typeof globalThis.fetch,
+		});
+		await expect(
+			client.links.create("PROJ-1", "PROJ-2", "Blocks"),
+		).rejects.toMatchObject({ name: "ProviderApiError", status: 0 });
+	});
 });

@@ -29,7 +29,10 @@ export function links(client: RestClient) {
 				});
 				return 201; // Jira issueLink always returns 201 on success
 			} catch (err) {
-				if (err instanceof ProviderApiError && err.status !== undefined)
+				// Only swallow real HTTP error statuses so createMany can record
+				// partial failures. status 0 means a transport/network failure
+				// (fetch itself rejected) — rethrow so the batch rejects too.
+				if (err instanceof ProviderApiError && err.status > 0)
 					return err.status;
 				throw err;
 			}
