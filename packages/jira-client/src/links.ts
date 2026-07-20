@@ -32,7 +32,7 @@ export function links(client: RestClient) {
 				// Only swallow real HTTP error statuses so createMany can record
 				// partial failures. status 0 means a transport/network failure
 				// (fetch itself rejected) — rethrow so the batch rejects too.
-				if (err instanceof ProviderApiError && err.status > 0)
+				if (err instanceof ProviderApiError && err.status !== undefined && err.status > 0)
 					return err.status;
 				throw err;
 			}
