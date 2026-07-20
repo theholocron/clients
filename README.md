@@ -12,7 +12,11 @@ API clients and shared HTTP primitives used across the Galaxy.
 | [`@theholocron/doppler-client`](./packages/doppler-client)       | TypeScript client for the Doppler API                                                 |
 | [`@theholocron/github-client`](./packages/github-client)         | TypeScript client for the GitHub REST API                                             |
 | [`@theholocron/google-client`](./packages/google-client)         | TypeScript client for Google Workspace (Docs, Sheets)                                 |
+| [`@theholocron/infisical-client`](./packages/infisical-client)   | TypeScript client for the Infisical API                                               |
 | [`@theholocron/jira-client`](./packages/jira-client)             | TypeScript client for the Jira REST API                                               |
+| [`@theholocron/neon-client`](./packages/neon-client)             | TypeScript client for the Neon API                                                    |
+| [`@theholocron/postman-client`](./packages/postman-client)       | TypeScript client for the Postman API                                                 |
+| [`@theholocron/vercel-client`](./packages/vercel-client)         | TypeScript client for the Vercel API                                                  |
 | [`@theholocron/zendesk-client`](./packages/zendesk-client)       | TypeScript client for the Zendesk API                                                 |
 
 ## Development
