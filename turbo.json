@@ -4,9 +4,7 @@
     "build": {},
     "lint": {},
     "release": {},
-    "test": {
-      "dependsOn": ["^build"]
-    },
+    "test": {},
     "test:coverage": {
       "dependsOn": ["build"]
     },

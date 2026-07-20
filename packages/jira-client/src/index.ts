@@ -16,10 +16,14 @@ export function createJiraClient(options: {
 	token: string;
 	fetch?: typeof fetch;
 }) {
+	// Jira REST API v2 uses HTTP Basic auth. We pass the pre-encoded token
+	// (Base64 "email:apiToken") via the apikey scheme targeting the standard
+	// Authorization header, prefixing it with the required "Basic " scheme.
 	const client = createRestClient({
 		baseUrl: options.host,
-		token: options.token,
-		tokenScheme: "basic",
+		token: `Basic ${options.token}`,
+		tokenScheme: "apikey",
+		apiKeyHeader: "authorization",
 		vendor: "Jira",
 		fetch: options.fetch,
 	});
