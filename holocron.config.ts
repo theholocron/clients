@@ -7,7 +7,6 @@ export default defineConfig({
 	description: "API clients and shared HTTP primitives for theholocron tooling.",
 	repo: {
 		...repo,
-		name: "theholocron/clients",
 		topics: [
 			"api",
 			"api-client",
