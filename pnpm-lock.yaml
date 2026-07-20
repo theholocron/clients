@@ -28,8 +28,8 @@ catalogs:
       specifier: ^7.0.0
       version: 7.0.0
     '@theholocron/vitest-config':
-      specifier: ^7.2.2
-      version: 7.2.2
+      specifier: ^7.2.3
+      version: 7.2.3
     '@vitest/coverage-v8':
       specifier: ^4.1.10
       version: 4.1.10
@@ -166,7 +166,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -212,7 +212,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -258,7 +258,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -304,7 +304,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -359,7 +359,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/server-destroy':
         specifier: ^1.0.4
         version: 1.0.4
@@ -401,7 +401,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -447,7 +447,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -489,7 +489,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -535,7 +535,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -581,7 +581,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -627,7 +627,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -673,7 +673,7 @@ importers:
         version: 7.0.0(tsdown@0.22.8(tsx@4.23.1)(typescript@5.9.3))
       '@theholocron/vitest-config':
         specifier: 'catalog:'
-        version: 7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+        version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -1501,8 +1501,8 @@ packages:
     peerDependencies:
       tsdown: ^0
 
-  '@theholocron/vitest-config@7.2.2':
-    resolution: {integrity: sha512-i0mqgwd39VI9biBky169kU/HLTcmOUvbHwJ38irbiY0bsxOoRypidKGfCYtA9k3rEVt36AOFzcUzFz/tuq/OHw==}
+  '@theholocron/vitest-config@7.2.3':
+    resolution: {integrity: sha512-Esl4a2bpMPhYUfXq3LyuBeGUCrbuGoGz0Ol89IGFKE3Fz3kns4H6AW+cn+NmHjwSZfLHDxOy4e/aB+bkp/Fx5A==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       '@storybook/addon-vitest': ^9
@@ -4619,7 +4619,7 @@ snapshots:
     dependencies:
       tsdown: 0.22.8(tsx@4.23.1)(typescript@5.9.3)
 
-  '@theholocron/vitest-config@7.2.2(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)':
+  '@theholocron/vitest-config@7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)':
     dependencies:
       vitest: 4.1.10(@types/node@26.1.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.4(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.6.1)(tsx@4.23.1)(yaml@2.9.0))
     optionalDependencies:
