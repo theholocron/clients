@@ -159,8 +159,8 @@ importers:
   packages/clerk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -205,8 +205,8 @@ importers:
   packages/confluence-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -251,8 +251,8 @@ importers:
   packages/doppler-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -297,8 +297,8 @@ importers:
   packages/github-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -443,8 +443,8 @@ importers:
   packages/infisical-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -535,8 +535,8 @@ importers:
   packages/neon-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -581,8 +581,8 @@ importers:
   packages/postman-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -627,8 +627,8 @@ importers:
   packages/vercel-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -673,8 +673,8 @@ importers:
   packages/zendesk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: 'catalog:'
-        version: 0.11.5
+        specifier: workspace:^
+        version: link:../http-client
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
