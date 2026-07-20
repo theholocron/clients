@@ -5,7 +5,8 @@ import { node } from "@theholocron/holocron-config";
 const { repo, workflows, providers } = node();
 export default defineConfig({
 	name: "clients",
-	description: "API clients and shared HTTP primitives for theholocron tooling.",
+	description:
+		"API clients and shared HTTP primitives for theholocron tooling.",
 	repo: {
 		...repo,
 		name: "theholocron/clients",
