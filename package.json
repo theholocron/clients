@@ -50,7 +50,8 @@
   "pnpm": {
     "overrides": {
       "@commitlint/config-conventional": "^21.2.0",
-      "@commitlint/config-conventional>conventional-changelog-conventionalcommits": "7"
+      "@commitlint/config-conventional>conventional-changelog-conventionalcommits": "7",
+      "google-auth-library": "^10.9.0"
     }
   },
   "packageManager": "pnpm@10.34.4",
