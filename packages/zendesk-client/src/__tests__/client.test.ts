@@ -193,8 +193,14 @@ describe("fields", () => {
 
 describe("error handling", () => {
 	it("throws ProviderApiError on non-2xx response", async () => {
-		const { fetch } = stubFetch([{ status: 422, body: { error: "invalid" } }]);
-		const client = createZendeskClient({ baseUrl: BASE, token: TOKEN, fetch });
+		const { fetch } = stubFetch([
+			{ status: 422, body: { error: "invalid" } },
+		]);
+		const client = createZendeskClient({
+			baseUrl: BASE,
+			token: TOKEN,
+			fetch,
+		});
 		const err = await client.tickets.get(999).catch((e: unknown) => e);
 		expect((err as Error).name).toBe("ProviderApiError");
 	});

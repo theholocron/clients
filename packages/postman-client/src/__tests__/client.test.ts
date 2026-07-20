@@ -50,9 +50,7 @@ describe("createPostmanClient", () => {
 	});
 
 	it("re-throws ProviderApiError when error body is non-JSON", async () => {
-		const { fetch } = stubFetch([
-			{ status: 403, text: "not-json" },
-		]);
+		const { fetch } = stubFetch([{ status: 403, text: "not-json" }]);
 		const client = createPostmanClient({ token: TOKEN, fetch });
 		const err = await client.specs.list("ws1").catch((e: unknown) => e);
 		expect((err as Error).name).toBe("ProviderApiError");
@@ -60,7 +58,10 @@ describe("createPostmanClient", () => {
 
 	it("re-throws ProviderApiError when error body is valid JSON but not a plan limit", async () => {
 		const { fetch } = stubFetch([
-			{ status: 500, text: JSON.stringify({ message: "internal error" }) },
+			{
+				status: 500,
+				text: JSON.stringify({ message: "internal error" }),
+			},
 		]);
 		const client = createPostmanClient({ token: TOKEN, fetch });
 		const err = await client.specs.list("ws1").catch((e: unknown) => e);
