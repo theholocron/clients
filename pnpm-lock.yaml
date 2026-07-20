@@ -12,6 +12,9 @@ catalogs:
     '@theholocron/eslint-config':
       specifier: ^7.0.0
       version: 7.0.0
+    '@theholocron/http-client':
+      specifier: ^0.11.5
+      version: 0.11.5
     '@theholocron/lint-staged-config':
       specifier: ^7.0.0
       version: 7.0.0
@@ -30,6 +33,9 @@ catalogs:
     '@theholocron/vitest-config':
       specifier: ^7.2.3
       version: 7.2.3
+    '@types/node':
+      specifier: ^26.1.1
+      version: 26.1.1
     '@vitest/coverage-v8':
       specifier: ^4.1.10
       version: 4.1.10
@@ -153,8 +159,8 @@ importers:
   packages/clerk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -169,7 +175,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -199,8 +205,8 @@ importers:
   packages/confluence-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -215,7 +221,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -245,8 +251,8 @@ importers:
   packages/doppler-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -261,7 +267,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -291,8 +297,8 @@ importers:
   packages/github-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -307,7 +313,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -362,7 +368,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@types/server-destroy':
         specifier: ^1.0.4
@@ -407,7 +413,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -437,8 +443,8 @@ importers:
   packages/infisical-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -453,7 +459,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -495,7 +501,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -525,8 +531,8 @@ importers:
   packages/neon-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -541,7 +547,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -571,8 +577,8 @@ importers:
   packages/postman-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -587,7 +593,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -617,8 +623,8 @@ importers:
   packages/vercel-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -633,7 +639,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -663,8 +669,8 @@ importers:
   packages/zendesk-client:
     dependencies:
       '@theholocron/http-client':
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: 'catalog:'
+        version: 0.11.5
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
@@ -679,7 +685,7 @@ importers:
         specifier: 'catalog:'
         version: 7.2.3(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
       '@types/node':
-        specifier: ^26.1.1
+        specifier: 'catalog:'
         version: 26.1.1
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -1458,6 +1464,10 @@ packages:
 
   '@theholocron/http-client@0.11.3':
     resolution: {integrity: sha512-eayCX5Na1tWRMYLeQdl1aA4IfbFrIbAC8nvbbc4QzlV/BeoVjZik0FK5jz3WAQZP9McEC1Y5nR4pFImXtxG1JA==}
+    engines: {node: '>=22.0.0'}
+
+  '@theholocron/http-client@0.11.5':
+    resolution: {integrity: sha512-FLQS8pW8QIYjY18paJF+evjNn7FApXJ+Z+PWmgFD1gKea+jXkVv8S8ihvSvES8kLmqKtDoUKK17yYgdeg8VHsg==}
     engines: {node: '>=22.0.0'}
 
   '@theholocron/http-client@0.6.0':
@@ -4658,6 +4668,8 @@ snapshots:
       libsodium-wrappers: 0.7.16
 
   '@theholocron/http-client@0.11.3': {}
+
+  '@theholocron/http-client@0.11.5': {}
 
   '@theholocron/http-client@0.6.0': {}
 

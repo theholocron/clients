@@ -11,7 +11,14 @@
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
-  "keywords": ["doppler", "secrets", "configuration", "typescript", "http-client", "api"],
+  "keywords": [
+    "doppler",
+    "secrets",
+    "configuration",
+    "typescript",
+    "http-client",
+    "api"
+  ],
   "type": "module",
   "sideEffects": false,
   "main": "./src/index.ts",
@@ -27,10 +34,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@theholocron/http-client": "^0.11.3"
+    "@theholocron/http-client": "catalog:"
   },
   "devDependencies": {
-    "@types/node": "^26.1.1",
+    "@types/node": "catalog:",
     "@theholocron/eslint-config": "catalog:",
     "@theholocron/tsconfig": "catalog:",
     "@theholocron/tsdown-config": "catalog:",
