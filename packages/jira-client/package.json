@@ -11,9 +11,7 @@
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
-  "keywords": ["jira", "atlassian", "tickets", "project-management", "typescript", "api"],
   "type": "module",
-  "sideEffects": false,
   "main": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts"
