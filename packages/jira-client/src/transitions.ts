@@ -12,13 +12,10 @@ export function transitions(client: RestClient) {
 			statusId: string,
 			fields: JiraIssueFields = {},
 		): Promise<void> {
-			return client.request<void>(
-				`/issue/${ticket}/transitions`,
-				{
-					method: "POST",
-					body: { transition: { id: statusId }, fields },
-				},
-			);
+			return client.request<void>(`/issue/${ticket}/transitions`, {
+				method: "POST",
+				body: { transition: { id: statusId }, fields },
+			});
 		},
 
 		get(ticket: string): Promise<{ transitions: JiraTransition[] }> {

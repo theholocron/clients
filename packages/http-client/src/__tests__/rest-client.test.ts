@@ -82,9 +82,7 @@ describe("createRestClient — basic tokenScheme", () => {
 			tokenScheme: "basic",
 			fetch,
 		}).request("/ping");
-		expect(calls[0]?.headers.authorization).toBe(
-			"Basic dXNlcjpwYXNz",
-		);
+		expect(calls[0]?.headers.authorization).toBe("Basic dXNlcjpwYXNz");
 	});
 });
 
