@@ -1,31 +1,31 @@
 packages:
   - 'packages/*'
 
-# Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
-catalogs:
-  holocron:
-    '@theholocron/cli': '>=2.0.0-alpha.0 <2.0.0'
-    '@theholocron/holocron-config': ^7.3.0
-    '@theholocron/holocron-plugin-github': '>=2.0.0-alpha.0 <2.0.0'
-
 # Shared dep versions used across packages.
 catalog:
-  '@theholocron/http-client': ^0.11.5
-  '@types/node': ^26.1.1
   '@theholocron/commitlint-config': ^7.0.0
-  '@theholocron/semantic-release-config': ^7.0.0
   '@theholocron/eslint-config': ^7.0.0
+  '@theholocron/http-client': ^0.11.5
   '@theholocron/lint-staged-config': ^7.0.0
   '@theholocron/prettier-config': ^7.0.0
+  '@theholocron/semantic-release-config': ^7.0.0
   '@theholocron/tsconfig': ^7.0.0
   '@theholocron/tsdown-config': ^7.0.0
   '@theholocron/vitest-config': ^7.2.3
+  '@types/node': ^26.1.1
+  '@vitest/coverage-v8': ^4.1.10
   '@vitest/eslint-plugin': ^1.6.23
   eslint: ^10.7.0
   eslint-plugin-n: ^18.2.2
   globals: ^17.7.0
   tsdown: ^0.22.8
   tsx: ^4.23.0
-  vitest: ^4.1.10
-  '@vitest/coverage-v8': ^4.1.10
   typescript: ^5.9.3
+  vitest: ^4.1.10
+
+# Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
+catalogs:
+  holocron:
+    '@theholocron/cli': '2.0.0-alpha.69'
+    '@theholocron/holocron-config': ^7.3.0
+    '@theholocron/holocron-plugin-github': '2.0.0-alpha.0'
