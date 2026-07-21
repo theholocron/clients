@@ -7,6 +7,7 @@ export default defineConfig({
 	description: "API clients and shared HTTP primitives.",
 	repo: {
 		...repo,
+		teams: [{ slug: "gatekeepers", permission: "maintain" }],
 		topics: [
 			"api",
 			"api-client",
