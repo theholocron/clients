@@ -63,13 +63,13 @@ catalogs:
   holocron:
     '@theholocron/cli':
       specifier: '>=2.0.0-alpha.0 <2.0.0'
-      version: 2.0.0-alpha.69
+      version: 2.0.0-alpha.71
     '@theholocron/holocron-config':
       specifier: ^7.3.0
       version: 7.3.0
     '@theholocron/holocron-plugin-github':
       specifier: '>=2.0.0-alpha.0 <2.0.0'
-      version: 2.0.0-alpha.0
+      version: 2.0.0-alpha.71
 
 overrides:
   '@commitlint/config-conventional': ^21.2.0
@@ -100,7 +100,7 @@ importers:
         version: 10.0.1(semantic-release@25.0.7(typescript@5.9.3))
       '@theholocron/cli':
         specifier: catalog:holocron
-        version: 2.0.0-alpha.69(vitest@4.1.10)
+        version: 2.0.0-alpha.71(vitest@4.1.10)
       '@theholocron/commitlint-config':
         specifier: 'catalog:'
         version: 7.0.0(@commitlint/cli@21.2.1(@types/node@26.1.1)(conventional-commits-parser@7.1.0)(typescript@5.9.3))(@commitlint/config-conventional@21.2.0)
@@ -109,10 +109,10 @@ importers:
         version: 7.0.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.6.1)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))
       '@theholocron/holocron-config':
         specifier: catalog:holocron
-        version: 7.3.0(@theholocron/cli@2.0.0-alpha.69(vitest@4.1.10))
+        version: 7.3.0(@theholocron/cli@2.0.0-alpha.71(vitest@4.1.10))
       '@theholocron/holocron-plugin-github':
         specifier: catalog:holocron
-        version: 2.0.0-alpha.0(@theholocron/cli@2.0.0-alpha.69(vitest@4.1.10))
+        version: 2.0.0-alpha.71(@theholocron/cli@2.0.0-alpha.71(vitest@4.1.10))(@theholocron/github-client@1.1.0(vitest@4.1.10))
       '@theholocron/lint-staged-config':
         specifier: 'catalog:'
         version: 7.0.0(husky@9.1.7)(lint-staged@16.4.0)
@@ -1416,8 +1416,8 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@theholocron/cli@2.0.0-alpha.69':
-    resolution: {integrity: sha512-bbMWW0HbULkad+HkqjudIHLc0L1PArQRUg4MJdjZ8NDAZSSI1GaVfxuxJHrb7ybjqDeJUhiXrACkktmDF9PjzQ==}
+  '@theholocron/cli@2.0.0-alpha.71':
+    resolution: {integrity: sha512-/cCG4XgjDU+rW8Db+sqBUnN8wzAazHmk9n78IRYEgS0xu28AcgCPggDFKjgpWUbVemgoqRorMtuO+l8wOkm6qA==}
     hasBin: true
 
   '@theholocron/commitlint-config@7.0.0':
@@ -1463,10 +1463,11 @@ packages:
     peerDependencies:
       '@theholocron/cli': '>=2.0.0-alpha.1'
 
-  '@theholocron/holocron-plugin-github@2.0.0-alpha.0':
-    resolution: {integrity: sha512-rBVmU6Lz/hXeOiCHW47VpkbcqGWGGaFCIyLvBXHc+ERugZzbCGjBEYSvrzfeOAD5m8nmRDeZnHZU2RGyli05xA==}
+  '@theholocron/holocron-plugin-github@2.0.0-alpha.71':
+    resolution: {integrity: sha512-kDxy1QpfB786C8eKkjpJceSxJ2Ym0aK9b7gxSGpvH8X4mQ6FLvncpROJoHkHDdbK8Ql2jpWpQWI+OTkxUKh0IA==}
     peerDependencies:
-      '@theholocron/cli': 2.0.0-alpha.0
+      '@theholocron/cli': 2.0.0-alpha.71
+      '@theholocron/github-client': ^1.1.0
 
   '@theholocron/http-client@0.11.5':
     resolution: {integrity: sha512-FLQS8pW8QIYjY18paJF+evjNn7FApXJ+Z+PWmgFD1gKea+jXkVv8S8ihvSvES8kLmqKtDoUKK17yYgdeg8VHsg==}
@@ -4665,7 +4666,7 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@theholocron/cli@2.0.0-alpha.69(vitest@4.1.10)':
+  '@theholocron/cli@2.0.0-alpha.71(vitest@4.1.10)':
     dependencies:
       '@napi-rs/keyring': 1.3.0
       '@theholocron/github-client': 1.1.0(vitest@4.1.10)
@@ -4698,13 +4699,14 @@ snapshots:
     transitivePeerDependencies:
       - vitest
 
-  '@theholocron/holocron-config@7.3.0(@theholocron/cli@2.0.0-alpha.69(vitest@4.1.10))':
+  '@theholocron/holocron-config@7.3.0(@theholocron/cli@2.0.0-alpha.71(vitest@4.1.10))':
     dependencies:
-      '@theholocron/cli': 2.0.0-alpha.69(vitest@4.1.10)
+      '@theholocron/cli': 2.0.0-alpha.71(vitest@4.1.10)
 
-  '@theholocron/holocron-plugin-github@2.0.0-alpha.0(@theholocron/cli@2.0.0-alpha.69(vitest@4.1.10))':
+  '@theholocron/holocron-plugin-github@2.0.0-alpha.71(@theholocron/cli@2.0.0-alpha.71(vitest@4.1.10))(@theholocron/github-client@1.1.0(vitest@4.1.10))':
     dependencies:
-      '@theholocron/cli': 2.0.0-alpha.69(vitest@4.1.10)
+      '@theholocron/cli': 2.0.0-alpha.71(vitest@4.1.10)
+      '@theholocron/github-client': 1.1.0(vitest@4.1.10)
       libsodium-wrappers: 0.7.16
 
   '@theholocron/http-client@0.11.5': {}

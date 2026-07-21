@@ -28,11 +28,6 @@ component_management:
       - type: patch
         target: 80%
   individual_components:
-    - component_id: http-client
-      name: "http-client"
-      paths:
-        - packages/http-client/**
-
     - component_id: clerk-client
       name: "clerk-client"
       paths:
@@ -57,6 +52,11 @@ component_management:
       name: "google-client"
       paths:
         - packages/google-client/**
+
+    - component_id: http-client
+      name: "http-client"
+      paths:
+        - packages/http-client/**
 
     - component_id: infisical-client
       name: "infisical-client"
