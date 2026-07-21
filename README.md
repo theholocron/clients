@@ -2,7 +2,7 @@
 
 <!-- holocron:description -->
 
-API clients and shared HTTP primitives for theholocron tooling.
+API clients and shared HTTP primitives.
 
 <!-- /holocron:description -->
 
