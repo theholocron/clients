@@ -36,6 +36,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
     "@theholocron/cli": "catalog:holocron",
+    "@theholocron/skills": "^1.0.0",
     "@theholocron/holocron-config": "catalog:holocron",
     "@theholocron/holocron-plugin-github": "catalog:holocron",
     "@commitlint/config-conventional": "^21.2.0",

@@ -96,3 +96,12 @@ test-report.junit.xml
 packages/google/src/key.json
 *.key.json
 service-account*.json
+
+# managed by holocron setup — skills
+/.agents/skills/
+/.claude/skills/git-safety
+/.claude/skills/pr-workflow
+/.claude/skills/commit-standards
+/.claude/skills/security-review
+/.claude/skills/holocron-skill-client
+# end managed by holocron setup — skills
