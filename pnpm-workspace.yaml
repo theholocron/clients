@@ -1,12 +1,12 @@
 packages:
   - 'packages/*'
 
-# Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
+# Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
 catalogs:
   holocron:
-    '@theholocron/cli': 2.0.0-alpha.56
+    '@theholocron/cli': '>=2.0.0-alpha.0 <2.0.0'
     '@theholocron/holocron-config': ^7.3.0
-    '@theholocron/holocron-plugin-github': 2.0.0-alpha.56
+    '@theholocron/holocron-plugin-github': '>=2.0.0-alpha.0 <2.0.0'
 
 # Shared dep versions used across packages.
 catalog:
