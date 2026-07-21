@@ -26,7 +26,7 @@ read the same rules. Put durable, repo-wide agent guidance here.
 
 ## Adding a new client package
 
-Use the `.claude/skills/new-client.md` skill. Two steps beyond the
+Use the `.claude/skills/holocron-skill-client/` skill. Two steps beyond the
 scaffolding that are easy to miss:
 
 1. Add `"packages/<slug>-client"` to the `prepareCmd` array in
