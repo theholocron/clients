@@ -2,7 +2,20 @@
   "name": "@theholocron/clients",
   "version": "0.0.0",
   "private": true,
-  "description": "API Clients used within the Galaxy.",
+  "description": "API clients and shared HTTP primitives for theholocron tooling.",
+  "keywords": [
+    "api",
+    "api-client",
+    "client",
+    "confluence",
+    "google",
+    "http-client",
+    "jira",
+    "nodejs",
+    "rest",
+    "typescript",
+    "zendesk"
+  ],
   "homepage": "https://github.com/theholocron/clients#readme",
   "bugs": "https://github.com/theholocron/clients/issues",
   "repository": {
