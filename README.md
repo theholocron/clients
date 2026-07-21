@@ -1,6 +1,10 @@
 # @theholocron/clients
 
-API clients and shared HTTP primitives used across the Galaxy.
+<!-- holocron:description -->
+
+API clients and shared HTTP primitives.
+
+<!-- /holocron:description -->
 
 ## Packages
 
