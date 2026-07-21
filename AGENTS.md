@@ -18,7 +18,7 @@ read the same rules. Put durable, repo-wide agent guidance here.
 
 ## Code patterns
 
-- **ESLint override:** `n/no-unpublished-import` is disabled in every
+- **ESLint override:** `n/no-unpublished-import` is turned off in every
   package's `eslint.config.ts`. This is a known false positive for the
   TypeScript `src/ → dist/` build model — `files[]` in `package.json`
   lists `dist/`, so every relative `src/` import is flagged. Keep the
@@ -27,7 +27,7 @@ read the same rules. Put durable, repo-wide agent guidance here.
 ## Adding a new client package
 
 Use the `.claude/skills/new-client.md` skill. Three steps beyond the
-scaffolding that are easy to miss:
+scaffolding that could be missed:
 
 1. Add `"packages/<slug>-client"` to the `prepareCmd` array in
    `.releaserc.json` (keep alphabetical order). Omitting this leaves
