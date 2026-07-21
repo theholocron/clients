@@ -2,7 +2,7 @@
   "name": "@theholocron/clients",
   "version": "0.0.0",
   "private": true,
-  "description": "API clients and shared HTTP primitives for theholocron tooling.",
+  "description": "API clients and shared HTTP primitives.",
   "keywords": [
     "api",
     "api-client",
