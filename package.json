@@ -25,13 +25,14 @@
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
   "scripts": {
-    "build": "pnpm -r --filter './packages/*' build",
+    "audit": "knip",
+    "build": "turbo run build",
     "format": "prettier --write .",
-    "lint": "pnpm -r --filter './packages/*' lint",
+    "lint": "turbo run lint",
     "release": "semantic-release",
-    "test": "pnpm -r --filter './packages/*' test",
-    "test:coverage": "pnpm -r --filter './packages/*' test:coverage",
-    "typecheck": "pnpm -r --filter './packages/*' typecheck"
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
@@ -51,6 +52,7 @@
     "@theholocron/prettier-config": "catalog:",
     "@theholocron/tsconfig": "catalog:",
     "alexjs": "^1.0.0",
+    "knip": "^6.27.0",
     "conventional-changelog-conventionalcommits": "^10.2.0",
     "eslint": "catalog:",
     "globals": "catalog:",
