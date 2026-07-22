@@ -32,5 +32,5 @@ jobs:
       - run: pnpm install --frozen-lockfile
         name: Install dependencies
 
-      - run: pnpm audit
+      - run: pnpm run audit
         name: Run Knip
