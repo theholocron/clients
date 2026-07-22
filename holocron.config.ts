@@ -38,5 +38,6 @@ export default defineConfig({
 		"commit-standards",
 		"security-review",
 		"holocron-skill-client",
+		"turborepo",
 	],
 } satisfies HolocronConfig);
