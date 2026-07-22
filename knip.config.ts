@@ -3,14 +3,22 @@ import type { KnipConfig } from "knip";
 const config: KnipConfig = {
 	workspaces: {
 		".": {
-			// prettier.config.ts, eslint.config.ts, release.config.ts auto-detected by Knip plugins
-			entry: ["commitlint.config.ts", "holocron.config.ts"],
+			// prettier.config.ts, eslint.config.ts, release.config.ts, commitlint.config.ts auto-detected by Knip plugins
+			entry: ["holocron.config.ts"],
 			project: ["*.ts"],
 		},
 		"packages/*": {
 			// entry points auto-detected from package.json exports
 			// vitest.config.ts re-exports a shared bundle so Knip can't trace
 			// the include patterns — declare test entry points explicitly
+			entry: ["src/__tests__/**/*.test.ts"],
+			project: ["src/**/*.ts"],
+		},
+		"packages/confluence-client": {
+			entry: ["src/__tests__/**/*.test.ts", "examples.ts"],
+			project: ["src/**/*.ts"],
+		},
+		"packages/zendesk-client": {
 			entry: ["src/__tests__/**/*.test.ts", "examples.ts"],
 			project: ["src/**/*.ts"],
 		},
@@ -20,11 +28,6 @@ const config: KnipConfig = {
 		"@theholocron/holocron-plugin-github",
 		// Used by the skills runtime, not a module import
 		"@theholocron/skills",
-		// ESLint toolchain: root eslint.config.ts imports the bundle; per-package
-		// eslint.config.ts files aren't traced by Knip's ESLint plugin
-		"@theholocron/eslint-config",
-		"eslint-plugin-n",
-		"globals",
 		// tsconfig.json "extends" — not a module import
 		"@theholocron/tsconfig",
 		// commitlint "extends" uses string shorthand — Knip sees the bare scoped
@@ -40,10 +43,7 @@ const config: KnipConfig = {
 		// binary tools — invoked via CLI or hooks, not module imports
 		"alexjs",
 		"husky",
-		"turbo",
 	],
-	// commitlint binary comes from @commitlint/cli, not a direct bin reference
-	ignoreBinaries: ["commitlint"],
 	ignoreExportsUsedInFile: true,
 };
 
