@@ -3,28 +3,19 @@
 # Synced:  2026-07-22T15:51:38.861Z
 # Tool:    holocron setup
 # Changes: run `holocron setup` to regenerate.
-name: Release
+name: Bookkeeping
 
 on: # yamllint disable-line rule:truthy
-  push:
-    branches:
-      - main
-      - alpha
-  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+      - edited
 
 permissions:
-  contents: write
-  id-token: write
-  issues: write
+  contents: read
   pull-requests: write
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
-
 jobs:
-  release:
-    uses: theholocron/.github/.github/workflows/release.yml@main
-    with:
-      run-build: true
+  bookkeeping:
+    uses: theholocron/.github/.github/workflows/bookkeeping.yml@main
     secrets: inherit
