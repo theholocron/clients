@@ -67,7 +67,8 @@
     "overrides": {
       "@commitlint/config-conventional": "^21.2.0",
       "@commitlint/config-conventional>conventional-changelog-conventionalcommits": "7",
-      "google-auth-library": "^10.9.0"
+      "google-auth-library": "^10.9.0",
+      "tsx": "4.22.4"
     }
   },
   "packageManager": "pnpm@10.34.4",
