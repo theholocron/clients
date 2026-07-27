@@ -10,8 +10,8 @@ catalogs:
       specifier: ^7.4.1
       version: 7.4.1
     '@theholocron/eslint-config':
-      specifier: ^7.4.1
-      version: 7.4.1
+      specifier: ^7.6.0
+      version: 7.6.0
     '@theholocron/http-client':
       specifier: ^0.11.5
       version: 0.11.5
@@ -48,6 +48,9 @@ catalogs:
     eslint-plugin-n:
       specifier: ^18.2.2
       version: 18.2.2
+    eslint-plugin-simple-import-sort:
+      specifier: ^14.0.0
+      version: 14.0.0
     globals:
       specifier: ^17.7.0
       version: 17.7.0
@@ -107,7 +110,7 @@ importers:
         version: 7.4.1(@commitlint/cli@21.2.1(@types/node@26.1.1)(conventional-commits-parser@7.1.0)(typescript@5.9.3))(@commitlint/config-conventional@21.2.0)
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/holocron-config':
         specifier: catalog:holocron
         version: 7.4.1(@theholocron/cli@2.1.1(vitest@4.1.10))
@@ -171,7 +174,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -196,6 +199,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -217,7 +223,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -242,6 +248,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -263,7 +272,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -288,6 +297,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -309,7 +321,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -334,6 +346,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -364,7 +379,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -392,6 +407,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -409,7 +427,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -434,6 +452,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -455,7 +476,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -480,6 +501,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -501,7 +525,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -526,6 +550,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -547,7 +574,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -572,6 +599,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -593,7 +623,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -618,6 +648,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -639,7 +672,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -664,6 +697,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -685,7 +721,7 @@ importers:
     devDependencies:
       '@theholocron/eslint-config':
         specifier: 'catalog:'
-        version: 7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/tsconfig':
         specifier: 'catalog:'
         version: 7.4.1(typescript@5.9.3)
@@ -710,6 +746,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -1765,8 +1804,8 @@ packages:
       '@commitlint/cli': ^21
       '@commitlint/config-conventional': ^21.2.0
 
-  '@theholocron/eslint-config@7.4.1':
-    resolution: {integrity: sha512-TmJ2DxzEqW5blgaIQ+aaADV6MBak45G9ZLIz70dR+/PjAGsjy1Q+upnsQ81bAvKSNy5iNhiV2Di+mH6AEBbW9g==}
+  '@theholocron/eslint-config@7.6.0':
+    resolution: {integrity: sha512-k1Xws/GxadHgcfaHhgbyluHT/53cuGtgLegHErOTwaja4Wl4L6eCwcveA2sOn3Yg39oJYIRsdhC8aH0pialEwg==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       '@eslint/js': ^10
@@ -1776,6 +1815,7 @@ packages:
       eslint-plugin-cypress: ^6
       eslint-plugin-n: ^18
       eslint-plugin-react: ^7
+      eslint-plugin-simple-import-sort: ^14
       eslint-plugin-storybook: ^10
       globals: ^17
       typescript-eslint: ^8
@@ -2656,6 +2696,11 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  eslint-plugin-simple-import-sort@14.0.0:
+    resolution: {integrity: sha512-NUJO0+XFCkk+o5EsAJruTgnfMEpeWrPWeJS15UVF60GgXmqz1BJ9/3hzlvG7lkL8Bubzos5cCLptThbFfPnSMQ==}
+    peerDependencies:
+      eslint: '>=5.0.0'
 
   eslint-scope@9.1.2:
     resolution: {integrity: sha512-xS90H51cKw0jltxmvmHy2Iai1LIqrfbw57b79w/J7MfvDfkIkFZ+kj6zC3BjtUwh150HsSSdxXZcsuv72miDFQ==}
@@ -5283,10 +5328,11 @@ snapshots:
       '@commitlint/cli': 21.2.1(@types/node@26.1.1)(conventional-commits-parser@7.1.0)(typescript@5.9.3)
       '@commitlint/config-conventional': 21.2.0
 
-  '@theholocron/eslint-config@7.4.1(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))':
+  '@theholocron/eslint-config@7.6.0(@eslint/js@10.0.1(eslint@10.7.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.23(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))':
     dependencies:
       '@eslint/js': 10.0.1(eslint@10.7.0(jiti@2.7.0))
       eslint: 10.7.0(jiti@2.7.0)
+      eslint-plugin-simple-import-sort: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals: 17.7.0
       typescript-eslint: 8.63.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
     optionalDependencies:
@@ -6052,6 +6098,10 @@ snapshots:
       semver: 7.8.5
     optionalDependencies:
       typescript: 5.9.3
+
+  eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)):
+    dependencies:
+      eslint: 10.7.0(jiti@2.7.0)
 
   eslint-scope@9.1.2:
     dependencies:
