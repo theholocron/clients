@@ -1,6 +1,6 @@
 import { instance } from "./instance/instance.js";
 import { users } from "./users/users.js";
-import { type ClerkClientOptions,createClerkRestClient } from "./utils.js";
+import { type ClerkClientOptions, createClerkRestClient } from "./utils.js";
 import { webhooks } from "./webhooks/webhooks.js";
 
 export type { ClerkInstance } from "./instance/instance.js";

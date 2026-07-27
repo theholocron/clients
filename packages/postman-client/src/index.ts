@@ -15,9 +15,9 @@ export type {
 	PostmanEnvironmentResponse,
 	PostmanEnvironmentsResponse,
 } from "./environments/environments.js";
-export { detectPlanLimit,PostmanPlanLimitError } from "./errors.js";
+export { detectPlanLimit, PostmanPlanLimitError } from "./errors.js";
 export type { PostmanImportOpenApiResponse } from "./import/import.js";
-export type { PostmanMeResponse,PostmanUser } from "./me/me.js";
+export type { PostmanMeResponse, PostmanUser } from "./me/me.js";
 export type {
 	PostmanCreateSpecInput,
 	PostmanSpec,

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { createGitHubClient } from "../index.js";
-import { REPO,stubFetch, TOKEN } from "./helpers.js";
+import { REPO, stubFetch, TOKEN } from "./helpers.js";
 
 describe("branches", () => {
 	it("PUT /repos/{owner}/{name}/branches/{branch}/protection", async () => {
