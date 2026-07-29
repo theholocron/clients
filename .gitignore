@@ -89,6 +89,9 @@ coverage
 reports
 dist
 
+# Astro generated files
+docs/.astro/
+
 # Generated test output — not useful in version control
 test-report.junit.xml
 

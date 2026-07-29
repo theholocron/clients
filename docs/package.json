@@ -1,0 +1,27 @@
+{
+  "name": "@theholocron/clients-site",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Docs site for the @theholocron/clients monorepo",
+  "homepage": "https://theholocron.github.io/clients/",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.41.5",
+    "@theholocron/clients-docs": "workspace:*",
+    "@theholocron/docs-theme": "^1.0.1",
+    "@theholocron/github-client-docs": "workspace:*",
+    "astro": "^7.1.5",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
