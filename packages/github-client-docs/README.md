@@ -19,7 +19,7 @@ src/index.ts    DocsConfig source
 ```ts
 import config from "@theholocron/github-client-docs";
 
-console.log(config.slug);    // "clients/github"
-console.log(config.parent);  // "clients"
+console.log(config.slug); // "clients/github"
+console.log(config.parent); // "clients"
 console.log(config.sidebar); // sidebar tree for Starlight
 ```

@@ -24,19 +24,19 @@ const labels = await client.labels.listLabels("owner/name");
 
 ## Namespaces
 
-| Namespace | Methods |
-|-----------|---------|
-| `branches` | `protectBranch` |
-| `environments` | `listEnvironments`, `upsertEnvironment`, `deleteEnvironment` |
-| `git` | `getRef`, `getCommit`, `getTree`, `getContents`, `createBlob`, `createTree`, `createCommit`, `createRef`, `updateRef`, `createPull` |
-| `issues` | `listIssues`, `getIssue`, `createIssue`, `updateIssue`, `addLabels`, `removeLabel`, `createComment`, `listMilestones` |
-| `labels` | `listLabels`, `createLabel`, `updateLabel`, `deleteLabel` |
-| `properties` | `setProperties` |
-| `repos` | `getRepo`, `updateRepo`, `getContents` |
-| `rulesets` | `listRulesets`, `createRuleset`, `updateRuleset` |
-| `secrets` | `listSecrets`, `getPublicKey`, `putSecret`, `deleteSecret` |
-| `security` | `enableVulnerabilityAlerts`, `enableAutomatedSecurityFixes`, `enableSecretScanning`, `enablePrivateVulnerabilityReporting`, `enableDependencyGraph`, `enableCodeScanning`, `disableDefaultCodeScanning` |
-| `teams` | (see package) |
-| `topics` | `setTopics` |
-| `user` | `getCurrentUser` |
-| `workflows` | `listRuns`, `getRun` |
+| Namespace      | Methods                                                                                                                                                                                                 |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `branches`     | `protectBranch`                                                                                                                                                                                         |
+| `environments` | `listEnvironments`, `upsertEnvironment`, `deleteEnvironment`                                                                                                                                            |
+| `git`          | `getRef`, `getCommit`, `getTree`, `getContents`, `createBlob`, `createTree`, `createCommit`, `createRef`, `updateRef`, `createPull`                                                                     |
+| `issues`       | `listIssues`, `getIssue`, `createIssue`, `updateIssue`, `addLabels`, `removeLabel`, `createComment`, `listMilestones`                                                                                   |
+| `labels`       | `listLabels`, `createLabel`, `updateLabel`, `deleteLabel`                                                                                                                                               |
+| `properties`   | `setProperties`                                                                                                                                                                                         |
+| `repos`        | `getRepo`, `updateRepo`, `getContents`                                                                                                                                                                  |
+| `rulesets`     | `listRulesets`, `createRuleset`, `updateRuleset`                                                                                                                                                        |
+| `secrets`      | `listSecrets`, `getPublicKey`, `putSecret`, `deleteSecret`                                                                                                                                              |
+| `security`     | `enableVulnerabilityAlerts`, `enableAutomatedSecurityFixes`, `enableSecretScanning`, `enablePrivateVulnerabilityReporting`, `enableDependencyGraph`, `enableCodeScanning`, `disableDefaultCodeScanning` |
+| `teams`        | (see package)                                                                                                                                                                                           |
+| `topics`       | `setTopics`                                                                                                                                                                                             |
+| `user`         | `getCurrentUser`                                                                                                                                                                                        |
+| `workflows`    | `listRuns`, `getRun`                                                                                                                                                                                    |

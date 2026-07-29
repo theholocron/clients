@@ -9,20 +9,20 @@ resolution, base URL construction, and normalised error responses.
 
 ## Packages
 
-| Package | Description |
-|---------|-------------|
-| [`@theholocron/clerk-client`](./clerk) | Clerk user management |
-| [`@theholocron/confluence-client`](./confluence) | Confluence Cloud pages & spaces |
-| [`@theholocron/doppler-client`](./doppler) | Doppler secrets manager |
-| [`@theholocron/github-client`](./github) | GitHub REST API |
-| [`@theholocron/google-client`](./google) | Google Workspace APIs |
-| [`@theholocron/http-client`](./http) | Shared HTTP primitives (base layer) |
-| [`@theholocron/infisical-client`](./infisical) | Infisical secrets manager |
-| [`@theholocron/jira-client`](./jira) | Jira Cloud issues & projects |
-| [`@theholocron/neon-client`](./neon) | Neon serverless Postgres |
-| [`@theholocron/postman-client`](./postman) | Postman collections & environments |
-| [`@theholocron/vercel-client`](./vercel) | Vercel deployments & projects |
-| [`@theholocron/zendesk-client`](./zendesk) | Zendesk tickets & users |
+| Package                                          | Description                         |
+| ------------------------------------------------ | ----------------------------------- |
+| [`@theholocron/clerk-client`](./clerk)           | Clerk user management               |
+| [`@theholocron/confluence-client`](./confluence) | Confluence Cloud pages & spaces     |
+| [`@theholocron/doppler-client`](./doppler)       | Doppler secrets manager             |
+| [`@theholocron/github-client`](./github)         | GitHub REST API                     |
+| [`@theholocron/google-client`](./google)         | Google Workspace APIs               |
+| [`@theholocron/http-client`](./http)             | Shared HTTP primitives (base layer) |
+| [`@theholocron/infisical-client`](./infisical)   | Infisical secrets manager           |
+| [`@theholocron/jira-client`](./jira)             | Jira Cloud issues & projects        |
+| [`@theholocron/neon-client`](./neon)             | Neon serverless Postgres            |
+| [`@theholocron/postman-client`](./postman)       | Postman collections & environments  |
+| [`@theholocron/vercel-client`](./vercel)         | Vercel deployments & projects       |
+| [`@theholocron/zendesk-client`](./zendesk)       | Zendesk tickets & users             |
 
 ## Install
 

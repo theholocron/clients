@@ -19,6 +19,6 @@ src/index.ts    DocsConfig source
 ```ts
 import config from "@theholocron/clients-docs";
 
-console.log(config.slug);    // "clients"
+console.log(config.slug); // "clients"
 console.log(config.sidebar); // sidebar tree for Starlight
 ```
