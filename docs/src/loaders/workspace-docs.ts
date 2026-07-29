@@ -28,7 +28,11 @@ async function* walk(dir: string): AsyncGenerator<string> {
 	}
 }
 
-function computeId(filePath: string, baseDir: string, slugPrefix: string): string {
+function computeId(
+	filePath: string,
+	baseDir: string,
+	slugPrefix: string,
+): string {
 	const rel = relative(baseDir, filePath).replace(/\\/g, "/");
 	const noExt = rel.replace(/\.(mdx?)$/, "");
 	// Strip trailing /index and bare "index" to collapse to the prefix
@@ -58,10 +62,17 @@ export function workspaceDocsLoader(sources: WorkspaceDocsSource[]): Loader {
 					const id = computeId(absPath, dir, slugPrefix);
 					const raw = readFileSync(absPath, "utf-8");
 					const { data: frontmatter, content: body } = matter(raw);
-					const digest = createHash("sha256").update(raw).digest("hex").slice(0, 8);
+					const digest = createHash("sha256")
+						.update(raw)
+						.digest("hex")
+						.slice(0, 8);
 					// Astro requires filePath to be relative to the site root (no leading /)
 					const filePath = relative(siteRoot, absPath);
-					const data = await ctx.parseData({ id, data: frontmatter, filePath });
+					const data = await ctx.parseData({
+						id,
+						data: frontmatter,
+						filePath,
+					});
 					ctx.store.set({ id, data, body, filePath, digest });
 					ctx.watcher?.add(absPath);
 				}
