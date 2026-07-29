@@ -1,10 +1,8 @@
+import { docsTheme } from "@theholocron/docs-theme";
 import clientsConfig from "@theholocron/clients-docs";
 import githubConfig from "@theholocron/github-client-docs";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
-
-// TODO: add plugins: [docsTheme()] once @theholocron/docs-theme is republished with dist/
-// import { docsTheme } from "@theholocron/docs-theme";
 
 export default defineConfig({
 	site: "https://theholocron.github.io",
@@ -12,6 +10,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: clientsConfig.name,
+			plugins: [docsTheme()],
 			social: [
 				{
 					icon: "github",
