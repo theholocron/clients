@@ -18,7 +18,7 @@ catalog:
   '@vitest/eslint-plugin': ^1.6.23
   eslint: ^10.7.0
   eslint-plugin-n: ^18.2.2
-  globals: ^17.7.0
+  globals: ^17.8.0
   tsdown: ^0.22.13
   typescript: ^5.9.3
   vitest: ^4.1.10
