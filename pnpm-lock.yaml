@@ -174,6 +174,9 @@ importers:
       '@theholocron/clients-docs':
         specifier: workspace:*
         version: link:../packages/clients-docs
+      '@theholocron/docs-theme':
+        specifier: ^1.0.1
+        version: 1.0.9(@astrojs/starlight@0.41.5(@astrojs/markdown-remark@7.2.2)(astro@7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))(typescript@5.9.3))(astro@7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
       '@theholocron/github-client-docs':
         specifier: workspace:*
         version: link:../packages/github-client-docs
@@ -2322,6 +2325,13 @@ packages:
     peerDependencies:
       '@commitlint/cli': ^21
       '@commitlint/config-conventional': ^21.2.0
+
+  '@theholocron/docs-theme@1.0.9':
+    resolution: {integrity: sha512-VTq25N/yD1ryGtROaIfGPR7Jvxtn45AsXIItwnMR1zeWrz2oKnAau0XG53bmKSMV7o3myoRZ7Br65E10qoxUQw==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.30.0'
+      astro: '>=5.0.0'
 
   '@theholocron/eslint-config@7.6.1':
     resolution: {integrity: sha512-QHpJPNLjfwI+fo6LjQyeBytBTWDzu/FwY0fisS3GnQwqKwzTTRHHEceWhNCHPaHDfp4a2KC5s13iKDbIq/A5tg==}
@@ -7291,6 +7301,11 @@ snapshots:
     dependencies:
       '@commitlint/cli': 21.2.1(@types/node@26.1.2)(conventional-commits-parser@7.1.0)(typescript@5.9.3)
       '@commitlint/config-conventional': 21.2.0
+
+  '@theholocron/docs-theme@1.0.9(@astrojs/starlight@0.41.5(@astrojs/markdown-remark@7.2.2)(astro@7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))(typescript@5.9.3))(astro@7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))':
+    dependencies:
+      '@astrojs/starlight': 0.41.5(@astrojs/markdown-remark@7.2.2)(astro@7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))(typescript@5.9.3)
+      astro: 7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0)
 
   '@theholocron/eslint-config@7.6.1(@eslint/js@10.0.1(eslint@10.8.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.24(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.8.0(jiti@2.7.0)))(eslint@10.8.0(jiti@2.7.0))(globals@17.8.0)(typescript-eslint@8.63.0(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))':
     dependencies:
