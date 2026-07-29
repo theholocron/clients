@@ -28,7 +28,6 @@ async function* walk(dir: string): AsyncGenerator<string> {
 	}
 }
 
-<<<<<<< HEAD
 function computeId(
 	filePath: string,
 	baseDir: string,
@@ -74,43 +73,6 @@ export function workspaceDocsLoader(sources: WorkspaceDocsSource[]): Loader {
 						data: frontmatter,
 						filePath,
 					});
-||||||| parent of ae1cc02 (feat: add docs/ Astro + Starlight shell (step 3 of docs architecture))
-=======
-function computeId(filePath: string, baseDir: string, slugPrefix: string): string {
-	const rel = relative(baseDir, filePath).replace(/\\/g, "/");
-	const noExt = rel.replace(/\.(mdx?)$/, "");
-	// Strip trailing /index and bare "index" to collapse to the prefix
-	const noIndex = noExt.replace(/\/index$/, "").replace(/^index$/, "");
-	if (noIndex) {
-		// Non-index file: prefix/path or just path when prefix is root
-		return slugPrefix ? `${slugPrefix}/${noIndex}` : noIndex;
-	}
-	// Index file: use prefix, or "index" when prefix is root (empty string ID is invalid)
-	return slugPrefix || "index";
-}
-
-/**
- * Loads Markdown/MDX files from multiple workspace content-package directories
- * into a single Starlight docs collection. Uses a single clear-then-repopulate
- * strategy so sequential sources don't clobber each other's entries.
- */
-export function workspaceDocsLoader(sources: WorkspaceDocsSource[]): Loader {
-	return {
-		name: "workspace-docs-loader",
-		async load(ctx: LoaderContext) {
-			ctx.store.clear();
-			const siteRoot = fileURLToPath(ctx.config.root);
-
-			for (const { dir, slug: slugPrefix } of sources) {
-				for await (const absPath of walk(dir)) {
-					const id = computeId(absPath, dir, slugPrefix);
-					const raw = readFileSync(absPath, "utf-8");
-					const { data: frontmatter, content: body } = matter(raw);
-					const digest = createHash("sha256").update(raw).digest("hex").slice(0, 8);
-					// Astro requires filePath to be relative to the site root (no leading /)
-					const filePath = relative(siteRoot, absPath);
-					const data = await ctx.parseData({ id, data: frontmatter, filePath });
->>>>>>> ae1cc02 (feat: add docs/ Astro + Starlight shell (step 3 of docs architecture))
 					ctx.store.set({ id, data, body, filePath, digest });
 					ctx.watcher?.add(absPath);
 				}
