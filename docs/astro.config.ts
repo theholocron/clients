@@ -1,6 +1,5 @@
 import { docsTheme } from "@theholocron/docs-theme";
 import clientsConfig from "@theholocron/clients-docs";
-import githubConfig from "@theholocron/github-client-docs";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 
@@ -22,7 +21,7 @@ export default defineConfig({
 				{ label: "Overview", slug: "" },
 				{
 					label: "Packages",
-					items: [{ label: githubConfig.name, slug: "github" }],
+					items: [{ autogenerate: { directory: "." } }],
 				},
 			],
 		}),

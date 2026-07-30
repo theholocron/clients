@@ -177,9 +177,6 @@ importers:
       '@theholocron/docs-theme':
         specifier: ^1.0.1
         version: 1.0.9(@astrojs/starlight@0.41.5(@astrojs/markdown-remark@7.2.2)(astro@7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))(typescript@5.9.3))(astro@7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
-      '@theholocron/github-client-docs':
-        specifier: workspace:*
-        version: link:../packages/github-client-docs
       astro:
         specifier: ^7.1.5
         version: 7.1.5(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@26.1.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0)
@@ -422,39 +419,6 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 4.1.10(@types/node@26.1.2)(@vitest/coverage-v8@4.1.10)(vite@8.1.4(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
-
-  packages/github-client-docs:
-    devDependencies:
-      '@theholocron/eslint-config':
-        specifier: 'catalog:'
-        version: 7.6.1(@eslint/js@10.0.1(eslint@10.8.0(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.24(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.2.2(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.8.0(jiti@2.7.0)))(eslint@10.8.0(jiti@2.7.0))(globals@17.8.0)(typescript-eslint@8.63.0(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3))
-      '@theholocron/tsconfig':
-        specifier: 'catalog:'
-        version: 7.6.1(typescript@5.9.3)
-      '@theholocron/tsdown-config':
-        specifier: 'catalog:'
-        version: 7.6.1(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
-      '@types/node':
-        specifier: 'catalog:'
-        version: 26.1.2
-      eslint:
-        specifier: 'catalog:'
-        version: 10.8.0(jiti@2.7.0)
-      eslint-plugin-n:
-        specifier: 'catalog:'
-        version: 18.2.2(eslint@10.8.0(jiti@2.7.0))(typescript@5.9.3)
-      eslint-plugin-simple-import-sort:
-        specifier: 'catalog:'
-        version: 14.0.0(eslint@10.8.0(jiti@2.7.0))
-      globals:
-        specifier: 'catalog:'
-        version: 17.8.0
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
 
   packages/google-client:
     dependencies:
