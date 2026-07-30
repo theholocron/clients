@@ -25,16 +25,16 @@ const tickets = await client.tickets.list();
 const ticket = await client.tickets.get(12345);
 await client.tickets.create({ subject: "Help needed", body: "Details here" });
 
-const results = await client.search.query('type:ticket status:open');
+const results = await client.search.query("type:ticket status:open");
 ```
 
 ## Namespaces
 
-| Namespace    | Methods                                    |
-| ------------ | ------------------------------------------ |
-| `activities` | `get`                                      |
-| `comments`   | (see package)                              |
-| `fields`     | (see package)                              |
-| `search`     | `query`                                    |
-| `status`     | `list`, `get`, `create`, `update`          |
+| Namespace    | Methods                                     |
+| ------------ | ------------------------------------------- |
+| `activities` | `get`                                       |
+| `comments`   | (see package)                               |
+| `fields`     | (see package)                               |
+| `search`     | `query`                                     |
+| `status`     | `list`, `get`, `create`, `update`           |
 | `tickets`    | `list`, `get`, `create`, `update`, `delete` |

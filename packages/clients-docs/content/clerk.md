@@ -25,8 +25,8 @@ await client.users.ban("user_abc123");
 
 ## Namespaces
 
-| Namespace   | Methods                                                            |
-| ----------- | ------------------------------------------------------------------ |
-| `instance`  | `get`                                                              |
-| `users`     | `list`, `count`, `get`, `create`, `update`, `delete`, `ban`, `unban`, `lock`, `unlock` |
-| `webhooks`  | `ensureSvixApp`, `getSvixUrl`                                      |
+| Namespace  | Methods                                                                                |
+| ---------- | -------------------------------------------------------------------------------------- |
+| `instance` | `get`                                                                                  |
+| `users`    | `list`, `count`, `get`, `create`, `update`, `delete`, `ban`, `unban`, `lock`, `unlock` |
+| `webhooks` | `ensureSvixApp`, `getSvixUrl`                                                          |

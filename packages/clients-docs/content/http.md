@@ -33,8 +33,8 @@ try {
 
 ## Exports
 
-| Export                | Description                                                          |
-| --------------------- | -------------------------------------------------------------------- |
-| `createRestClient`    | Factory that returns a typed REST client for a given base URL + token |
-| `createResolveToken`  | Builds a token resolver that can lazily fetch or refresh credentials  |
-| `ProviderApiError`    | Error class thrown on non-2xx responses; includes `status` and body  |
+| Export               | Description                                                           |
+| -------------------- | --------------------------------------------------------------------- |
+| `createRestClient`   | Factory that returns a typed REST client for a given base URL + token |
+| `createResolveToken` | Builds a token resolver that can lazily fetch or refresh credentials  |
+| `ProviderApiError`   | Error class thrown on non-2xx responses; includes `status` and body   |

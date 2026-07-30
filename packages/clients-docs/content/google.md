@@ -27,9 +27,9 @@ const sheet = await google.spreadsheets.getSpreadsheet(auth, "spreadsheet-id");
 
 ## Namespaces
 
-| Namespace      | Methods         |
-| -------------- | --------------- |
-| `documents`    | `getDocument`   |
+| Namespace      | Methods          |
+| -------------- | ---------------- |
+| `documents`    | `getDocument`    |
 | `spreadsheets` | `getSpreadsheet` |
 
 ## Auth

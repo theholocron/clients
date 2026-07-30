@@ -16,7 +16,9 @@ npm i @theholocron/jira-client
 ```ts
 import { createJiraClient } from "@theholocron/jira-client";
 
-const token = Buffer.from(`${process.env.ATLASSIAN_EMAIL}:${process.env.ATLASSIAN_TOKEN}`).toString("base64");
+const token = Buffer.from(
+  `${process.env.ATLASSIAN_EMAIL}:${process.env.ATLASSIAN_TOKEN}`,
+).toString("base64");
 
 const client = createJiraClient({
   host: "https://myorg.atlassian.net",
@@ -24,16 +26,18 @@ const client = createJiraClient({
 });
 
 const issue = await client.issues.get("PROJ-123");
-const issues = await client.issues.search({ jql: 'project = PROJ AND status = "In Progress"' });
+const issues = await client.issues.search({
+  jql: 'project = PROJ AND status = "In Progress"',
+});
 await client.transitions.create("PROJ-123", { transitionId: "31" });
 ```
 
 ## Namespaces
 
-| Namespace     | Methods                                              |
-| ------------- | ---------------------------------------------------- |
+| Namespace     | Methods                                                       |
+| ------------- | ------------------------------------------------------------- |
 | `issues`      | `create`, `get`, `getMany`, `update`, `getProperty`, `search` |
-| `links`       | `create`, `createMany`, `getLinkTypes`               |
-| `projects`    | `get`                                                |
-| `transitions` | `create`, `get`, `getResolutions`                    |
-| `versions`    | `create`, `get`, `getMany`, `update`, `delete`       |
+| `links`       | `create`, `createMany`, `getLinkTypes`                        |
+| `projects`    | `get`                                                         |
+| `transitions` | `create`, `get`, `getResolutions`                             |
+| `versions`    | `create`, `get`, `getMany`, `update`, `delete`                |

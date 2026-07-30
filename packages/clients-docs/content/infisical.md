@@ -28,7 +28,7 @@ const workspaces = await client.workspaces.list();
 
 ## Namespaces
 
-| Namespace    | Methods                              |
-| ------------ | ------------------------------------ |
-| `secrets`    | `list`, `get`, `create`, `update`    |
+| Namespace    | Methods                                      |
+| ------------ | -------------------------------------------- |
+| `secrets`    | `list`, `get`, `create`, `update`            |
 | `workspaces` | `list`, `get`, `create`, `createEnvironment` |

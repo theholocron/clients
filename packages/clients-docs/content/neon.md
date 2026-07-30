@@ -19,15 +19,20 @@ import { createNeonClient } from "@theholocron/neon-client";
 const client = createNeonClient({ token: process.env.NEON_API_KEY });
 
 const branches = await client.branches.list("project-id");
-const branch = await client.branches.create("project-id", { name: "feature/my-branch" });
-const uri = await client.connection.uri({ projectId: "project-id", branchId: branch.id });
+const branch = await client.branches.create("project-id", {
+  name: "feature/my-branch",
+});
+const uri = await client.connection.uri({
+  projectId: "project-id",
+  branchId: branch.id,
+});
 ```
 
 ## Namespaces
 
-| Namespace    | Methods                              |
-| ------------ | ------------------------------------ |
+| Namespace    | Methods                                |
+| ------------ | -------------------------------------- |
 | `branches`   | `list`, `create`, `destroy`, `restore` |
-| `connection` | `uri`                                |
-| `databases`  | `list`, `runSql`                     |
-| `users`      | `me`                                 |
+| `connection` | `uri`                                  |
+| `databases`  | `list`, `runSql`                       |
+| `users`      | `me`                                   |

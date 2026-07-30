@@ -25,11 +25,11 @@ await client.import.openapi({ workspaceId: "ws-123", spec: myOpenApiSpec });
 
 ## Namespaces
 
-| Namespace      | Methods                             |
-| -------------- | ----------------------------------- |
-| `collections`  | `list`, `delete`                    |
-| `environments` | `list`, `create`, `update`          |
-| `import`       | `openapi`                           |
-| `me`           | `get`                               |
-| `specs`        | `list`, `create`, `updateFile`      |
-| `workspaces`   | `list`                              |
+| Namespace      | Methods                        |
+| -------------- | ------------------------------ |
+| `collections`  | `list`, `delete`               |
+| `environments` | `list`, `create`, `update`     |
+| `import`       | `openapi`                      |
+| `me`           | `get`                          |
+| `specs`        | `list`, `create`, `updateFile` |
+| `workspaces`   | `list`                         |

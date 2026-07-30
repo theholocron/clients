@@ -28,9 +28,9 @@ const envVars = await client.env.list("prj-123", "production");
 
 ## Namespaces
 
-| Namespace     | Methods                             |
-| ------------- | ----------------------------------- |
-| `deployments` | `trigger`, `get`                    |
-| `env`         | `list`, `set`                       |
-| `projects`    | `list`, `get`, `create`, `update`   |
-| `user`        | `get`                               |
+| Namespace     | Methods                           |
+| ------------- | --------------------------------- |
+| `deployments` | `trigger`, `get`                  |
+| `env`         | `list`, `set`                     |
+| `projects`    | `list`, `get`, `create`, `update` |
+| `user`        | `get`                             |
