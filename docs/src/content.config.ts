@@ -1,12 +1,12 @@
-import clientsConfig from "@theholocron/clients-docs";
-import { docsSchema } from "@astrojs/starlight/schema";
-import { defineCollection } from "astro:content";
 import { fileURLToPath } from "node:url";
-import { workspaceDocsLoader } from "./loaders/workspace-docs.ts";
 
-const REPO_SLUG = clientsConfig.slug; // "clients"
+import { docsSchema } from "@astrojs/starlight/schema";
+import clientsConfig from "@theholocron/clients-docs";
+import { createDocsLoader } from "@theholocron/docs-theme/loader";
+import { defineCollection } from "astro:content";
 
-/** Strip the repo-level prefix so entries sit at the site base (/clients/). */
+const REPO_SLUG = clientsConfig.slug;
+
 function localSlug(configSlug: string): string {
 	if (configSlug === REPO_SLUG) return "";
 	if (configSlug.startsWith(`${REPO_SLUG}/`))
@@ -16,7 +16,7 @@ function localSlug(configSlug: string): string {
 
 export const collections = {
 	docs: defineCollection({
-		loader: workspaceDocsLoader([
+		loader: createDocsLoader([
 			{
 				dir: fileURLToPath(
 					new URL(
