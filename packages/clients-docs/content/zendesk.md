@@ -35,7 +35,10 @@ Use the exported `createToken()` helper to build the token from an email address
 ```ts
 import { createToken } from "@theholocron/zendesk-client";
 
-const token = createToken(process.env.ZENDESK_EMAIL, process.env.ZENDESK_API_TOKEN);
+const token = createToken(
+  process.env.ZENDESK_EMAIL,
+  process.env.ZENDESK_API_TOKEN,
+);
 ```
 
 Generate an API token at **Zendesk Admin Center → Apps and integrations → APIs → Zendesk API**. The `baseUrl` is your Zendesk subdomain, e.g. `https://myorg.zendesk.com`.

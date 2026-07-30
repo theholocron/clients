@@ -51,11 +51,11 @@ A few clients require a different token format — see each client's page for de
 
 All `createXxxClient()` factories accept the same base options:
 
-| Option    | Required | Description                                                       |
-| --------- | -------- | ----------------------------------------------------------------- |
-| `token`   | Yes      | API token from the service's developer settings                   |
+| Option    | Required | Description                                                        |
+| --------- | -------- | ------------------------------------------------------------------ |
+| `token`   | Yes      | API token from the service's developer settings                    |
 | `baseUrl` | No       | Override the default API base URL (self-hosted instances, proxies) |
-| `fetch`   | No       | Custom fetch implementation — see [Testing](#testing) below       |
+| `fetch`   | No       | Custom fetch implementation — see [Testing](#testing) below        |
 
 ## Error handling
 
