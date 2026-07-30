@@ -1,19 +1,19 @@
 import { defineConfig } from "@theholocron/semantic-release-config";
 
 const packages = [
-	'packages/clerk-client',
-	'packages/clients-docs',
-	'packages/confluence-client',
-	'packages/doppler-client',
-	'packages/github-client',
-	'packages/google-client',
-	'packages/http-client',
-	'packages/infisical-client',
-	'packages/jira-client',
-	'packages/neon-client',
-	'packages/postman-client',
-	'packages/vercel-client',
-	'packages/zendesk-client'
+	"packages/clerk-client",
+	"packages/clients-docs",
+	"packages/confluence-client",
+	"packages/doppler-client",
+	"packages/github-client",
+	"packages/google-client",
+	"packages/http-client",
+	"packages/infisical-client",
+	"packages/jira-client",
+	"packages/neon-client",
+	"packages/postman-client",
+	"packages/vercel-client",
+	"packages/zendesk-client",
 ];
 
 export default defineConfig({
