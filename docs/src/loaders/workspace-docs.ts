@@ -72,7 +72,14 @@ export function workspaceDocsLoader(sources: WorkspaceDocsSource[]): Loader {
 					const rendered = await ctx.renderMarkdown(body, {
 						fileURL: pathToFileURL(absPath),
 					});
-					ctx.store.set({ id, data, body, filePath, digest, rendered });
+					ctx.store.set({
+						id,
+						data,
+						body,
+						filePath,
+						digest,
+						rendered,
+					});
 					ctx.watcher?.add(absPath);
 				}
 			}
