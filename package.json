@@ -16,7 +16,7 @@
     "typescript",
     "zendesk"
   ],
-  "homepage": "https://github.com/theholocron/clients#readme",
+  "homepage": "https://docs.theholocron.dev/clients/",
   "bugs": "https://github.com/theholocron/clients/issues",
   "repository": {
     "type": "git",
