@@ -1,5 +1,4 @@
 import clientsConfig from "@theholocron/clients-docs";
-import githubConfig from "@theholocron/github-client-docs";
 import { docsSchema } from "@astrojs/starlight/schema";
 import { defineCollection } from "astro:content";
 import { fileURLToPath } from "node:url";
@@ -26,15 +25,6 @@ export const collections = {
 					),
 				),
 				slug: localSlug(clientsConfig.slug),
-			},
-			{
-				dir: fileURLToPath(
-					new URL(
-						"../../packages/github-client-docs/content",
-						import.meta.url,
-					),
-				),
-				slug: localSlug(githubConfig.slug),
 			},
 		]),
 		schema: docsSchema(),
