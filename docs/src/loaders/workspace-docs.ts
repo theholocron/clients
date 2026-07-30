@@ -1,10 +1,9 @@
 import type { Loader, LoaderContext } from "astro/loaders";
 import matter from "gray-matter";
-import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
 import { extname, join, relative } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 export interface WorkspaceDocsSource {
 	/** Absolute path to the content directory. */
@@ -60,12 +59,9 @@ export function workspaceDocsLoader(sources: WorkspaceDocsSource[]): Loader {
 			for (const { dir, slug: slugPrefix } of sources) {
 				for await (const absPath of walk(dir)) {
 					const id = computeId(absPath, dir, slugPrefix);
-					const raw = readFileSync(absPath, "utf-8");
+					const raw = await readFile(absPath, "utf-8");
 					const { data: frontmatter, content: body } = matter(raw);
-					const digest = createHash("sha256")
-						.update(raw)
-						.digest("hex")
-						.slice(0, 8);
+					const digest = ctx.generateDigest(raw);
 					// Astro requires filePath to be relative to the site root (no leading /)
 					const filePath = relative(siteRoot, absPath);
 					const data = await ctx.parseData({
@@ -73,7 +69,10 @@ export function workspaceDocsLoader(sources: WorkspaceDocsSource[]): Loader {
 						data: frontmatter,
 						filePath,
 					});
-					ctx.store.set({ id, data, body, filePath, digest });
+					const rendered = await ctx.renderMarkdown(body, {
+						fileURL: pathToFileURL(absPath),
+					});
+					ctx.store.set({ id, data, body, filePath, digest, rendered });
 					ctx.watcher?.add(absPath);
 				}
 			}
