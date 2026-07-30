@@ -26,6 +26,17 @@ const deployment = await client.deployments.trigger({ projectId: "prj-123" });
 const envVars = await client.env.list("prj-123", "production");
 ```
 
+## Configuration
+
+`teamId` is required when accessing team-owned resources (projects, deployments, env vars). Without it, requests target personal account resources only. You can find the team ID in **Vercel dashboard → Team Settings → General**.
+
+| Option   | Required | Description                                       |
+| -------- | -------- | ------------------------------------------------- |
+| `token`  | Yes      | Vercel API token (account settings → Tokens)      |
+| `teamId` | No       | Team ID; required for team-scoped resources       |
+| `baseUrl`| No       | Override the default `https://api.vercel.com`     |
+| `fetch`  | No       | Custom fetch for testing                          |
+
 ## Namespaces
 
 | Namespace     | Methods                           |

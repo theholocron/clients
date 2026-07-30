@@ -32,6 +32,16 @@ await client.page.update("123456789", {
 });
 ```
 
+## Authentication
+
+Confluence uses HTTP Basic auth. The `token` must be a Base64-encoded `email:apiToken` string — not a raw API token:
+
+```ts
+const token = Buffer.from(`${email}:${apiToken}`).toString("base64");
+```
+
+Generate an API token at **Atlassian account settings → Security → API tokens**. The `baseUrl` must include the full REST API path, e.g. `https://myorg.atlassian.net/wiki/rest/api`.
+
 ## Namespaces
 
 | Namespace | Methods         |

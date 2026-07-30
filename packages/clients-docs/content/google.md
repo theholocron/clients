@@ -32,8 +32,18 @@ const sheet = await google.spreadsheets.getSpreadsheet(auth, "spreadsheet-id");
 | `documents`    | `getDocument`    |
 | `spreadsheets` | `getSpreadsheet` |
 
-## Auth
+## Authentication
 
-`googleAuth(opts)` builds a Google auth client from a service account credentials object and a list of OAuth scopes. The returned auth handle is passed as the first argument to every API call.
+This client does not use a `token` option. Instead it authenticates via a **Google service account** using `googleAuth()`:
 
-`oauth` provides the raw Google OAuth2 client for custom auth flows.
+```ts
+const auth = await googleAuth({
+  credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON),
+  scopes: [
+    "https://www.googleapis.com/auth/documents.readonly",
+    "https://www.googleapis.com/auth/spreadsheets.readonly",
+  ],
+});
+```
+
+The returned `auth` handle is passed as the first argument to every API call. Create a service account at **Google Cloud Console → IAM & Admin → Service Accounts** and download its JSON key. The `oauth` export provides the raw OAuth2 client for custom auth flows.
