@@ -5,7 +5,7 @@ import { node } from "@theholocron/holocron-config";
 const { repo, workflows, providers } = node();
 export default defineConfig({
 	description: "API clients and shared HTTP primitives.",
-	homepage: "https://theholocron.github.io/clients/",
+	homepage: "https://docs.theholocron.dev/clients/",
 	repo: {
 		...repo,
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
