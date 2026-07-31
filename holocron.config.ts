@@ -27,6 +27,7 @@ export default defineConfig({
 		...workflows,
 		"audit",
 		{ name: "release", with: { "run-build": true } },
+		{ name: "deploy-docs", with: { name: "clients" }, paths: ["packages/clients-docs/**"] },
 	],
 	providers: {
 		...providers,
