@@ -33,7 +33,12 @@ export type {
 } from "./issues/issues.js";
 export type { GitHubLabel } from "./labels/labels.js";
 export type { GitHubContents, GitHubRepo } from "./repos/repos.js";
-export type { GitHubPages, CreatePagesPayload, UpdatePagesPayload, PagesBuildType } from "./pages/pages.js";
+export type {
+	GitHubPages,
+	CreatePagesPayload,
+	UpdatePagesPayload,
+	PagesBuildType,
+} from "./pages/pages.js";
 export type { GitHubRuleset } from "./rulesets/rulesets.js";
 export type { GitHubPublicKey, SecretScope } from "./secrets/secrets.js";
 export type { CodeScanningSetupResult } from "./security/security.js";
