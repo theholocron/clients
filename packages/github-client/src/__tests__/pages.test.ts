@@ -28,14 +28,18 @@ describe("pages", () => {
 		});
 
 		it("GET /repos/{owner}/{name}/pages returns null when Pages is not enabled (404)", async () => {
-			const { fetch } = stubFetch([{ status: 404, body: { message: "Not Found" } }]);
+			const { fetch } = stubFetch([
+				{ status: 404, body: { message: "Not Found" } },
+			]);
 			const client = createGitHubClient({ token: TOKEN, fetch });
 			const result = await client.pages.getPages(REPO);
 			expect(result).toBeNull();
 		});
 
 		it("GET /repos/{owner}/{name}/pages re-throws non-404 errors", async () => {
-			const { fetch } = stubFetch([{ status: 403, body: { message: "Forbidden" } }]);
+			const { fetch } = stubFetch([
+				{ status: 403, body: { message: "Forbidden" } },
+			]);
 			const client = createGitHubClient({ token: TOKEN, fetch });
 			await expect(client.pages.getPages(REPO)).rejects.toThrow();
 		});
@@ -44,10 +48,20 @@ describe("pages", () => {
 	describe("createPages", () => {
 		it("POST /repos/{owner}/{name}/pages with workflow build type", async () => {
 			const { fetch, calls } = stubFetch([
-				{ status: 201, body: { status: "building", build_type: "workflow", https_enforced: false, custom_domain: null } },
+				{
+					status: 201,
+					body: {
+						status: "building",
+						build_type: "workflow",
+						https_enforced: false,
+						custom_domain: null,
+					},
+				},
 			]);
 			const client = createGitHubClient({ token: TOKEN, fetch });
-			const result = await client.pages.createPages(REPO, { build_type: "workflow" });
+			const result = await client.pages.createPages(REPO, {
+				build_type: "workflow",
+			});
 			expect(calls[0]?.url).toContain(PAGES_URL);
 			expect(calls[0]?.method).toBe("POST");
 			expect(calls[0]?.body).toMatchObject({ build_type: "workflow" });
@@ -56,7 +70,15 @@ describe("pages", () => {
 
 		it("POST /repos/{owner}/{name}/pages with legacy build type and branch source", async () => {
 			const { fetch, calls } = stubFetch([
-				{ status: 201, body: { status: "building", build_type: "legacy", https_enforced: false, custom_domain: null } },
+				{
+					status: 201,
+					body: {
+						status: "building",
+						build_type: "legacy",
+						https_enforced: false,
+						custom_domain: null,
+					},
+				},
 			]);
 			const client = createGitHubClient({ token: TOKEN, fetch });
 			await client.pages.createPages(REPO, {
