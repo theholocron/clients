@@ -91,6 +91,7 @@ dist
 
 # Astro generated files
 docs/.astro/
+docs/dist/
 
 # Generated test output — not useful in version control
 test-report.junit.xml
