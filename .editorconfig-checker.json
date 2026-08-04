@@ -9,6 +9,7 @@
   "Exclude": [
     "(^|.+/)LICENSE$",
     "^public/.*",
+    "\\.md$",
     "\\.mdx$"
   ],
   "AllowedContentTypes": [],
