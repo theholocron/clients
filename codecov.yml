@@ -17,6 +17,9 @@ coverage:
         target: 80%
         threshold: 2%
 
+ignore:
+  - "*.config.*"
+
 comment:
   layout: "reach,diff,flags,components"
   behavior: default
@@ -32,6 +35,11 @@ component_management:
       name: "clerk-client"
       paths:
         - packages/clerk-client/**
+
+    - component_id: clients-docs
+      name: "clients-docs"
+      paths:
+        - packages/clients-docs/**
 
     - component_id: confluence-client
       name: "confluence-client"

@@ -38,12 +38,5 @@ export default defineConfig({
 		secrets: "github",
 	},
 	agent: "claude",
-	skills: [
-		"git-safety",
-		"pr-workflow",
-		"commit-standards",
-		"security-review",
-		"holocron-skill-client",
-		"turborepo",
-	],
+	skills: ["git-safety", "pr-workflow", "commit-standards", "security-review", "holocron-skill-client", "turborepo"],
 } satisfies HolocronConfig);
