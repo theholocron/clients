@@ -26,6 +26,6 @@ catalog:
 
 catalogs:
   holocron:
-    '@theholocron/cli': ^3.8.3
+    '@theholocron/cli': ^3.10.0
     '@theholocron/holocron-config': ^7.7.0
-    '@theholocron/holocron-plugin-github': ^3.8.3
+    '@theholocron/holocron-plugin-github': ^3.10.0
