@@ -20,5 +20,5 @@ permissions:
 jobs:
   test:
     name: Test
-    uses: theholocron/.github/.github/workflows/test.yml@main
+    uses: theholocron/.github/.github/workflows/test.yml@test/chromatic-github-token
     secrets: inherit
