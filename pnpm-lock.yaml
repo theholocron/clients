@@ -139,7 +139,7 @@ importers:
         specifier: ^10.2.0
         version: 10.2.1
       eslint:
-        specifier: 10.8.1
+        specifier: 'catalog:'
         version: 10.8.1(jiti@2.7.0)
       globals:
         specifier: 'catalog:'
