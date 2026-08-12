@@ -1,6 +1,6 @@
 {
   "name": "@theholocron/clients",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "private": true,
   "description": "API clients and shared HTTP primitives.",
   "keywords": [
