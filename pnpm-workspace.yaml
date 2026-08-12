@@ -4,20 +4,20 @@ packages:
 
 # Shared dep versions used across packages.
 catalog:
-  '@theholocron/commitlint-config': ^7.7.0
-  '@theholocron/eslint-config': ^7.8.1
+  '@theholocron/commitlint-config': ^7.15.0
+  '@theholocron/eslint-config': ^7.15.0
   '@theholocron/http-client': ^0.11.5
-  '@theholocron/lint-staged-config': ^7.7.0
-  '@theholocron/prettier-config': ^7.7.0
-  '@theholocron/semantic-release-config': ^7.7.0
-  '@theholocron/tsconfig': ^7.8.1
-  '@theholocron/tsdown-config': ^7.7.0
-  '@theholocron/vitest-config': ^7.7.0
+  '@theholocron/lint-staged-config': ^7.15.0
+  '@theholocron/prettier-config': ^7.15.0
+  '@theholocron/semantic-release-config': ^7.15.0
+  '@theholocron/tsconfig': ^7.15.0
+  '@theholocron/tsdown-config': ^7.15.0
+  '@theholocron/vitest-config': ^7.15.0
   '@types/node': ^26.1.2
   '@vitest/coverage-v8': ^4.1.10
   '@vitest/eslint-plugin': ^1.6.25
-  eslint: ^10.8.0
-  eslint-plugin-n: ^18.2.2
+  eslint: ^10.8.1
+  eslint-plugin-n: ^18.3.0
   eslint-plugin-simple-import-sort: ^14.0.0
   globals: ^17.8.0
   tsdown: ^0.22.14
@@ -26,6 +26,6 @@ catalog:
 
 catalogs:
   holocron:
-    '@theholocron/cli': ^3.10.0
-    '@theholocron/holocron-config': ^7.7.0
-    '@theholocron/holocron-plugin-github': ^3.10.0
+    '@theholocron/cli': ^3.17.0
+    '@theholocron/holocron-config': ^7.15.0
+    '@theholocron/holocron-plugin-github': ^3.17.0
