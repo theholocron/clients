@@ -13,7 +13,7 @@ catalog:
   '@theholocron/tsconfig': ^7.15.0
   '@theholocron/tsdown-config': ^7.15.0
   '@theholocron/vitest-config': ^7.15.0
-  '@types/node': ^26.1.2
+  '@types/node': ^26.2.0
   '@vitest/coverage-v8': ^4.1.10
   '@vitest/eslint-plugin': ^1.6.25
   eslint: ^10.8.1
