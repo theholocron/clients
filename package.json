@@ -52,15 +52,15 @@
     "@theholocron/prettier-config": "catalog:",
     "@theholocron/tsconfig": "catalog:",
     "alexjs": "^1.0.0",
-    "knip": "^6.31.0",
+    "knip": "^6.32.0",
     "conventional-changelog-conventionalcommits": "^10.2.0",
     "eslint": "catalog:",
     "globals": "catalog:",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
     "prettier": "^3.9.6",
-    "semantic-release": "^25.0.8",
-    "turbo": "^2.10.8",
+    "semantic-release": "^25.0.9",
+    "turbo": "^2.10.9",
     "typescript": "catalog:"
   },
   "pnpm": {
