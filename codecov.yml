@@ -36,11 +36,6 @@ component_management:
       paths:
         - packages/clerk-client/**
 
-    - component_id: clients-docs
-      name: "clients-docs"
-      paths:
-        - packages/clients-docs/**
-
     - component_id: confluence-client
       name: "confluence-client"
       paths:

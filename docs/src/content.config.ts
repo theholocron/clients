@@ -1,4 +1,7 @@
-import clientsConfig from "@theholocron/clients-docs";
-import { createDocsCollections } from "@theholocron/docs-theme/content";
+import { docsLoader } from "@astrojs/starlight/loaders";
+import { docsSchema } from "@astrojs/starlight/schema";
+import { defineCollection } from "astro:content";
 
-export const collections = createDocsCollections(clientsConfig, import.meta.url);
+export const collections = {
+	docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
+};

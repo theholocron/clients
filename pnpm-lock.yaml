@@ -171,12 +171,6 @@ importers:
       '@astrojs/starlight':
         specifier: ^0.41.7
         version: 0.41.7(@astrojs/markdown-remark@7.2.2)(astro@7.2.0(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))(typescript@5.9.3)
-      '@theholocron/astro-config':
-        specifier: ^7.15.0
-        version: 7.15.0(astro@7.2.0(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
-      '@theholocron/clients-docs':
-        specifier: workspace:*
-        version: link:../packages/clients-docs
       '@theholocron/docs-theme':
         specifier: ^1.3.2
         version: 1.3.2(@astrojs/starlight@0.41.7(@astrojs/markdown-remark@7.2.2)(astro@7.2.0(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))(typescript@5.9.3))(astro@7.2.0(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
@@ -239,39 +233,6 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
-
-  packages/clients-docs:
-    devDependencies:
-      '@theholocron/eslint-config':
-        specifier: 'catalog:'
-        version: 7.15.0(@eslint/js@10.0.1(eslint@10.8.1(jiti@2.7.0)))(@vitest/eslint-plugin@1.6.26(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.8.1(jiti@2.7.0))(typescript@5.9.3))(eslint@10.8.1(jiti@2.7.0))(typescript@5.9.3))(eslint@10.8.1(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.10))(eslint-plugin-n@18.3.0(eslint@10.8.1(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.8.1(jiti@2.7.0)))(eslint@10.8.1(jiti@2.7.0))(globals@17.11.0)(typescript-eslint@8.63.0(eslint@10.8.1(jiti@2.7.0))(typescript@5.9.3))
-      '@theholocron/tsconfig':
-        specifier: 'catalog:'
-        version: 7.15.0(typescript@5.9.3)
-      '@theholocron/tsdown-config':
-        specifier: 'catalog:'
-        version: 7.18.1(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
-      '@types/node':
-        specifier: 'catalog:'
-        version: 26.2.0
-      eslint:
-        specifier: 'catalog:'
-        version: 10.8.1(jiti@2.7.0)
-      eslint-plugin-n:
-        specifier: 'catalog:'
-        version: 18.3.0(eslint@10.8.1(jiti@2.7.0))(typescript@5.9.3)
-      eslint-plugin-simple-import-sort:
-        specifier: 'catalog:'
-        version: 14.0.0(eslint@10.8.1(jiti@2.7.0))
-      globals:
-        specifier: 'catalog:'
-        version: 17.11.0
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
 
   packages/confluence-client:
     dependencies:
@@ -2423,12 +2384,6 @@ packages:
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
-
-  '@theholocron/astro-config@7.15.0':
-    resolution: {integrity: sha512-5acv0S1T7e9uGGyd2wacNiCrxrxhUFkGjJAOR7RCZ4Ox44s38Mro0jxNLyzzRNfwgTpcbdDEqgU/5/hDejmmWg==}
-    engines: {node: '>=22.0.0'}
-    peerDependencies:
-      astro: '>=5.0.0'
 
   '@theholocron/cli@3.19.1':
     resolution: {integrity: sha512-OAlIXi+rxF9ZI3rtyXvMRxZtJ1ywIGYWmO4BuyaSRqRXVeKG54OR4R8WFujQwsBy0WIrGLfr2ggs5PZQdbuEVw==}
@@ -7651,10 +7606,6 @@ snapshots:
   '@sindresorhus/merge-streams@4.0.0': {}
 
   '@standard-schema/spec@1.1.0': {}
-
-  '@theholocron/astro-config@7.15.0(astro@7.2.0(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))':
-    dependencies:
-      astro: 7.2.0(@astrojs/markdown-remark@7.2.2)(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0)
 
   '@theholocron/cli@3.19.1(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10)':
     dependencies:
