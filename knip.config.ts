@@ -4,8 +4,8 @@ const config: KnipConfig = {
 	workspaces: {
 		".": {
 			// prettier.config.ts, eslint.config.ts, release.config.ts, commitlint.config.ts auto-detected by Knip plugins
-			entry: ["holocron.config.ts"],
-			project: ["*.ts"],
+			entry: ["holocron.config.ts", "astro.config.ts"],
+			project: ["*.ts", "docs/src/**/*.ts"],
 		},
 		"packages/*": {
 			// entry points auto-detected from package.json exports
