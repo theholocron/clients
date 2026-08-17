@@ -49,3 +49,24 @@ describe("tunnels.delete", () => {
 		expect(calls[0]?.url).toContain("cascade=true");
 	});
 });
+
+describe("tunnels.getConfig", () => {
+	it("GETs tunnel configurations", async () => {
+		const config = { ingress: [{ hostname: "app.example.com", service: "http://localhost:3000" }] };
+		const { tunnels, calls } = client([cfOk({ config })]);
+		const result = await tunnels.getConfig(ACCOUNT, TUNNEL_ID);
+		expect(calls[0]?.url).toContain(`/accounts/${ACCOUNT}/cfd_tunnel/${TUNNEL_ID}/configurations`);
+		expect(result).toEqual({ config });
+	});
+});
+
+describe("tunnels.putConfig", () => {
+	it("PUTs tunnel configuration", async () => {
+		const config = { ingress: [{ hostname: "app.example.com", service: "http://localhost:3000" }, { service: "http_status:404" }] };
+		const { tunnels, calls } = client([cfOk({ config })]);
+		await tunnels.putConfig(ACCOUNT, TUNNEL_ID, config);
+		expect(calls[0]?.method).toBe("PUT");
+		expect(calls[0]?.url).toContain(`/accounts/${ACCOUNT}/cfd_tunnel/${TUNNEL_ID}/configurations`);
+		expect(calls[0]?.body).toEqual({ config });
+	});
+});
