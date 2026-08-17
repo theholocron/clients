@@ -12,6 +12,7 @@ export function auth(rest: RestClient) {
 		organizations: (): Promise<SentryOrganization[]> => rest.request<SentryOrganization[]>("/organizations/"),
 
 		/** Get a single organization by slug. */
-		getOrg: (org: string): Promise<SentryOrganization> => rest.request<SentryOrganization>(`/organizations/${org}/`),
+		getOrg: (org: string): Promise<SentryOrganization> =>
+			rest.request<SentryOrganization>(`/organizations/${org}/`),
 	};
 }

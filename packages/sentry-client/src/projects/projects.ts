@@ -28,7 +28,8 @@ export interface CreateSentryProjectInput {
 export function projects(rest: RestClient) {
 	return {
 		/** List all projects in an org. */
-		list: (org: string): Promise<SentryProject[]> => rest.request<SentryProject[]>(`/organizations/${org}/projects/`),
+		list: (org: string): Promise<SentryProject[]> =>
+			rest.request<SentryProject[]>(`/organizations/${org}/projects/`),
 
 		/** Get a single project by slug. Throws ProviderApiError 404 if not found. */
 		get: (org: string, slug: string): Promise<SentryProject> =>

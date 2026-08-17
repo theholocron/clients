@@ -44,7 +44,11 @@ export async function cfRequest<T>(
 	});
 	if (!envelope) return undefined as T;
 	if (!envelope.success) {
-		throw new ProviderApiError(`Cloudflare ${method} ${path} returned success:false`, 0, JSON.stringify(envelope.errors));
+		throw new ProviderApiError(
+			`Cloudflare ${method} ${path} returned success:false`,
+			0,
+			JSON.stringify(envelope.errors)
+		);
 	}
 	return envelope.result;
 }

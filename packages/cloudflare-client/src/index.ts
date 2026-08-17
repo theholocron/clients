@@ -1,7 +1,7 @@
 import { dns } from "./dns/dns.js";
 import { tokens } from "./tokens/tokens.js";
 import { tunnels } from "./tunnels/tunnels.js";
-import { type CloudflareClientOptions,createCloudflareRestClient } from "./utils.js";
+import { type CloudflareClientOptions, createCloudflareRestClient } from "./utils.js";
 import { zones } from "./zones/zones.js";
 
 export type { CfDnsRecord, CfDnsRecordInput, CfDnsRecordType } from "./dns/dns.js";

@@ -62,7 +62,12 @@ describe("tunnels.getConfig", () => {
 
 describe("tunnels.putConfig", () => {
 	it("PUTs tunnel configuration", async () => {
-		const config = { ingress: [{ hostname: "app.example.com", service: "http://localhost:3000" }, { service: "http_status:404" }] };
+		const config = {
+			ingress: [
+				{ hostname: "app.example.com", service: "http://localhost:3000" },
+				{ service: "http_status:404" },
+			],
+		};
 		const { tunnels, calls } = client([cfOk({ config })]);
 		await tunnels.putConfig(ACCOUNT, TUNNEL_ID, config);
 		expect(calls[0]?.method).toBe("PUT");

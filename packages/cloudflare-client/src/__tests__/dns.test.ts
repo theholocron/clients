@@ -34,7 +34,13 @@ describe("dns.create", () => {
 		const { dns, calls } = client([cfOk(record)]);
 		await dns.create(ZONE, { type: "CNAME", name: "www", content: "example.com" });
 		expect(calls[0]?.method).toBe("POST");
-		expect(calls[0]?.body).toMatchObject({ type: "CNAME", name: "www", content: "example.com", ttl: 1, proxied: false });
+		expect(calls[0]?.body).toMatchObject({
+			type: "CNAME",
+			name: "www",
+			content: "example.com",
+			ttl: 1,
+			proxied: false,
+		});
 	});
 
 	it("passes explicit ttl and proxied", async () => {
