@@ -47,14 +47,14 @@ const dsn = keys[0].dsn.public;
 Generate an [auth token](https://sentry.io/settings/account/api/auth-tokens/)
 with the required scopes:
 
-| Operation | Required scopes |
-|---|---|
-| List orgs / verify token | `org:read` |
-| List / get projects | `project:read` |
-| Create projects | `project:write` |
+| Operation                | Required scopes |
+| ------------------------ | --------------- |
+| List orgs / verify token | `org:read`      |
+| List / get projects      | `project:read`  |
+| Create projects          | `project:write` |
 
 The token is passed directly or read from `SENTRY_AUTH_TOKEN`.
 
-> **Note:** This is a user-scoped or org-scoped *auth token*, not the
-> project-level *DSN token* your app embeds at runtime. Those are outputs
+> **Note:** This is a user-scoped or org-scoped _auth token_, not the
+> project-level _DSN token_ your app embeds at runtime. Those are outputs
 > of `projects.keys()`, not inputs to this client.

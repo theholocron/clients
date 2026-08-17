@@ -49,10 +49,7 @@ const tunnelToken = await cf.tunnels.token("my-account-id", tunnel.id);
 // Read/write tunnel ingress configuration
 const { config } = await cf.tunnels.getConfig("my-account-id", tunnel.id);
 await cf.tunnels.putConfig("my-account-id", tunnel.id, {
-  ingress: [
-    { hostname: "app.example.com", service: "http://localhost:3000" },
-    { service: "http_status:404" },
-  ],
+  ingress: [{ hostname: "app.example.com", service: "http://localhost:3000" }, { service: "http_status:404" }],
 });
 
 // Delete a tunnel (cascade removes all associated routes and DNS records)
@@ -63,10 +60,10 @@ await cf.tunnels.delete("my-account-id", tunnel.id);
 
 Create an [API Token](https://dash.cloudflare.com/profile/api-tokens) with the permissions your use case requires:
 
-| Use case | Required permissions |
-|---|---|
-| DNS management | `Zone:Read`, `DNS:Edit` |
-| Tunnel management | `Account:Cloudflare Tunnel:Edit` |
-| Token verification | `User:API Tokens:Read` |
+| Use case           | Required permissions             |
+| ------------------ | -------------------------------- |
+| DNS management     | `Zone:Read`, `DNS:Edit`          |
+| Tunnel management  | `Account:Cloudflare Tunnel:Edit` |
+| Token verification | `User:API Tokens:Read`           |
 
 Pass the token directly or via the `CLOUDFLARE_API_TOKEN` environment variable.
