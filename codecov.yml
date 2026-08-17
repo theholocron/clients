@@ -36,6 +36,11 @@ component_management:
       paths:
         - packages/clerk-client/**
 
+    - component_id: cloudflare-client
+      name: "cloudflare-client"
+      paths:
+        - packages/cloudflare-client/**
+
     - component_id: confluence-client
       name: "confluence-client"
       paths:
@@ -80,6 +85,11 @@ component_management:
       name: "postman-client"
       paths:
         - packages/postman-client/**
+
+    - component_id: sentry-client
+      name: "sentry-client"
+      paths:
+        - packages/sentry-client/**
 
     - component_id: vercel-client
       name: "vercel-client"
