@@ -29,12 +29,12 @@ console.log(project.api_token); // phc_* tracking token
 
 ## Exports
 
-| Export                  | Description                                                      |
-| ----------------------- | ---------------------------------------------------------------- |
-| `createPostHogClient`   | Factory returning a client with `users` and `projects` resources |
-| `PostHogClientOptions`  | Options type for `createPostHogClient`                           |
-| `PostHogUser`           | Shape of `/api/users/@me/` response                              |
-| `PostHogOrganization`   | Nested org object on `PostHogUser`                               |
-| `PostHogProject`        | Shape of a project (includes `api_token`)                        |
-| `PostHogProjectsResponse` | Shape of `/api/projects/` list response                        |
-| `CreatePostHogProjectInput` | Input for `projects.create()`                              |
+| Export                      | Description                                                      |
+| --------------------------- | ---------------------------------------------------------------- |
+| `createPostHogClient`       | Factory returning a client with `users` and `projects` resources |
+| `PostHogClientOptions`      | Options type for `createPostHogClient`                           |
+| `PostHogUser`               | Shape of `/api/users/@me/` response                              |
+| `PostHogOrganization`       | Nested org object on `PostHogUser`                               |
+| `PostHogProject`            | Shape of a project (includes `api_token`)                        |
+| `PostHogProjectsResponse`   | Shape of `/api/projects/` list response                          |
+| `CreatePostHogProjectInput` | Input for `projects.create()`                                    |

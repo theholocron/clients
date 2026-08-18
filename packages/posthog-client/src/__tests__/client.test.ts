@@ -13,27 +13,40 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 
 describe("createPostHogClient", () => {
 	it("sends Bearer authorization header", async () => {
-		const { client, calls } = makeClient([{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } }]);
+		const { client, calls } = makeClient([
+			{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } },
+		]);
 		await client.users.me();
 		expect(calls[0]?.headers.authorization).toBe(`Bearer ${TOKEN}`);
 	});
 
 	it("targets the PostHog US cloud base URL by default", async () => {
-		const { client, calls } = makeClient([{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } }]);
+		const { client, calls } = makeClient([
+			{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } },
+		]);
 		await client.users.me();
 		expect(calls[0]?.url).toContain("https://app.posthog.com");
 	});
 
 	it("respects host override", async () => {
-		const { fetch, calls } = stubFetch([{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } }]);
+		const { fetch, calls } = stubFetch([
+			{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } },
+		]);
 		const client = createPostHogClient({ token: TOKEN, host: "https://eu.posthog.com", fetch });
 		await client.users.me();
 		expect(calls[0]?.url).toContain("https://eu.posthog.com");
 	});
 
 	it("respects baseUrl override (takes precedence over host)", async () => {
-		const { fetch, calls } = stubFetch([{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } }]);
-		const client = createPostHogClient({ token: TOKEN, host: "https://eu.posthog.com", baseUrl: "https://posthog.test", fetch });
+		const { fetch, calls } = stubFetch([
+			{ body: { email: "x@x.com", organization: { id: "1", slug: "acme", name: "Acme" } } },
+		]);
+		const client = createPostHogClient({
+			token: TOKEN,
+			host: "https://eu.posthog.com",
+			baseUrl: "https://posthog.test",
+			fetch,
+		});
 		await client.users.me();
 		expect(calls[0]?.url).toContain("https://posthog.test");
 	});
@@ -82,7 +95,9 @@ describe("projects.create", () => {
 
 describe("error handling", () => {
 	it("throws ProviderApiError on non-2xx response", async () => {
-		const { fetch } = stubFetch([{ status: 401, body: { detail: "Authentication credentials were not provided." } }]);
+		const { fetch } = stubFetch([
+			{ status: 401, body: { detail: "Authentication credentials were not provided." } },
+		]);
 		const client = createPostHogClient({ token: "bad", fetch });
 		const err = await client.users.me().catch((e: unknown) => e);
 		expect((err as Error).name).toBe("ProviderApiError");
