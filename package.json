@@ -52,6 +52,7 @@
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
     "@theholocron/commitlint-config": "catalog:",
+    "@theholocron/devmoji-config": "catalog:",
     "@theholocron/eslint-config": "catalog:",
     "@theholocron/semantic-release-config": "catalog:",
     "@theholocron/lint-staged-config": "catalog:",
