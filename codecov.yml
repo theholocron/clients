@@ -81,6 +81,11 @@ component_management:
       paths:
         - packages/neon-client/**
 
+    - component_id: posthog-client
+      name: "posthog-client"
+      paths:
+        - packages/posthog-client/**
+
     - component_id: postman-client
       name: "postman-client"
       paths:

@@ -20,6 +20,7 @@ export default defineConfig({
 					{ label: "Infisical", slug: "infisical" },
 					{ label: "Jira", slug: "jira" },
 					{ label: "Neon", slug: "neon" },
+					{ label: "PostHog", slug: "posthog" },
 					{ label: "Postman", slug: "postman" },
 					{ label: "Vercel", slug: "vercel" },
 					{ label: "Zendesk", slug: "zendesk" },
