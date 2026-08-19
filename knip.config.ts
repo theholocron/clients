@@ -4,8 +4,10 @@ const config: KnipConfig = {
 	workspaces: {
 		".": {
 			// prettier.config.ts, eslint.config.ts, release.config.ts, commitlint.config.ts auto-detected by Knip plugins
-			entry: ["holocron.config.ts", "astro.config.ts"],
+			entry: ["holocron.config.ts", "docs/src/content.config.ts"],
 			project: ["*.ts", "docs/src/**/*.ts"],
+			// astro.config.ts is the docs build config, not an Astro workspace — disable plugin
+			astro: false,
 		},
 		"packages/*": {
 			// entry points auto-detected from package.json exports
@@ -38,8 +40,8 @@ const config: KnipConfig = {
 		"@commitlint/config-conventional",
 		// passed as --config arg to lint-staged binary in .husky/pre-commit
 		"@theholocron/lint-staged-config",
-		// prettier config package — no .prettierrc or prettier.config.ts at root
-		"@theholocron/prettier-config",
+		// loaded by devmoji.config.cjs via require() — file is in ignoreFiles so Knip can't trace it
+		"@theholocron/devmoji-config",
 		// binary tools — invoked via CLI or hooks, not module imports
 		"alexjs",
 		"husky",

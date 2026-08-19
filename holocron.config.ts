@@ -11,6 +11,7 @@ export default defineConfig({
 		protection: "strict",
 		requiredChecks: [
 			"audit / Audit the bundle size",
+			"audit / Knip",
 			"codecov/patch",
 			"codecov/patch/clerk-client",
 			"codecov/patch/cloudflare-client",
