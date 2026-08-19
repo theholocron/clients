@@ -76,6 +76,9 @@ catalogs:
     '@theholocron/holocron-config':
       specifier: ^7.20.0
       version: 7.20.0
+    '@theholocron/holocron-plugin-github':
+      specifier: ^3.24.4
+      version: 3.24.4
 
 overrides:
   '@commitlint/config-conventional': ^21.2.0
@@ -130,7 +133,7 @@ importers:
         specifier: catalog:holocron
         version: 7.20.0(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))
       '@theholocron/holocron-plugin-github':
-        specifier: 3.24.4
+        specifier: catalog:holocron
         version: 3.24.4(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))(@theholocron/github-client@1.10.1(vitest@4.1.10))
       '@theholocron/lint-staged-config':
         specifier: 'catalog:'
