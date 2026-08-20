@@ -28,13 +28,13 @@ const keys = await client.projects.listKeys("my-org", "my-app");
 
 ## Exports
 
-| Export                     | Description                                                            |
-| -------------------------- | ---------------------------------------------------------------------- |
-| `createSentryClient`       | Factory returning a client with `auth` and `projects` resources        |
-| `SentryClientOptions`      | Options type for `createSentryClient`                                  |
-| `SentryOrganization`       | Shape of a Sentry organization                                         |
-| `SentryProject`            | Shape of a Sentry project                                              |
-| `CreateSentryProjectInput` | Input for `projects.create()`                                          |
-| `SentryKey`                | Shape of a project DSN key                                             |
-| `SentryKeyDsn`             | Nested DSN object on `SentryKey`                                       |
-| `SentryClient`             | Return type of `createSentryClient`                                    |
+| Export                     | Description                                                     |
+| -------------------------- | --------------------------------------------------------------- |
+| `createSentryClient`       | Factory returning a client with `auth` and `projects` resources |
+| `SentryClientOptions`      | Options type for `createSentryClient`                           |
+| `SentryOrganization`       | Shape of a Sentry organization                                  |
+| `SentryProject`            | Shape of a Sentry project                                       |
+| `CreateSentryProjectInput` | Input for `projects.create()`                                   |
+| `SentryKey`                | Shape of a project DSN key                                      |
+| `SentryKeyDsn`             | Nested DSN object on `SentryKey`                                |
+| `SentryClient`             | Return type of `createSentryClient`                             |

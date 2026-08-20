@@ -30,17 +30,17 @@ const verified = await client.tokens.verify();
 
 ## Exports
 
-| Export                    | Description                                                                   |
-| ------------------------- | ----------------------------------------------------------------------------- |
+| Export                    | Description                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------- |
 | `createCloudflareClient`  | Factory returning a client with `dns`, `tokens`, `tunnels`, and `zones` resources |
-| `CloudflareClientOptions` | Options type for `createCloudflareClient`                                     |
-| `CfZone`                  | Shape of a Cloudflare zone                                                    |
-| `CfDnsRecord`             | Shape of a DNS record                                                         |
-| `CfDnsRecordInput`        | Input for `dns.create()`                                                      |
-| `CfDnsRecordType`         | Union of valid DNS record types                                                |
-| `CfTunnel`                | Shape of a Cloudflare tunnel                                                  |
-| `CfTunnelConfig`          | Tunnel configuration shape                                                    |
-| `CfIngressRule`           | Ingress rule within a tunnel config                                            |
-| `CfTokenVerification`     | Shape of the token verification response                                      |
-| `CfEnvelope`              | Generic Cloudflare API response envelope                                      |
-| `CloudflareClient`        | Return type of `createCloudflareClient`                                       |
+| `CloudflareClientOptions` | Options type for `createCloudflareClient`                                         |
+| `CfZone`                  | Shape of a Cloudflare zone                                                        |
+| `CfDnsRecord`             | Shape of a DNS record                                                             |
+| `CfDnsRecordInput`        | Input for `dns.create()`                                                          |
+| `CfDnsRecordType`         | Union of valid DNS record types                                                   |
+| `CfTunnel`                | Shape of a Cloudflare tunnel                                                      |
+| `CfTunnelConfig`          | Tunnel configuration shape                                                        |
+| `CfIngressRule`           | Ingress rule within a tunnel config                                               |
+| `CfTokenVerification`     | Shape of the token verification response                                          |
+| `CfEnvelope`              | Generic Cloudflare API response envelope                                          |
+| `CloudflareClient`        | Return type of `createCloudflareClient`                                           |
