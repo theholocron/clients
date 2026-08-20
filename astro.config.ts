@@ -12,6 +12,7 @@ export default defineConfig({
 				label: "Packages",
 				items: [
 					{ label: "Clerk", slug: "clerk" },
+					{ label: "Cloudflare", slug: "cloudflare" },
 					{ label: "Confluence", slug: "confluence" },
 					{ label: "Doppler", slug: "doppler" },
 					{ label: "GitHub", slug: "github" },
@@ -22,6 +23,7 @@ export default defineConfig({
 					{ label: "Neon", slug: "neon" },
 					{ label: "PostHog", slug: "posthog" },
 					{ label: "Postman", slug: "postman" },
+					{ label: "Sentry", slug: "sentry" },
 					{ label: "Vercel", slug: "vercel" },
 					{ label: "Zendesk", slug: "zendesk" },
 				],
