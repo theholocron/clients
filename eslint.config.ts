@@ -4,14 +4,6 @@ import type { Linter } from "eslint";
 const config = [
 	...library(),
 	{
-		rules: {
-			// src/ compiles to dist/ via tsdown; files[] lists dist/ so every
-			// relative src/ import is flagged as unpublished. False positive
-			// for the TypeScript src→dist build model.
-			"n/no-unpublished-import": "off",
-		},
-	},
-	{
 		files: ["docs/src/**"],
 		rules: {
 			// docs/src imports live in root package.json, not docs/package.json
