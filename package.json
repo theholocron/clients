@@ -69,7 +69,9 @@
     "prettier": "^3.9.6",
     "semantic-release": "^25.0.9",
     "turbo": "^2.10.9",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "@theholocron/components-doc": "^1.2.0",
+    "@theholocron/registry-doc": "^1.2.0"
   },
   "pnpm": {
     "overrides": {
