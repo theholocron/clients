@@ -32,9 +32,9 @@ catalogs:
     '@theholocron/registry-doc': ^1.6.0
 
   holocron:
-    '@theholocron/cli': ^3.24.4
-    '@theholocron/holocron-config': ^7.20.0
-    '@theholocron/holocron-plugin-github': ^3.24.4
+    '@theholocron/cli': ^3.29.12
+    '@theholocron/holocron-config': ^7.23.1
+    '@theholocron/holocron-plugin-github': ^3.29.12
 
 overrides:
   '@eslint/json': ^1.2.0
