@@ -15,6 +15,7 @@ on: # yamllint disable-line rule:truthy
 
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened, closed]
     paths:
       - docs/**
       - astro.config.ts
@@ -25,7 +26,7 @@ on: # yamllint disable-line rule:truthy
 
 concurrency:
   group: ${{ github.event_name == 'pull_request' && format('deploy-preview-{0}', github.event.pull_request.number) || 'pages' }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
 
 permissions:
   contents: read
@@ -45,9 +46,17 @@ jobs:
 
   preview:
     name: Deploy Preview
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
     uses: theholocron/.github/.github/workflows/deploy-preview.yml@main
     with:
       type: docs
+      cloudflare-project: theholocron-preview
+    secrets: inherit
+
+  cleanup:
+    name: Clean up Preview
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' }}
+    uses: theholocron/.github/.github/workflows/cleanup-preview.yml@main
+    with:
       cloudflare-project: theholocron-preview
     secrets: inherit
