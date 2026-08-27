@@ -7,9 +7,9 @@ import { zones } from "./zones/zones.js";
 
 export type { CfDnsRecord, CfDnsRecordInput, CfDnsRecordType } from "./dns/dns.js";
 export type {
-	CfPagesDomain,
 	CfPagesDeployment,
 	CfPagesDeploymentStage,
+	CfPagesDomain,
 	CfPagesEnvConfig,
 	CfPagesEnvVar,
 	CfPagesEnvVarType,
