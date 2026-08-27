@@ -90,18 +90,11 @@ export function pages(rest: RestClient) {
 			),
 
 		listDomains: (accountId: string, projectName: string): Promise<CfPagesDomain[]> =>
-			cfRequest<CfPagesDomain[]>(
-				rest,
-				"GET",
-				`/accounts/${accountId}/pages/projects/${projectName}/domains`
-			),
+			cfRequest<CfPagesDomain[]>(rest, "GET", `/accounts/${accountId}/pages/projects/${projectName}/domains`),
 
 		addDomain: (accountId: string, projectName: string, hostname: string): Promise<CfPagesDomain> =>
-			cfRequest<CfPagesDomain>(
-				rest,
-				"POST",
-				`/accounts/${accountId}/pages/projects/${projectName}/domains`,
-				{ name: hostname }
-			),
+			cfRequest<CfPagesDomain>(rest, "POST", `/accounts/${accountId}/pages/projects/${projectName}/domains`, {
+				name: hostname,
+			}),
 	};
 }

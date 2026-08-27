@@ -97,11 +97,11 @@ await cf.pages.updateProject(ACCOUNT, "my-docs-preview", {
 
 Create an [API Token](https://dash.cloudflare.com/profile/api-tokens) with the permissions your use case requires:
 
-| Use case              | Required permissions                   |
-| --------------------- | -------------------------------------- |
-| DNS management        | `Zone:Read`, `DNS:Edit`                |
-| Tunnel management     | `Account:Cloudflare Tunnel:Edit`       |
-| Pages deployments     | `Account:Cloudflare Pages:Edit`        |
-| Token verification    | `User:API Tokens:Read`                 |
+| Use case           | Required permissions             |
+| ------------------ | -------------------------------- |
+| DNS management     | `Zone:Read`, `DNS:Edit`          |
+| Tunnel management  | `Account:Cloudflare Tunnel:Edit` |
+| Pages deployments  | `Account:Cloudflare Pages:Edit`  |
+| Token verification | `User:API Tokens:Read`           |
 
 Pass the token directly or via the `CLOUDFLARE_API_TOKEN` environment variable.

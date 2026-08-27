@@ -92,9 +92,7 @@ describe("pages.getDeployment", () => {
 		const { pages, calls } = client([cfOk(deployment)]);
 		await pages.getDeployment(ACCOUNT, PROJECT_NAME, "deploy-abc");
 		expect(calls[0]?.method).toBe("GET");
-		expect(calls[0]?.url).toContain(
-			`/accounts/${ACCOUNT}/pages/projects/${PROJECT_NAME}/deployments/deploy-abc`
-		);
+		expect(calls[0]?.url).toContain(`/accounts/${ACCOUNT}/pages/projects/${PROJECT_NAME}/deployments/deploy-abc`);
 	});
 });
 
