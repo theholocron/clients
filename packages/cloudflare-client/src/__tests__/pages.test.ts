@@ -134,9 +134,7 @@ describe("pages.deleteDeployment", () => {
 		const { pages, calls } = client([cfOk(null)]);
 		await pages.deleteDeployment(ACCOUNT, PROJECT_NAME, "deploy-abc");
 		expect(calls[0]?.method).toBe("DELETE");
-		expect(calls[0]?.url).toContain(
-			`/accounts/${ACCOUNT}/pages/projects/${PROJECT_NAME}/deployments/deploy-abc`
-		);
+		expect(calls[0]?.url).toContain(`/accounts/${ACCOUNT}/pages/projects/${PROJECT_NAME}/deployments/deploy-abc`);
 		expect(calls[0]?.url).toContain("force=true");
 	});
 });
