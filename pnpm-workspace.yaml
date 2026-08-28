@@ -27,9 +27,9 @@ catalog:
 
 catalogs:
   holocron:
-    '@theholocron/cli': ^3.24.4
+    '@theholocron/cli': ^3.36.0
     '@theholocron/holocron-config': ^7.26.0
-    '@theholocron/holocron-plugin-github': ^3.24.4
+    '@theholocron/holocron-plugin-github': ^3.36.0
 
 overrides:
   '@eslint/json': ^1.2.0
