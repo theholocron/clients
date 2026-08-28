@@ -1,18 +1,19 @@
 import type { HolocronConfig } from "@theholocron/cli";
 import { defineConfig } from "@theholocron/cli";
-import { node } from "@theholocron/holocron-config";
+import { nodeDocs } from "@theholocron/holocron-config";
 
-const { repo, workflows, providers } = node();
+const { repo, workflows, providers, org, domain, docs } = nodeDocs();
 export default defineConfig({
 	description: "API clients and shared HTTP primitives.",
 	homepage: "https://docs.theholocron.dev/clients/",
+	org,
+	domain,
+	docs,
 	repo: {
 		...repo,
-		protection: "strict",
 		requiredChecks: [
+			...repo.requiredChecks,
 			"audit / Audit the bundle size",
-			"audit / Knip",
-			"codecov/patch",
 			"codecov/patch/clerk-client",
 			"codecov/patch/cloudflare-client",
 			"codecov/patch/confluence-client",
@@ -28,7 +29,6 @@ export default defineConfig({
 			"codecov/patch/sentry-client",
 			"codecov/patch/vercel-client",
 			"codecov/patch/zendesk-client",
-			"codecov/project",
 		],
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
 		topics: [
@@ -45,16 +45,7 @@ export default defineConfig({
 			"zendesk",
 		],
 	},
-	workflows: [
-		...workflows,
-		"audit",
-		{ name: "release", with: { "run-build": true } },
-		"sync",
-		{
-			name: "deploy",
-			with: { docs: true, preview: { project: "theholocron-preview", domain: "preview.theholocron.dev" } },
-		},
-	],
+	workflows: [...workflows, "audit", { name: "release", with: { "run-build": true } }, "sync"],
 	providers: {
 		...providers,
 		secrets: "github",
