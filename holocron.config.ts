@@ -45,12 +45,7 @@ export default defineConfig({
 			"zendesk",
 		],
 	},
-	workflows: [
-		...workflows,
-		"audit",
-		{ name: "release", with: { "run-build": true } },
-		"sync",
-	],
+	workflows: [...workflows, "audit", { name: "release", with: { "run-build": true } }, "sync"],
 	providers: {
 		...providers,
 		secrets: "github",
