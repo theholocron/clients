@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { createCloudflareClient } from "../index.js";
 import { cfOk, stubFetch } from "./helpers.js";
@@ -39,6 +39,18 @@ describe("workers.putScript", () => {
 		const { workers, calls } = client([{ status: 200, body: {} }]);
 		await workers.putScript(ACCOUNT, "wiki.example.com-proxy", "export default {};");
 		expect(calls[0]?.url).toContain("wiki.example.com-proxy");
+	});
+
+	it("falls back to globalThis.fetch when no fetch override is provided", async () => {
+		const mockFetch = vi.fn().mockResolvedValue(new Response(null, { status: 200 }));
+		vi.stubGlobal("fetch", mockFetch);
+		try {
+			const w = createCloudflareClient({ token: TOKEN, baseUrl: BASE }).workers;
+			await w.putScript(ACCOUNT, "my-worker", "export default {};");
+			expect(mockFetch).toHaveBeenCalled();
+		} finally {
+			vi.unstubAllGlobals();
+		}
 	});
 
 	it("throws ProviderApiError on non-ok response", async () => {
