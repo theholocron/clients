@@ -3,14 +3,14 @@ packages:
 
 # Shared dep versions used across packages.
 catalog:
-  '@theholocron/astro-config': ^7.22.2
-  '@theholocron/commitlint-config': ^7.20.0
-  '@theholocron/devmoji-config': ^7.20.0
+  '@theholocron/astro-config': ^7.26.0
+  '@theholocron/commitlint-config': ^7.26.0
+  '@theholocron/devmoji-config': ^7.26.0
   '@theholocron/eslint-config': ^7.23.1
   '@theholocron/http-client': ^0.11.5
-  '@theholocron/lint-staged-config': ^7.20.0
-  '@theholocron/prettier-config': ^7.20.0
-  '@theholocron/semantic-release-config': ^7.20.0
+  '@theholocron/lint-staged-config': ^7.26.0
+  '@theholocron/prettier-config': ^7.26.0
+  '@theholocron/semantic-release-config': ^7.26.0
   '@theholocron/tsconfig': ^7.20.0
   '@theholocron/tsdown-config': ^7.20.0
   '@theholocron/vitest-config': ^7.20.0
@@ -31,7 +31,7 @@ catalogs:
     '@theholocron/holocron-config': ^7.31.0
     '@theholocron/holocron-plugin-cloudflare': ^3.46.0
     '@theholocron/holocron-plugin-fern': ^3.46.0
-    '@theholocron/holocron-plugin-github': ^3.24.4
+    '@theholocron/holocron-plugin-github': ^3.36.0
 
 overrides:
   '@eslint/json': ^1.2.0
