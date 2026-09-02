@@ -17,7 +17,7 @@ catalogs:
       version: 7.32.0
     '@theholocron/eslint-config':
       specifier: ^7.23.1
-      version: 7.32.0
+      version: 7.23.1
     '@theholocron/http-client':
       specifier: ^0.11.5
       version: 0.11.5
@@ -27,6 +27,9 @@ catalogs:
     '@theholocron/prettier-config':
       specifier: ^7.26.0
       version: 7.32.0
+    '@theholocron/semantic-release-config':
+      specifier: ^7.26.0
+      version: 7.26.0
     '@theholocron/tsconfig':
       specifier: ^7.20.0
       version: 7.20.0
@@ -151,7 +154,7 @@ importers:
         specifier: 'catalog:'
         version: 7.32.0(prettier@3.9.6)
       '@theholocron/semantic-release-config':
-        specifier: 7.26.0
+        specifier: 'catalog:'
         version: 7.26.0(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@5.9.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@5.9.3)))(@semantic-release/exec@7.1.0(semantic-release@25.0.9(typescript@5.9.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@5.9.3)))(@semantic-release/github@12.0.9(semantic-release@25.0.9(typescript@5.9.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@5.9.3)))(conventional-changelog-conventionalcommits@10.2.1)(semantic-release@25.0.9(typescript@5.9.3))
       '@theholocron/skills':
         specifier: ^1.3.2
