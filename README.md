@@ -6,6 +6,22 @@ API clients and shared HTTP primitives.
 
 <!-- /holocron:description -->
 
+<!-- holocron:installation -->
+
+## Installation
+
+```bash
+pnpm install @theholocron/clients
+```
+
+## Usage
+
+```typescript
+import {} from "@theholocron/clients";
+```
+
+<!-- /holocron:installation -->
+
 ## Packages
 
 | Package                                                          | Description                                                                           |
