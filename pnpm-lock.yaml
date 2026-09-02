@@ -76,6 +76,12 @@ catalogs:
     '@theholocron/holocron-config':
       specifier: ^7.31.0
       version: 7.31.0
+    '@theholocron/holocron-plugin-cloudflare':
+      specifier: ^3.46.0
+      version: 3.46.0
+    '@theholocron/holocron-plugin-fern':
+      specifier: ^3.46.0
+      version: 3.46.0
     '@theholocron/holocron-plugin-github':
       specifier: ^3.24.4
       version: 3.24.4
@@ -132,6 +138,12 @@ importers:
       '@theholocron/holocron-config':
         specifier: catalog:holocron
         version: 7.31.0(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))
+      '@theholocron/holocron-plugin-cloudflare':
+        specifier: catalog:holocron
+        version: 3.46.0(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))(@theholocron/cloudflare-client@1.13.0(vitest@4.1.10))
+      '@theholocron/holocron-plugin-fern':
+        specifier: catalog:holocron
+        version: 3.46.0(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))
       '@theholocron/holocron-plugin-github':
         specifier: catalog:holocron
         version: 3.24.4(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))(@theholocron/github-client@1.10.1(vitest@4.1.10))
@@ -2552,6 +2564,10 @@ packages:
     resolution: {integrity: sha512-Jjr929I+kwgt1Vto84JBvgQ7q54mzi3ESXI9WWVbDchqahkaVzohxRhiCddFYhe9Hq8Z8Lg4DgI1jYJNyxyelQ==}
     hasBin: true
 
+  '@theholocron/cloudflare-client@1.13.0':
+    resolution: {integrity: sha512-2m9QaOEJEd3l0gfBwhVawIgylhOV6B6S/s8HC1VpZ12KYknh7Ngl5zPV8/wFXw9JVl71R2wPjbeMNyXkwZi5Yw==}
+    engines: {node: '>=22.0.0'}
+
   '@theholocron/commitlint-config@7.20.0':
     resolution: {integrity: sha512-vyYsPHiNZ8i9wfwR+2uXjODVovQNR2dv6IdyM0BWjRVGq0EUqqACbMNzk26zE5gCL3EQSTzrr8wchCHMx9O0jw==}
     engines: {node: '>=22.0.0'}
@@ -2641,6 +2657,19 @@ packages:
     peerDependencies:
       '@theholocron/cli': '>=2.0.0-alpha.1'
 
+  '@theholocron/holocron-plugin-cloudflare@3.46.0':
+    resolution: {integrity: sha512-0EWyKbX5wITdOsP6tHjn5o/S35mgZkuzj5niKVx41vE6gv5zU/uSfZ+V3HCC/UPJc7kNKws1dLuVQyb/3iq+UQ==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      '@theholocron/cli': 3.46.0
+      '@theholocron/cloudflare-client': ^1.12.0
+
+  '@theholocron/holocron-plugin-fern@3.46.0':
+    resolution: {integrity: sha512-KqUH63Hx1/1lD927MgV/UtPhRvcUobOdPJWswYB+kgegStjfzxdqH6a2PTP1rb8zcqReXcnU1gapTZ3//LtuQQ==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      '@theholocron/cli': 3.46.0
+
   '@theholocron/holocron-plugin-github@3.24.4':
     resolution: {integrity: sha512-KSxAilwrfm+0dfZxs+dQncT/zBJOg6hWrcJRTRZn8JKi8MDFsok0NQEjwvEGvk8sjjXm6zRku3CVBheDQ1c2qw==}
     peerDependencies:
@@ -2653,6 +2682,15 @@ packages:
 
   '@theholocron/http-client@1.10.1':
     resolution: {integrity: sha512-FHerOw/q30t9v1NTnM+Wq7yxtKpYm30ISU0+HMnjM+2asI0eUmSVJe1uQAj08rTVmQZBaWv78spe/BWiYvfr/w==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      vitest: '>=4.0.0'
+    peerDependenciesMeta:
+      vitest:
+        optional: true
+
+  '@theholocron/http-client@1.13.0':
+    resolution: {integrity: sha512-mljMmFrsDbFHpeJzfZjOI2HuTIuxaA04h0r889VRz/41JW7B7Liw7e3V88w3vmhp1xEWCn9dVs60yQjiWtld1w==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       vitest: '>=4.0.0'
@@ -7877,6 +7915,12 @@ snapshots:
       - supports-color
       - vitest
 
+  '@theholocron/cloudflare-client@1.13.0(vitest@4.1.10)':
+    dependencies:
+      '@theholocron/http-client': 1.13.0(vitest@4.1.10)
+    transitivePeerDependencies:
+      - vitest
+
   '@theholocron/commitlint-config@7.20.0(@commitlint/cli@21.2.1(@types/node@26.2.0)(conventional-commits-parser@7.1.2)(typescript@5.9.3))(@commitlint/config-conventional@21.2.0)':
     dependencies:
       '@commitlint/cli': 21.2.1(@types/node@26.2.0)(conventional-commits-parser@7.1.2)(typescript@5.9.3)
@@ -7925,6 +7969,15 @@ snapshots:
     dependencies:
       '@theholocron/cli': 3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10)
 
+  '@theholocron/holocron-plugin-cloudflare@3.46.0(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))(@theholocron/cloudflare-client@1.13.0(vitest@4.1.10))':
+    dependencies:
+      '@theholocron/cli': 3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10)
+      '@theholocron/cloudflare-client': 1.13.0(vitest@4.1.10)
+
+  '@theholocron/holocron-plugin-fern@3.46.0(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))':
+    dependencies:
+      '@theholocron/cli': 3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10)
+
   '@theholocron/holocron-plugin-github@3.24.4(@theholocron/cli@3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10))(@theholocron/github-client@1.10.1(vitest@4.1.10))':
     dependencies:
       '@theholocron/cli': 3.29.2(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10)
@@ -7934,6 +7987,10 @@ snapshots:
   '@theholocron/http-client@0.11.5': {}
 
   '@theholocron/http-client@1.10.1(vitest@4.1.10)':
+    optionalDependencies:
+      vitest: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
+
+  '@theholocron/http-client@1.13.0(vitest@4.1.10)':
     optionalDependencies:
       vitest: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
 

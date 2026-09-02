@@ -27,8 +27,6 @@ const config: KnipConfig = {
 	},
 	ignoreDependencies: [
 		// Loaded at runtime by the holocron plugin system — not a static import
-		"@theholocron/holocron-plugin-cloudflare",
-		"@theholocron/holocron-plugin-fern",
 		"@theholocron/holocron-plugin-github",
 		// Used by the skills runtime, not a module import
 		"@theholocron/skills",
