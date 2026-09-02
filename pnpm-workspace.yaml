@@ -27,7 +27,7 @@ catalog:
 
 catalogs:
   holocron:
-    '@theholocron/cli': ^3.24.4
+    '@theholocron/cli': ^3.45.1
     '@theholocron/holocron-config': ^7.31.0
     '@theholocron/holocron-plugin-cloudflare': ^3.46.0
     '@theholocron/holocron-plugin-fern': ^3.46.0
