@@ -3029,6 +3029,15 @@ packages:
       vitest:
         optional: true
 
+  '@theholocron/http-client@1.15.0':
+    resolution: {integrity: sha512-AldaOEHVpoulT6sonGpPQto2DVALVek0Dk1wAfCSBO7ZikKaW/srnqeLlSbtMOkg3IBroOcZy6ICA994fHnygg==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      vitest: '>=4.0.0'
+    peerDependenciesMeta:
+      vitest:
+        optional: true
+
   '@theholocron/lint-staged-config@7.32.0':
     resolution: {integrity: sha512-VTABa6ES42zKMOBMQcxyv6u3+I6AKoyttnczP5pGJnXXe1yfXQ+jC9k8D5Gr/sGLHa+8BdxIIqm8UOQNDHomdA==}
     engines: {node: '>=22.0.0'}
@@ -4456,8 +4465,8 @@ packages:
     resolution: {integrity: sha512-YGGyuEdVIjqxkxVH1pUTMY/XtmmsApXrCVv5EU25iX6inEPbV+VakJfLealkBtJN69AQmh1eGOdCl9Sm1UP6XQ==}
     engines: {node: '>=18'}
 
-  gaxios@7.3.0:
-    resolution: {integrity: sha512-RB5vLV+vvQeoFPCX4QMK6/hjVkbIamPp1QSUD0CiZcnj12qbpiL+pLbYtgD+oZkWl0tl9z+o2Utp+MpM3QRhBA==}
+  gaxios@7.3.1:
+    resolution: {integrity: sha512-kB3rzJV7d9juLZh8/56QTXCwQfxyhdOMdyYk1HdQKFtF8TJTDTZQJtixWIwXdE9Jji91mC41DUNpjleo4L4eAQ==}
     engines: {node: '>=18'}
 
   gcp-metadata@8.1.2:
@@ -8887,7 +8896,7 @@ snapshots:
 
   '@theholocron/cloudflare-client@1.13.0(vitest@4.1.10)':
     dependencies:
-      '@theholocron/http-client': 1.14.0(vitest@4.1.10)
+      '@theholocron/http-client': 1.15.0(vitest@4.1.10)
     transitivePeerDependencies:
       - vitest
 
@@ -8976,6 +8985,10 @@ snapshots:
       vitest: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
 
   '@theholocron/http-client@1.14.0(vitest@4.1.10)':
+    optionalDependencies:
+      vitest: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
+
+  '@theholocron/http-client@1.15.0(vitest@4.1.10)':
     optionalDependencies:
       vitest: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
 
@@ -10438,7 +10451,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  gaxios@7.3.0:
+  gaxios@7.3.1:
     dependencies:
       extend: 3.0.2
       https-proxy-agent: 7.0.6
@@ -10448,7 +10461,7 @@ snapshots:
 
   gcp-metadata@8.1.2:
     dependencies:
-      gaxios: 7.3.0
+      gaxios: 7.3.1
       google-logging-utils: 1.1.3
       json-bigint: 1.0.0
     transitivePeerDependencies:
@@ -10537,7 +10550,7 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
-      gaxios: 7.3.0
+      gaxios: 7.3.1
       gcp-metadata: 8.1.2
       google-logging-utils: 1.1.3
       jws: 4.0.1
