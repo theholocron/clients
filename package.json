@@ -3,19 +3,25 @@
   "version": "1.15.1",
   "private": true,
   "description": "API clients and shared HTTP primitives.",
-  "license": "GPL-3.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theholocron/clients.git"
-  },
+  "keywords": [
+    "api",
+    "api-client",
+    "client",
+    "confluence",
+    "google",
+    "http-client",
+    "jira",
+    "nodejs",
+    "rest",
+    "typescript",
+    "zendesk"
+  ],
   "homepage": "https://docs.theholocron.dev/clients/",
   "bugs": "https://github.com/theholocron/clients/issues",
+  "repository": "github:theholocron/clients",
+  "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
   "type": "module",
-  "engines": {
-    "node": ">=22"
-  },
-  "packageManager": "pnpm@10.34.4",
   "scripts": {
     "audit": "knip",
     "build": "turbo run build",
@@ -30,19 +36,6 @@
     "typecheck": "turbo run typecheck",
     "prepare": "husky"
   },
-  "keywords": [
-    "api",
-    "api-client",
-    "client",
-    "confluence",
-    "google",
-    "http-client",
-    "jira",
-    "nodejs",
-    "rest",
-    "typescript",
-    "zendesk"
-  ],
   "devDependencies": {
     "@astrojs/starlight": "^0.41.7",
     "@commitlint/cli": "^21.2.1",
@@ -78,6 +71,10 @@
     "semantic-release": "^25.0.9",
     "turbo": "^2.10.9",
     "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.34.4",
+  "engines": {
+    "node": ">=22"
   },
   "pnpm": {
     "overrides": {
