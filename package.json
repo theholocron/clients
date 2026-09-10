@@ -3,32 +3,6 @@
   "version": "1.15.1",
   "private": true,
   "description": "API clients and shared HTTP primitives.",
-  "license": "GPL-3.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theholocron/clients.git"
-  },
-  "homepage": "https://docs.theholocron.dev/clients/",
-  "bugs": "https://github.com/theholocron/clients/issues",
-  "author": "Newton Koumantzelis",
-  "type": "module",
-  "engines": {
-    "node": ">=22"
-  },
-  "packageManager": "pnpm@10.34.4",
-  "scripts": {
-    "audit": "knip",
-    "build": "turbo run build",
-    "docs:build": "astro build",
-    "docs:dev": "astro dev",
-    "docs:preview": "astro preview",
-    "format": "prettier --write .",
-    "lint": "turbo run lint",
-    "release": "semantic-release",
-    "test": "turbo run test",
-    "test:coverage": "turbo run test:coverage",
-    "typecheck": "turbo run typecheck"
-  },
   "keywords": [
     "api",
     "api-client",
@@ -42,6 +16,26 @@
     "typescript",
     "zendesk"
   ],
+  "homepage": "https://docs.theholocron.dev/clients/",
+  "bugs": "https://github.com/theholocron/clients/issues",
+  "repository": "github:theholocron/clients",
+  "license": "GPL-3.0",
+  "author": "Newton Koumantzelis",
+  "type": "module",
+  "scripts": {
+    "audit": "knip",
+    "build": "turbo run build",
+    "docs:build": "astro build",
+    "docs:dev": "astro dev",
+    "docs:preview": "astro preview",
+    "format": "prettier --write .",
+    "lint": "turbo run lint",
+    "release": "semantic-release",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "typecheck": "turbo run typecheck",
+    "prepare": "husky"
+  },
   "devDependencies": {
     "@astrojs/starlight": "^0.41.7",
     "@commitlint/cli": "^21.2.1",
@@ -77,6 +71,10 @@
     "semantic-release": "^25.0.9",
     "turbo": "^2.10.9",
     "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.34.4",
+  "engines": {
+    "node": ">=22"
   },
   "pnpm": {
     "overrides": {
