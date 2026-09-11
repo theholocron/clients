@@ -1,22 +1,22 @@
 packages:
-  - 'packages/*'
+  - "packages/*"
 
 # Shared dep versions used across packages.
 catalog:
-  '@theholocron/astro-config': ^8.2.0
-  '@theholocron/commitlint-config': ^8.2.0
-  '@theholocron/devmoji-config': ^8.2.0
-  '@theholocron/eslint-config': ^8.2.0
-  '@theholocron/lint-staged-config': ^8.2.0
-  '@theholocron/observability': ^0.3.0
-  '@theholocron/prettier-config': ^8.2.0
-  '@theholocron/semantic-release-config': ^8.2.0
-  '@theholocron/tsconfig': ^8.2.0
-  '@theholocron/tsdown-config': ^8.2.0
-  '@theholocron/vitest-config': ^8.2.0
-  '@types/node': ^26.4.1
-  '@vitest/coverage-v8': ^5.0.0
-  '@vitest/eslint-plugin': ^1.6.25
+  "@theholocron/astro-config": ^8.2.0
+  "@theholocron/commitlint-config": ^8.2.0
+  "@theholocron/devmoji-config": ^8.2.0
+  "@theholocron/eslint-config": ^8.2.0
+  "@theholocron/lint-staged-config": ^8.2.0
+  "@theholocron/observability": ^0.3.0
+  "@theholocron/prettier-config": ^8.2.0
+  "@theholocron/semantic-release-config": ^8.2.0
+  "@theholocron/tsconfig": ^8.2.0
+  "@theholocron/tsdown-config": ^8.2.0
+  "@theholocron/vitest-config": ^8.2.0
+  "@types/node": ^26.4.1
+  "@vitest/coverage-v8": ^5.0.0
+  "@vitest/eslint-plugin": ^1.6.25
   eslint: ^10.8.1
   eslint-plugin-n: ^18.3.0
   eslint-plugin-simple-import-sort: ^14.0.0
@@ -27,11 +27,11 @@ catalog:
 
 catalogs:
   holocron:
-    '@theholocron/cli': ^4.16.2
-    '@theholocron/holocron-config': ^8.2.0
-    '@theholocron/holocron-plugin-cloudflare': ^4.16.2
-    '@theholocron/holocron-plugin-fern': ^4.16.2
-    '@theholocron/holocron-plugin-github': ^4.16.2
+    "@theholocron/cli": ^4.16.2
+    "@theholocron/holocron-config": ^8.2.0
+    "@theholocron/holocron-plugin-cloudflare": ^4.16.2
+    "@theholocron/holocron-plugin-fern": ^4.16.2
+    "@theholocron/holocron-plugin-github": ^4.16.2
 
 overrides:
-  '@eslint/json': ^1.2.0
+  "@eslint/json": ^1.2.0
