@@ -243,10 +243,7 @@ describe("createRestClient — logger seam", () => {
 			fetch,
 			logger,
 		}).request("/ping");
-		expect(logger.debug).toHaveBeenCalledWith(
-			{ vendor: "Example", method: "GET", path: "/ping" },
-			"request"
-		);
+		expect(logger.debug).toHaveBeenCalledWith({ vendor: "Example", method: "GET", path: "/ping" }, "request");
 		expect(logger.debug).toHaveBeenCalledWith(
 			{ vendor: "Example", method: "GET", path: "/ping", status: 200 },
 			"response"
@@ -266,7 +263,13 @@ describe("createRestClient — errors seam", () => {
 		const fetch = vi.fn(async () => {
 			throw new TypeError("fetch failed");
 		}) as unknown as typeof globalThis.fetch;
-		const errors = { init: vi.fn(), startSpan: vi.fn(), captureException: vi.fn(), endSession: vi.fn(), flush: vi.fn() };
+		const errors = {
+			init: vi.fn(),
+			startSpan: vi.fn(),
+			captureException: vi.fn(),
+			endSession: vi.fn(),
+			flush: vi.fn(),
+		};
 		await createRestClient({ baseUrl: "https://api.example.com", token: TOKEN, fetch, errors })
 			.request("/ping")
 			.catch(() => {});
@@ -276,7 +279,13 @@ describe("createRestClient — errors seam", () => {
 
 	it("reports an unexpected 5xx to the ErrorSink", async () => {
 		const { fetch } = stubFetch([{ status: 503, text: "unavailable" }]);
-		const errors = { init: vi.fn(), startSpan: vi.fn(), captureException: vi.fn(), endSession: vi.fn(), flush: vi.fn() };
+		const errors = {
+			init: vi.fn(),
+			startSpan: vi.fn(),
+			captureException: vi.fn(),
+			endSession: vi.fn(),
+			flush: vi.fn(),
+		};
 		await createRestClient({ baseUrl: "https://api.example.com", token: TOKEN, fetch, errors })
 			.request("/ping")
 			.catch(() => {});
@@ -286,7 +295,13 @@ describe("createRestClient — errors seam", () => {
 
 	it("does NOT report an expected 4xx to the ErrorSink", async () => {
 		const { fetch } = stubFetch([{ status: 404, text: "not found" }]);
-		const errors = { init: vi.fn(), startSpan: vi.fn(), captureException: vi.fn(), endSession: vi.fn(), flush: vi.fn() };
+		const errors = {
+			init: vi.fn(),
+			startSpan: vi.fn(),
+			captureException: vi.fn(),
+			endSession: vi.fn(),
+			flush: vi.fn(),
+		};
 		await createRestClient({ baseUrl: "https://api.example.com", token: TOKEN, fetch, errors })
 			.request("/ping")
 			.catch(() => {});

@@ -28,18 +28,18 @@ const data = await client.request<{ id: string }>("/widgets/42");
 
 **Config options:**
 
-| Option         | Type                     | Default            | Description                                      |
-| -------------- | ------------------------ | ------------------ | ------------------------------------------------ |
-| `baseUrl`      | `string`                 | —                  | Base URL, trailing slashes trimmed automatically |
-| `token`        | `string`                 | —                  | Auth token                                       |
-| `tokenScheme`  | `"bearer" \| "apikey"`   | `"bearer"`         | How the token is sent                            |
-| `apiKeyHeader` | `string`                 | `"x-api-key"`      | Header name when `tokenScheme` is `"apikey"`     |
-| `extraHeaders` | `Record<string, string>` | —                  | Static headers merged into every request         |
-| `defaultQuery` | `Record<string, string>` | —                  | Query params appended to every request URL       |
-| `vendor`       | `string`                 | —                  | Vendor label for error messages                  |
-| `fetch`        | `typeof fetch`           | `globalThis.fetch` | Override fetch for testing                       |
+| Option         | Type                     | Default            | Description                                       |
+| -------------- | ------------------------ | ------------------ | ------------------------------------------------- |
+| `baseUrl`      | `string`                 | —                  | Base URL, trailing slashes trimmed automatically  |
+| `token`        | `string`                 | —                  | Auth token                                        |
+| `tokenScheme`  | `"bearer" \| "apikey"`   | `"bearer"`         | How the token is sent                             |
+| `apiKeyHeader` | `string`                 | `"x-api-key"`      | Header name when `tokenScheme` is `"apikey"`      |
+| `extraHeaders` | `Record<string, string>` | —                  | Static headers merged into every request          |
+| `defaultQuery` | `Record<string, string>` | —                  | Query params appended to every request URL        |
+| `vendor`       | `string`                 | —                  | Vendor label for error messages                   |
+| `fetch`        | `typeof fetch`           | `globalThis.fetch` | Override fetch for testing                        |
 | `logger`       | `Logger`                 | no-op              | Structured request/response diagnostics (`debug`) |
-| `errors`       | `ErrorSink`               | no-op              | Reports transport failures + unexpected 5xx       |
+| `errors`       | `ErrorSink`              | no-op              | Reports transport failures + unexpected 5xx       |
 
 **Observability seam.** `logger` and `errors` accept the `Logger` / `ErrorSink`
 interfaces from [`@theholocron/observability/core`](https://github.com/theholocron/observability)
