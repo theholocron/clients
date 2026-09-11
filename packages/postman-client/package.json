@@ -1,6 +1,6 @@
 {
   "name": "@theholocron/postman-client",
-  "version": "1.15.1",
+  "version": "1.16.0",
   "description": "A TypeScript client for the Postman API",
   "keywords": [
     "postman",
@@ -39,7 +39,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@theholocron/http-client": "workspace:^"
+    "@theholocron/http-client": "workspace:^",
+    "@theholocron/observability": "catalog:"
   },
   "devDependencies": {
     "@theholocron/eslint-config": "catalog:",
