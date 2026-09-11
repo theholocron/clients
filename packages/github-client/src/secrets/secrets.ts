@@ -2,7 +2,9 @@ import type { RestClient } from "../utils.js";
 import { repoBase } from "../utils.js";
 
 export type SecretScope =
-	{ kind: "repo" } | { kind: "environment"; name: string } | { kind: "organization"; org: string };
+	| { kind: "repo" }
+	| { kind: "environment"; name: string }
+	| { kind: "organization"; org: string };
 
 export interface GitHubPublicKey {
 	key_id: string;
