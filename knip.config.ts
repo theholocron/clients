@@ -46,7 +46,6 @@ const config: KnipConfig = {
 		"@theholocron/devmoji-config",
 		// binary tools — invoked via CLI or hooks, not module imports
 		"alexjs",
-		"husky",
 	],
 	ignoreExportsUsedInFile: true,
 };
