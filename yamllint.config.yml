@@ -1,9 +1,6 @@
 ---
-extends: default
 
-ignore-from-file:
-  - .gitignore
-  - .yamlignore
+extends: default
 
 rules:
   comments:
