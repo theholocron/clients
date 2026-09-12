@@ -10,15 +10,8 @@ API clients and shared HTTP primitives.
 
 ## Installation
 
-```bash
-pnpm install @theholocron/clients
-```
-
-## Usage
-
-```typescript
-import {} from "@theholocron/clients";
-```
+This repository is a workspace root — it is not published. See the
+packages under [`packages/`](./packages) for the tools it ships.
 
 <!-- /holocron:installation -->
 
