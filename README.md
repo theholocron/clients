@@ -3,7 +3,6 @@
 <!-- holocron:description -->
 
 API clients and shared HTTP primitives.
-
 <!-- /holocron:description -->
 
 <!-- holocron:installation -->
