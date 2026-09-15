@@ -4,7 +4,7 @@ const config: KnipConfig = {
 	workspaces: {
 		".": {
 			// prettier.config.ts, eslint.config.ts, release.config.ts, commitlint.config.ts auto-detected by Knip plugins
-			entry: ["holocron.config.ts", "docs/src/content.config.ts"],
+			entry: ["holocron.config.ts", "astromech.config.ts", "docs/src/content.config.ts"],
 			project: ["*.ts", "docs/src/**/*.ts"],
 			// astro.config.ts is the docs build config, not an Astro workspace — disable plugin
 			astro: false,
@@ -46,6 +46,12 @@ const config: KnipConfig = {
 		"@theholocron/devmoji-config",
 		// binary tools — invoked via CLI or hooks, not module imports
 		"alexjs",
+		// invoked by @theholocron/lint-staged-config tasks, not a direct import
+		"sort-package-json",
+		// @theholocron/astro-config's defineConfig() wires react() into the Astro
+		// integrations list internally — a required peer dep, but astro.config.ts
+		// never imports it directly, so Knip can't trace the usage
+		"@astrojs/react",
 	],
 	ignoreExportsUsedInFile: true,
 };
