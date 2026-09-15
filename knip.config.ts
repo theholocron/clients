@@ -4,7 +4,7 @@ const config: KnipConfig = {
 	workspaces: {
 		".": {
 			// prettier.config.ts, eslint.config.ts, release.config.ts, commitlint.config.ts auto-detected by Knip plugins
-			entry: ["holocron.config.ts", "docs/src/content.config.ts"],
+			entry: ["holocron.config.ts", "astromech.config.ts", "docs/src/content.config.ts"],
 			project: ["*.ts", "docs/src/**/*.ts"],
 			// astro.config.ts is the docs build config, not an Astro workspace — disable plugin
 			astro: false,
