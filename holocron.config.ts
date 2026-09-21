@@ -57,8 +57,11 @@ export default defineConfig({
 	],
 	// Task-backed checks (Static Analysis / Test / Typecheck / … Conclusion) are
 	// derived from the `{ required: true }` tasks. These are the extras:
-	// codecov project-wide gates + one per-package patch gate.
+	// codecov project-wide gates + one per-package patch gate, plus Sentinel's
+	// capability-compliance check (posted directly via the Checks API from a
+	// webhook, not backed by a task — see holocron#672/#679).
 	extraRequiredChecks: [
+		"Sentinel / Capability Compliance",
 		"codecov/patch",
 		"codecov/project",
 		"codecov/patch/clerk-client",
