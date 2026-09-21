@@ -1,3 +1,9 @@
+/* eslint-disable n/no-unsupported-features/node-builtins -- this dir only ever runs under
+ * vitest/Node, never Workers, so eslint-plugin-n's node-builtins compat-table warning
+ * (crypto.subtle flagged experimental on this repo's engines floor) doesn't apply here.
+ * Source-level, not config-level, because astromech's --config resolver currently
+ * overrides this package's local eslint.config.ts entirely (theholocron/holocron#749) —
+ * drop this once that's fixed and the local exception is honored again. */
 import { createPublicKey, generateKeyPairSync, verify } from "node:crypto";
 
 import { describe, expect, it } from "vitest";
@@ -19,12 +25,21 @@ describe("importRsaPrivateKey", () => {
 			const key = await importRsaPrivateKey(pem);
 
 			const message = new TextEncoder().encode("test-message");
-			const signature = await crypto.subtle.sign("RSASSA-PKCS1-v1_5", key, message);
+			const signature = await crypto.subtle.sign(
+				"RSASSA-PKCS1-v1_5",
+				key,
+				message,
+			);
 
 			const publicKey = createPublicKey(pem);
-			const isValid = verify("sha256", message, publicKey, new Uint8Array(signature));
+			const isValid = verify(
+				"sha256",
+				message,
+				publicKey,
+				new Uint8Array(signature),
+			);
 			expect(isValid).toBe(true);
-		}
+		},
 	);
 
 	it("imports as a non-extractable, sign-only key", async () => {
@@ -46,6 +61,8 @@ describe("base64UrlEncode", () => {
 	it("round-trips through Buffer's base64url decoding", () => {
 		const bytes = new TextEncoder().encode("hello world");
 		const encoded = base64UrlEncode(bytes);
-		expect(Buffer.from(encoded, "base64url").toString()).toBe("hello world");
+		expect(Buffer.from(encoded, "base64url").toString()).toBe(
+			"hello world",
+		);
 	});
 });

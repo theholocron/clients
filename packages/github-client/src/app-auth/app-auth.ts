@@ -9,6 +9,15 @@
  * https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation
  */
 
+/* eslint-disable n/no-unsupported-features/node-builtins -- Web Crypto (crypto.subtle) is
+ * deliberate here, not an oversight — it's what lets GitHub App JWT signing run unchanged
+ * on Cloudflare Workers (no node:crypto, no nodejs_compat flag) and in Node.
+ * eslint-plugin-n's node-builtins compat table still flags the global as experimental on
+ * this repo's engines floor even though it's been stable and verified working.
+ * Source-level, not config-level, because astromech's --config resolver currently
+ * overrides this package's local eslint.config.ts entirely (theholocron/holocron#749) —
+ * drop this once that's fixed and the local exception is honored again. */
+
 import { ProviderApiError } from "@theholocron/http-client";
 
 import { createGitHubClient, type GitHubClient } from "../index.js";
@@ -37,16 +46,29 @@ const JWT_LIFETIME_SECONDS = 600;
  * credential used only to request an installation access token, never
  * to call the REST API directly.
  */
-export async function createAppJWT(creds: GitHubAppCredentials, now: number = Date.now()): Promise<string> {
+export async function createAppJWT(
+	creds: GitHubAppCredentials,
+	now: number = Date.now(),
+): Promise<string> {
 	const key = await importRsaPrivateKey(creds.privateKey);
 	const iat = Math.floor(now / 1000) - CLOCK_DRIFT_BUFFER_SECONDS;
 	const exp = iat + JWT_LIFETIME_SECONDS;
 
-	const header = base64UrlEncode(new TextEncoder().encode(JSON.stringify({ alg: "RS256", typ: "JWT" })));
-	const payload = base64UrlEncode(new TextEncoder().encode(JSON.stringify({ iat, exp, iss: creds.appId })));
+	const header = base64UrlEncode(
+		new TextEncoder().encode(JSON.stringify({ alg: "RS256", typ: "JWT" })),
+	);
+	const payload = base64UrlEncode(
+		new TextEncoder().encode(
+			JSON.stringify({ iat, exp, iss: creds.appId }),
+		),
+	);
 	const signingInput = `${header}.${payload}`;
 
-	const signature = await crypto.subtle.sign("RSASSA-PKCS1-v1_5", key, new TextEncoder().encode(signingInput));
+	const signature = await crypto.subtle.sign(
+		"RSASSA-PKCS1-v1_5",
+		key,
+		new TextEncoder().encode(signingInput),
+	);
 	return `${signingInput}.${base64UrlEncode(new Uint8Array(signature))}`;
 }
 
@@ -59,26 +81,29 @@ export async function createAppJWT(creds: GitHubAppCredentials, now: number = Da
 export async function getInstallationAccessToken(
 	creds: GitHubAppCredentials,
 	installationId: number,
-	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {}
+	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {},
 ): Promise<InstallationAccessToken> {
 	const jwt = await createAppJWT(creds);
 	const baseUrl = opts.baseUrl ?? "https://api.github.com";
 	const fetchImpl = opts.fetch ?? globalThis.fetch;
 
-	const res = await fetchImpl(`${baseUrl}/app/installations/${installationId}/access_tokens`, {
-		method: "POST",
-		headers: {
-			authorization: `Bearer ${jwt}`,
-			accept: "application/vnd.github+json",
-			"x-github-api-version": "2022-11-28",
+	const res = await fetchImpl(
+		`${baseUrl}/app/installations/${installationId}/access_tokens`,
+		{
+			method: "POST",
+			headers: {
+				authorization: `Bearer ${jwt}`,
+				accept: "application/vnd.github+json",
+				"x-github-api-version": "2022-11-28",
+			},
 		},
-	});
+	);
 	if (!res.ok) {
 		const body = await res.text().catch(() => "");
 		throw new ProviderApiError(
 			`GitHub POST /app/installations/${installationId}/access_tokens → ${res.status}`,
 			res.status,
-			body
+			body,
 		);
 	}
 	const json = (await res.json()) as { token: string; expires_at: string };
@@ -89,8 +114,16 @@ export async function getInstallationAccessToken(
 export async function createInstallationClient(
 	creds: GitHubAppCredentials,
 	installationId: number,
-	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {}
+	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {},
 ): Promise<GitHubClient> {
-	const { token } = await getInstallationAccessToken(creds, installationId, opts);
-	return createGitHubClient({ token, baseUrl: opts.baseUrl, fetch: opts.fetch });
+	const { token } = await getInstallationAccessToken(
+		creds,
+		installationId,
+		opts,
+	);
+	return createGitHubClient({
+		token,
+		baseUrl: opts.baseUrl,
+		fetch: opts.fetch,
+	});
 }
