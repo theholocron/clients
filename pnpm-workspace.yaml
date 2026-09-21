@@ -7,7 +7,7 @@ catalog:
   "@theholocron/commitlint-config": ^8.2.0
   "@theholocron/devmoji-config": ^8.2.0
   "@theholocron/eslint-config": ^8.4.3
-  "@theholocron/lint-staged-config": ^8.2.0
+  "@theholocron/lint-staged-config": ^8.4.4
   "@theholocron/observability": ^0.3.0
   "@theholocron/prettier-config": ^8.2.0
   "@theholocron/semantic-release-config": ^8.2.0
