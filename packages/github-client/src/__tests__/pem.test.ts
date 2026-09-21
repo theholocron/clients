@@ -25,21 +25,12 @@ describe("importRsaPrivateKey", () => {
 			const key = await importRsaPrivateKey(pem);
 
 			const message = new TextEncoder().encode("test-message");
-			const signature = await crypto.subtle.sign(
-				"RSASSA-PKCS1-v1_5",
-				key,
-				message,
-			);
+			const signature = await crypto.subtle.sign("RSASSA-PKCS1-v1_5", key, message);
 
 			const publicKey = createPublicKey(pem);
-			const isValid = verify(
-				"sha256",
-				message,
-				publicKey,
-				new Uint8Array(signature),
-			);
+			const isValid = verify("sha256", message, publicKey, new Uint8Array(signature));
 			expect(isValid).toBe(true);
-		},
+		}
 	);
 
 	it("imports as a non-extractable, sign-only key", async () => {
@@ -61,8 +52,6 @@ describe("base64UrlEncode", () => {
 	it("round-trips through Buffer's base64url decoding", () => {
 		const bytes = new TextEncoder().encode("hello world");
 		const encoded = base64UrlEncode(bytes);
-		expect(Buffer.from(encoded, "base64url").toString()).toBe(
-			"hello world",
-		);
+		expect(Buffer.from(encoded, "base64url").toString()).toBe("hello world");
 	});
 });

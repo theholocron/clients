@@ -63,17 +63,12 @@ function encodeDerLength(len: number): Uint8Array {
 }
 
 function derEncode(tag: number, content: Uint8Array): Uint8Array {
-	return concat(
-		new Uint8Array([tag]),
-		encodeDerLength(content.length),
-		content,
-	);
+	return concat(new Uint8Array([tag]), encodeDerLength(content.length), content);
 }
 
 /** SEQUENCE { OID rsaEncryption, NULL } — the fixed PKCS#8 AlgorithmIdentifier for RSA. */
 const RSA_ALGORITHM_IDENTIFIER = new Uint8Array([
-	0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01,
-	0x01, 0x05, 0x00,
+	0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00,
 ]);
 
 function pkcs1ToPkcs8(pkcs1: Uint8Array): Uint8Array {
@@ -90,21 +85,12 @@ export async function importRsaPrivateKey(pem: string): Promise<CryptoKey> {
 	// .slice() normalizes to a Uint8Array<ArrayBuffer> — importKey's BufferSource
 	// param rejects the wider Uint8Array<ArrayBufferLike> TS otherwise infers here.
 	const pkcs8Der = (isPkcs1 ? pkcs1ToPkcs8(der) : der).slice();
-	return crypto.subtle.importKey(
-		"pkcs8",
-		pkcs8Der,
-		{ name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
-		false,
-		["sign"],
-	);
+	return crypto.subtle.importKey("pkcs8", pkcs8Der, { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["sign"]);
 }
 
 /** Base64url (no padding) — the encoding both JWT segments and the signature use. */
 export function base64UrlEncode(bytes: Uint8Array): string {
 	let binary = "";
 	for (const byte of bytes) binary += String.fromCharCode(byte);
-	return btoa(binary)
-		.replace(/\+/g, "-")
-		.replace(/\//g, "_")
-		.replace(/=+$/, "");
+	return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }

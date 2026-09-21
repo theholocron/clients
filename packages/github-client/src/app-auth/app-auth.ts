@@ -46,29 +46,16 @@ const JWT_LIFETIME_SECONDS = 600;
  * credential used only to request an installation access token, never
  * to call the REST API directly.
  */
-export async function createAppJWT(
-	creds: GitHubAppCredentials,
-	now: number = Date.now(),
-): Promise<string> {
+export async function createAppJWT(creds: GitHubAppCredentials, now: number = Date.now()): Promise<string> {
 	const key = await importRsaPrivateKey(creds.privateKey);
 	const iat = Math.floor(now / 1000) - CLOCK_DRIFT_BUFFER_SECONDS;
 	const exp = iat + JWT_LIFETIME_SECONDS;
 
-	const header = base64UrlEncode(
-		new TextEncoder().encode(JSON.stringify({ alg: "RS256", typ: "JWT" })),
-	);
-	const payload = base64UrlEncode(
-		new TextEncoder().encode(
-			JSON.stringify({ iat, exp, iss: creds.appId }),
-		),
-	);
+	const header = base64UrlEncode(new TextEncoder().encode(JSON.stringify({ alg: "RS256", typ: "JWT" })));
+	const payload = base64UrlEncode(new TextEncoder().encode(JSON.stringify({ iat, exp, iss: creds.appId })));
 	const signingInput = `${header}.${payload}`;
 
-	const signature = await crypto.subtle.sign(
-		"RSASSA-PKCS1-v1_5",
-		key,
-		new TextEncoder().encode(signingInput),
-	);
+	const signature = await crypto.subtle.sign("RSASSA-PKCS1-v1_5", key, new TextEncoder().encode(signingInput));
 	return `${signingInput}.${base64UrlEncode(new Uint8Array(signature))}`;
 }
 
@@ -81,29 +68,26 @@ export async function createAppJWT(
 export async function getInstallationAccessToken(
 	creds: GitHubAppCredentials,
 	installationId: number,
-	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {},
+	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {}
 ): Promise<InstallationAccessToken> {
 	const jwt = await createAppJWT(creds);
 	const baseUrl = opts.baseUrl ?? "https://api.github.com";
 	const fetchImpl = opts.fetch ?? globalThis.fetch;
 
-	const res = await fetchImpl(
-		`${baseUrl}/app/installations/${installationId}/access_tokens`,
-		{
-			method: "POST",
-			headers: {
-				authorization: `Bearer ${jwt}`,
-				accept: "application/vnd.github+json",
-				"x-github-api-version": "2022-11-28",
-			},
+	const res = await fetchImpl(`${baseUrl}/app/installations/${installationId}/access_tokens`, {
+		method: "POST",
+		headers: {
+			authorization: `Bearer ${jwt}`,
+			accept: "application/vnd.github+json",
+			"x-github-api-version": "2022-11-28",
 		},
-	);
+	});
 	if (!res.ok) {
 		const body = await res.text().catch(() => "");
 		throw new ProviderApiError(
 			`GitHub POST /app/installations/${installationId}/access_tokens → ${res.status}`,
 			res.status,
-			body,
+			body
 		);
 	}
 	const json = (await res.json()) as { token: string; expires_at: string };
@@ -114,13 +98,9 @@ export async function getInstallationAccessToken(
 export async function createInstallationClient(
 	creds: GitHubAppCredentials,
 	installationId: number,
-	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {},
+	opts: Pick<GitHubClientOptions, "baseUrl" | "fetch"> = {}
 ): Promise<GitHubClient> {
-	const { token } = await getInstallationAccessToken(
-		creds,
-		installationId,
-		opts,
-	);
+	const { token } = await getInstallationAccessToken(creds, installationId, opts);
 	return createGitHubClient({
 		token,
 		baseUrl: opts.baseUrl,
