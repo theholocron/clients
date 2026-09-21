@@ -34,10 +34,18 @@ const config: KnipConfig = {
 		"@theholocron/skills",
 		// tsconfig.json "extends" — not a module import
 		"@theholocron/tsconfig",
-		// commitlint "extends" uses string shorthand — Knip sees the bare scoped
-		// org "@theholocron" rather than "@theholocron/commitlint-config"
+		// resolved by astromech's CLI --config splice from node_modules, not a
+		// module import — root commitlint.config.ts was removed as redundant
+		// (epic #672 Phase 5); CI's platform.commitStandards.yml already points
+		// --config at this package's built dist/index.js explicitly
 		"@theholocron/commitlint-config",
-		"@theholocron",
+		// resolved by astromech's CLI --config splice from node_modules, not a
+		// module import — root prettier.config.ts removed as redundant (same)
+		"@theholocron/prettier-config",
+		// resolved by astromech's CLI --config splice from node_modules, not a
+		// module import — per-package vitest.config.ts files removed as
+		// redundant, same mechanism (epic #672 Phase 5)
+		"@theholocron/vitest-config",
 		// pinned as a pnpm override; not directly imported by root code
 		"@commitlint/config-conventional",
 		// passed as --config arg to lint-staged binary in .husky/pre-commit
