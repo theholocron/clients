@@ -6,8 +6,8 @@ catalog:
   "@theholocron/astro-config": ^8.2.0
   "@theholocron/commitlint-config": ^8.2.0
   "@theholocron/devmoji-config": ^8.2.0
-  "@theholocron/eslint-config": ^8.2.0
-  "@theholocron/lint-staged-config": ^8.2.0
+  "@theholocron/eslint-config": ^8.4.3
+  "@theholocron/lint-staged-config": ^8.4.4
   "@theholocron/observability": ^0.3.0
   "@theholocron/prettier-config": ^8.2.0
   "@theholocron/semantic-release-config": ^8.2.0
@@ -27,11 +27,11 @@ catalog:
 
 catalogs:
   holocron:
-    "@theholocron/astromech": 5.0.0-alpha.3
-    "@theholocron/cli": 5.0.0-alpha.3
-    "@theholocron/holocron-plugin-cloudflare": 5.0.0-alpha.3
-    "@theholocron/holocron-plugin-fern": 5.0.0-alpha.3
-    "@theholocron/holocron-plugin-github": 5.0.0-alpha.3
+    "@theholocron/astromech": 5.0.0-alpha.33
+    "@theholocron/cli": 5.0.0-alpha.33
+    "@theholocron/holocron-plugin-cloudflare": 5.0.0-alpha.33
+    "@theholocron/holocron-plugin-fern": 5.0.0-alpha.33
+    "@theholocron/holocron-plugin-github": 5.0.0-alpha.33
 
 overrides:
   "@eslint/json": ^1.2.0
