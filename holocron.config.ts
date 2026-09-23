@@ -41,7 +41,6 @@ export default defineConfig({
 		{ name: "sourceQuality.formatting", required: true },
 		{ name: "sourceQuality.structuredDataValidation", required: true },
 		{ name: "security.secretDetection", required: true },
-		{ name: "platform.commitStandards", required: true },
 		{ name: "verification.unitTests", required: true },
 		"security.codeScanning",
 		"review",
@@ -58,10 +57,15 @@ export default defineConfig({
 	// Task-backed checks (Static Analysis / Test / Typecheck / … Conclusion) are
 	// derived from the `{ required: true }` tasks. These are the extras:
 	// codecov project-wide gates + one per-package patch gate, plus Sentinel's
-	// capability-compliance check (posted directly via the Checks API from a
-	// webhook, not backed by a task — see holocron#672/#679).
+	// two checks (posted directly via the Checks API from a webhook, not
+	// backed by a task — see holocron#672/#679/#769/#771). Commit Standards
+	// moved here from platform.commitStandards's own task-backed CI job,
+	// which is redundant with Sentinel's centralized version now that it's
+	// proven — the local .husky/commit-msg hook still gives fast pre-push
+	// feedback independent of either (D2, tech-sentinel-enforcement.spec.md).
 	extraRequiredChecks: [
 		"Sentinel / Capability Compliance",
+		"Sentinel / Platform / Commit Standards / Run commitlint",
 		"codecov/patch",
 		"codecov/project",
 		"codecov/patch/clerk-client",
