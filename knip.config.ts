@@ -46,6 +46,16 @@ const config: KnipConfig = {
 		// module import — per-package vitest.config.ts files removed as
 		// redundant, same mechanism (epic #672 Phase 5)
 		"@theholocron/vitest-config",
+		// resolved by astromech's CLI --config splice from node_modules, not a
+		// module import — per-package tsdown.config.ts files removed as
+		// redundant, same mechanism (epic #672 Phase 5, #762)
+		"@theholocron/tsdown-config",
+		// invoked as a CLI binary (node_modules/.bin/tsdown) via each
+		// package's "holocron run delivery.build --" script — vitest stays
+		// traceable because test files still `import { ... } from "vitest"`
+		// directly, but tsdown's own local config file (the only thing that
+		// ever imported it as a module) is gone now, same as above
+		"tsdown",
 		// pinned as a pnpm override; not directly imported by root code
 		"@commitlint/config-conventional",
 		// passed as --config arg to lint-staged binary in .husky/pre-commit
