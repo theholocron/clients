@@ -53,6 +53,7 @@ export default defineConfig({
 		// live -- a real, known task added fresh on this PR's own branch,
 		// not yet merged to main.
 		"verification.performance",
+		"totally-made-up-task",
 		// knowledge.docs implies docs: true — same idiom as theholocron/holocron
 		// (no Storybook here either).
 		{ name: "knowledge.docs", with: { preview: true } },
