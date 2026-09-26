@@ -38,7 +38,11 @@ export default defineConfig({
 	},
 	tasks: [
 		{ name: "sourceQuality.staticAnalysis", required: true },
-		{ name: "sourceQuality.formatting", required: true },
+		// autoFix is a disposable, PR-branch-only opt-in for holocron#820's
+		// live verification pass -- never merged to main, proves the
+		// ref-aware validateConfig() a PR can use to opt itself in without a
+		// separate main-branch config PR (holocron#828).
+		{ name: "sourceQuality.formatting", required: true, with: { autoFix: true } },
 		{ name: "sourceQuality.structuredDataValidation", required: true },
 		{ name: "security.secretDetection", required: true },
 		{ name: "verification.unitTests", required: true },
