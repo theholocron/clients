@@ -49,6 +49,10 @@ export default defineConfig({
 		"dependencies",
 		"bookkeeping",
 		{ name: "verification.typeSafety", required: true },
+		// Disposable: proving out holocron#827's PR Config Validation check
+		// live -- a real, known task added fresh on this PR's own branch,
+		// not yet merged to main.
+		"verification.performance",
 		// knowledge.docs implies docs: true — same idiom as theholocron/holocron
 		// (no Storybook here either).
 		{ name: "knowledge.docs", with: { preview: true } },
