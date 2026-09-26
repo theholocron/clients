@@ -1,4 +1,4 @@
-# Sentinel Live Verification
+#  Sentinel Live Verification
 
 This is a disposable test file for verifying Sentinel's Bucket 1 checks end-to-end (holocron#769/#816/#819/#820/#828). It will be deleted once verification is confirmed.
 
