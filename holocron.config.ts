@@ -38,7 +38,9 @@ export default defineConfig({
 	},
 	tasks: [
 		{ name: "sourceQuality.staticAnalysis", required: true },
-		{ name: "sourceQuality.formatting", required: true },
+		// Disposable: proving out holocron#834's PR comment live -- not merged
+		// to main.
+		{ name: "sourceQuality.formatting", required: true, with: { autoFix: true } },
 		{ name: "sourceQuality.structuredDataValidation", required: true },
 		{ name: "security.secretDetection", required: true },
 		{ name: "verification.unitTests", required: true },
