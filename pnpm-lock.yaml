@@ -34,8 +34,8 @@ catalogs:
       specifier: ^8.2.0
       version: 8.2.1
     "@theholocron/tsdown-config":
-      specifier: ^8.5.0
-      version: 8.5.0
+      specifier: ^8.5.2
+      version: 8.5.2
     "@theholocron/vitest-config":
       specifier: ^8.2.0
       version: 8.2.1
@@ -227,7 +227,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -282,7 +282,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -337,7 +337,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -392,7 +392,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -447,7 +447,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -508,7 +508,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -563,7 +563,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -618,7 +618,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -673,7 +673,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -728,7 +728,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -783,7 +783,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -838,7 +838,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -893,7 +893,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -948,7 +948,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -1003,7 +1003,7 @@ importers:
         version: 8.2.1(typescript@5.9.3)
       "@theholocron/tsdown-config":
         specifier: "catalog:"
-        version: 8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
+        version: 8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))
       "@theholocron/vitest-config":
         specifier: "catalog:"
         version: 8.2.1(@vitest/coverage-v8@5.0.0)(vitest@5.0.0)
@@ -3472,9 +3472,9 @@ packages:
     peerDependencies:
       typescript: ^5
 
-  "@theholocron/tsdown-config@8.5.0":
+  "@theholocron/tsdown-config@8.5.2":
     resolution:
-      { integrity: sha512-60NLrHoEBOVxR93S+biup/RSyfugi0pGLnXtD0d2Q7ZtiUukvNC8JgM4oPjIg2yVisWo9x/BKC3REWgJHIG3Jg== }
+      { integrity: sha512-RSC74+wom3/FBe6HjBRxdfQQwb5Yi5GkEb2AKJ0wp1K5HO2hYGRqeiw6sAhE6Mt5I42VAWDH6OyFItte1eBurA== }
     engines: { node: ">=22.0.0" }
     peerDependencies:
       tsdown: ^0
@@ -5501,9 +5501,9 @@ packages:
       { integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g== }
     engines: { node: ">= 4" }
 
-  ignore@7.0.9:
+  ignore@7.0.10:
     resolution:
-      { integrity: sha512-brTTsvFRt5C1gGHtPst/281UjPD5t9fBqbgoMPlVWy11ZLTPfu7HxK4ZYqO9H7o/yC9rSTCI85EaQ4OoY12qYw== }
+      { integrity: sha512-HpbUakT7xp5miBUywCHf36ZEuAJNklBJDDsGpUIjMzOSmM8ELSfA9Sa/QDPeNeqeoN31u+UTCkL4klCOVvRm4Q== }
     engines: { node: ">= 4" }
 
   import-fresh@3.3.1:
@@ -10072,7 +10072,7 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  "@theholocron/tsdown-config@8.5.0(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))":
+  "@theholocron/tsdown-config@8.5.2(tsdown@0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3))":
     dependencies:
       tsdown: 0.22.14(oxc-resolver@11.24.2)(tsx@4.22.4)(typescript@5.9.3)
 
@@ -10207,7 +10207,7 @@ snapshots:
       "@typescript-eslint/utils": 8.63.0(eslint@10.8.1(jiti@2.7.0))(typescript@5.9.3)
       "@typescript-eslint/visitor-keys": 8.63.0
       eslint: 10.8.1(jiti@2.7.0)
-      ignore: 7.0.9
+      ignore: 7.0.10
       natural-compare: 1.4.0
       ts-api-utils: 2.5.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -11795,7 +11795,7 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  ignore@7.0.9: {}
+  ignore@7.0.10: {}
 
   import-fresh@3.3.1:
     dependencies:
