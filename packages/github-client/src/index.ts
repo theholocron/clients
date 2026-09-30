@@ -54,7 +54,14 @@ export type {
 	PagesBuildType,
 	UpdatePagesPayload,
 } from "./pages/pages.js";
-export type { GitHubPullRequest, GitHubPullRequestCommit, GitHubPullRequestFile } from "./pulls/pulls.js";
+export type {
+	CreateReviewComment,
+	CreateReviewInput,
+	GitHubPullRequest,
+	GitHubPullRequestCommit,
+	GitHubPullRequestFile,
+	GitHubPullRequestReview,
+} from "./pulls/pulls.js";
 export type { GitHubContents, GitHubRepo } from "./repos/repos.js";
 export type { GitHubRuleset } from "./rulesets/rulesets.js";
 export type { GitHubPublicKey, SecretScope } from "./secrets/secrets.js";

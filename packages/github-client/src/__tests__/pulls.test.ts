@@ -63,3 +63,46 @@ describe("pulls.listFiles", () => {
 		expect(result[1]?.previous_filename).toBe("name.ts");
 	});
 });
+
+describe("pulls.createReview", () => {
+	it("POSTs /repos/{owner}/{name}/pulls/{number}/reviews with the given body", async () => {
+		const { fetch, calls } = stubFetch([
+			{ body: { id: 99, html_url: "https://github.com/theholocron/test-repo/pull/42#pullrequestreview-99" } },
+		]);
+		const client = createGitHubClient({ token: TOKEN, fetch });
+
+		const result = await client.pulls.createReview(REPO, 42, {
+			commit_id: "abc123",
+			body: "2 error(s) found — see inline comments below.",
+			event: "COMMENT",
+			comments: [{ path: "src/index.ts", line: 12, side: "RIGHT", body: "'x' is defined but never used." }],
+		});
+
+		expect(calls[0]?.method).toBe("POST");
+		expect(calls[0]?.url).toContain("/repos/theholocron/test-repo/pulls/42/reviews");
+		expect(calls[0]?.body).toEqual({
+			commit_id: "abc123",
+			body: "2 error(s) found — see inline comments below.",
+			event: "COMMENT",
+			comments: [{ path: "src/index.ts", line: 12, side: "RIGHT", body: "'x' is defined but never used." }],
+		});
+		expect(result.id).toBe(99);
+		expect(result.html_url).toBe("https://github.com/theholocron/test-repo/pull/42#pullrequestreview-99");
+	});
+
+	it("submits a review with no inline comments -- a body-only review", async () => {
+		const { fetch, calls } = stubFetch([
+			{ body: { id: 100, html_url: "https://github.com/x/y/pull/1#pullrequestreview-100" } },
+		]);
+		const client = createGitHubClient({ token: TOKEN, fetch });
+
+		await client.pulls.createReview(REPO, 42, {
+			commit_id: "abc123",
+			body: "All clear.",
+			event: "COMMENT",
+		});
+
+		const body = calls[0]?.body as { comments?: unknown };
+		expect(body.comments).toBeUndefined();
+	});
+});
