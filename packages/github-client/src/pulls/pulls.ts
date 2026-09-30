@@ -1,5 +1,5 @@
-import type { RestClient } from "../utils.js";
-import { repoBase } from "../utils.js";
+import type { GraphQLClient, RestClient } from "../utils.js";
+import { repoBase, splitRepo } from "../utils.js";
 
 export interface GitHubPullRequest {
 	number: number;
@@ -56,7 +56,63 @@ export interface GitHubPullRequestReview {
 	html_url: string;
 }
 
-export function pulls(rest: RestClient) {
+/**
+ * One review thread — GraphQL-only (`resolveReviewThread`, the mutation
+ * this exists to support, has no REST equivalent at all). `id` here is a
+ * GraphQL node ID (`PRRT_...`), not the same numeric ID space as REST's
+ * review-comment `id` — pass it straight through to `resolveReviewThread()`,
+ * never compare it against a REST-sourced ID.
+ */
+export interface ReviewThread {
+	id: string;
+	isResolved: boolean;
+	/** The thread's first comment's author login (e.g. `"the-holocron-sentinel[bot]"`) — `undefined` if GitHub ever returns a thread with no comments, which shouldn't happen in practice. Callers filter on this before resolving anything, so a bot never touches a human reviewer's own thread. */
+	authorLogin: string | undefined;
+}
+
+interface ListReviewThreadsResponse {
+	repository: {
+		pullRequest: {
+			reviewThreads: {
+				nodes: Array<{
+					id: string;
+					isResolved: boolean;
+					comments: { nodes: Array<{ author: { login: string } | null }> };
+				}>;
+			};
+		};
+	};
+}
+
+const LIST_REVIEW_THREADS_QUERY = `
+	query($owner: String!, $name: String!, $number: Int!) {
+		repository(owner: $owner, name: $name) {
+			pullRequest(number: $number) {
+				reviewThreads(first: 100) {
+					nodes {
+						id
+						isResolved
+						comments(first: 1) {
+							nodes {
+								author { login }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+`;
+
+const RESOLVE_REVIEW_THREAD_MUTATION = `
+	mutation($threadId: ID!) {
+		resolveReviewThread(input: { threadId: $threadId }) {
+			thread { id isResolved }
+		}
+	}
+`;
+
+export function pulls(rest: RestClient, graphql: GraphQLClient) {
 	return {
 		getPullRequest: (repo: string, number: number): Promise<GitHubPullRequest> =>
 			rest.request<GitHubPullRequest>(`${repoBase(repo)}/pulls/${number}`),
@@ -90,5 +146,30 @@ export function pulls(rest: RestClient) {
 				method: "POST",
 				body: input,
 			}),
+
+		/** Every review thread on a PR, resolved or not — GraphQL-only, `first: 100` covers every real PR's review-thread count in this org today; no consumer needs pagination yet. */
+		listReviewThreads: async (repo: string, number: number): Promise<ReviewThread[]> => {
+			const [owner, name] = splitRepo(repo);
+			const result = await graphql.query<ListReviewThreadsResponse>(LIST_REVIEW_THREADS_QUERY, {
+				owner,
+				name,
+				number,
+			});
+			return result.repository.pullRequest.reviewThreads.nodes.map((node) => ({
+				id: node.id,
+				isResolved: node.isResolved,
+				authorLogin: node.comments.nodes[0]?.author?.login,
+			}));
+		},
+
+		/**
+		 * Marks one review thread resolved. Requires `Contents: Write` —
+		 * confirmed directly against GitHub's own behavior (surprising, since
+		 * resolving a thread creates no commit, touches no file, moves no
+		 * ref — it only toggles a boolean on PR conversation metadata), not
+		 * `Pull requests: Write` the way `createReview()` needs.
+		 */
+		resolveReviewThread: (threadId: string): Promise<void> =>
+			graphql.query(RESOLVE_REVIEW_THREAD_MUTATION, { threadId }),
 	};
 }

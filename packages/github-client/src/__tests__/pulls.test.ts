@@ -106,3 +106,98 @@ describe("pulls.createReview", () => {
 		expect(body.comments).toBeUndefined();
 	});
 });
+
+describe("pulls.listReviewThreads", () => {
+	it("POSTs a GraphQL query to /graphql with owner/name/number variables", async () => {
+		const { fetch, calls } = stubFetch([
+			{
+				body: {
+					data: {
+						repository: {
+							pullRequest: {
+								reviewThreads: {
+									nodes: [
+										{
+											id: "PRRT_1",
+											isResolved: false,
+											comments: { nodes: [{ author: { login: "the-holocron-sentinel[bot]" } }] },
+										},
+										{
+											id: "PRRT_2",
+											isResolved: true,
+											comments: { nodes: [{ author: { login: "octocat" } }] },
+										},
+									],
+								},
+							},
+						},
+					},
+				},
+			},
+		]);
+		const client = createGitHubClient({ token: TOKEN, fetch });
+
+		const result = await client.pulls.listReviewThreads(REPO, 42);
+
+		expect(calls[0]?.method).toBe("POST");
+		expect(calls[0]?.url).toContain("/graphql");
+		const body = calls[0]?.body as { query: string; variables: Record<string, unknown> };
+		expect(body.variables).toEqual({ owner: "theholocron", name: "test-repo", number: 42 });
+		expect(body.query).toContain("reviewThreads");
+		expect(result).toEqual([
+			{ id: "PRRT_1", isResolved: false, authorLogin: "the-holocron-sentinel[bot]" },
+			{ id: "PRRT_2", isResolved: true, authorLogin: "octocat" },
+		]);
+	});
+
+	it("returns authorLogin undefined for a thread with no comments -- shouldn't happen in practice, but doesn't throw", async () => {
+		const { fetch } = stubFetch([
+			{
+				body: {
+					data: {
+						repository: {
+							pullRequest: {
+								reviewThreads: {
+									nodes: [{ id: "PRRT_3", isResolved: false, comments: { nodes: [] } }],
+								},
+							},
+						},
+					},
+				},
+			},
+		]);
+		const client = createGitHubClient({ token: TOKEN, fetch });
+
+		const result = await client.pulls.listReviewThreads(REPO, 42);
+
+		expect(result[0]?.authorLogin).toBeUndefined();
+	});
+
+	it("throws when the GraphQL response carries an errors array, even with a 200 status", async () => {
+		const { fetch } = stubFetch([
+			{ status: 200, body: { errors: [{ message: "Could not resolve to a PullRequest" }] } },
+		]);
+		const client = createGitHubClient({ token: TOKEN, fetch });
+
+		const err = await client.pulls.listReviewThreads(REPO, 999).catch((e: unknown) => e);
+		expect(err).toBeInstanceOf(Error);
+		expect((err as Error).message).toContain("Could not resolve to a PullRequest");
+	});
+});
+
+describe("pulls.resolveReviewThread", () => {
+	it("POSTs a GraphQL mutation to /graphql with the given threadId", async () => {
+		const { fetch, calls } = stubFetch([
+			{ body: { data: { resolveReviewThread: { thread: { id: "PRRT_1", isResolved: true } } } } },
+		]);
+		const client = createGitHubClient({ token: TOKEN, fetch });
+
+		await client.pulls.resolveReviewThread("PRRT_1");
+
+		expect(calls[0]?.method).toBe("POST");
+		expect(calls[0]?.url).toContain("/graphql");
+		const body = calls[0]?.body as { query: string; variables: Record<string, unknown> };
+		expect(body.variables).toEqual({ threadId: "PRRT_1" });
+		expect(body.query).toContain("resolveReviewThread");
+	});
+});
