@@ -1,8 +1,7 @@
 # Throwaway workflow for trialling Sentinel's actionlint check
-# (theholocron/holocron#904). Every problem below is deliberate.
+# (theholocron/holocron#904). Fixed version: every finding resolved, so
+# Sentinel's check should go green and resolve its own review threads.
 # DO NOT MERGE.
-# Re-run after theholocron/holocron#910 (chalk ERR_REQUIRE_ESM fix) deployed.
-# Re-run after theholocron/holocron#912 (Vercel-valid engines; deploy waits for ready).
 name: Sentinel Trial
 
 on: # yamllint disable-line rule:truthy
@@ -12,12 +11,11 @@ jobs:
   check:
     name: Check
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Loop over text files
         run: |
-          for f in $(ls *.txt); do
+          for f in ./*.txt; do
             echo "found $f"
           done
       - name: Print home
-        run: echo $HOME
+        run: echo "$HOME"
