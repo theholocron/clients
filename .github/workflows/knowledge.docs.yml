@@ -43,6 +43,7 @@ jobs:
     with:
       type: docs
     secrets: inherit
+    needs: preview
 
   preview:
     name: Preview
@@ -52,3 +53,4 @@ jobs:
       type: docs
       cloudflare-project: theholocron-preview
     secrets: inherit
+    needs: deploy
