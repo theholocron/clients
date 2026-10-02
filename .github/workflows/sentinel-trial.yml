@@ -1,6 +1,7 @@
 # Throwaway workflow for trialling Sentinel's actionlint check
 # (theholocron/holocron#904). Every problem below is deliberate.
 # DO NOT MERGE.
+# Re-run after theholocron/holocron#910 (chalk ERR_REQUIRE_ESM fix) deployed.
 name: Sentinel Trial
 
 on: # yamllint disable-line rule:truthy
