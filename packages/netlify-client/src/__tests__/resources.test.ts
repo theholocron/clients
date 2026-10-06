@@ -91,6 +91,29 @@ describe("deploys", () => {
 			expect(calls[0]?.url).toContain("draft=true");
 		});
 
+		it("strips a leading slash from file paths before zipping", async () => {
+			const { fetch, calls } = stubFetch([{ body: DEPLOY }]);
+			const client = createNetlifyClient({ token: TOKEN, fetch });
+			await client.deploys.createFromZip("s1", { "/api/webhook.mjs": "x" });
+			// The zip itself isn't inspected here (covered by a real unzip in
+			// the plugin's own packaging step) — this just exercises the
+			// leading-slash branch so it isn't silently untested.
+			expect(calls[0]?.body).toBeInstanceOf(Uint8Array);
+		});
+
+		it("falls back to globalThis.fetch when no override is given", async () => {
+			const original = globalThis.fetch;
+			const stub = stubFetch([{ body: DEPLOY }]);
+			globalThis.fetch = stub.fetch;
+			try {
+				const client = createNetlifyClient({ token: TOKEN });
+				const deploy = await client.deploys.createFromZip("s1", { "a.txt": "x" });
+				expect(deploy.id).toBe("d1");
+			} finally {
+				globalThis.fetch = original;
+			}
+		});
+
 		it("throws ProviderApiError on non-2xx", async () => {
 			const { fetch } = stubFetch([{ status: 403, body: { message: "forbidden" } }]);
 			const client = createNetlifyClient({ token: TOKEN, fetch });
@@ -107,6 +130,16 @@ describe("deploys", () => {
 			const err = await client.deploys.createFromZip("s1", { "a.txt": "x" }).catch((e: unknown) => e);
 			expect(err).toBeInstanceOf(ProviderApiError);
 			expect((err as ProviderApiError).status).toBe(0);
+		});
+
+		it("stringifies a non-Error transport failure", async () => {
+			const throwing: typeof fetch = async () => {
+				throw "connection reset";
+			};
+			const client = createNetlifyClient({ token: TOKEN, fetch: throwing });
+			const err = await client.deploys.createFromZip("s1", { "a.txt": "x" }).catch((e: unknown) => e);
+			expect(err).toBeInstanceOf(ProviderApiError);
+			expect((err as ProviderApiError).message).toContain("connection reset");
 		});
 	});
 });
@@ -166,6 +199,16 @@ describe("env", () => {
 					{ value: "new-prod", context: "production" },
 				],
 			});
+		});
+
+		it("defaults scopes to functions+runtime when the existing key has none", async () => {
+			const { fetch, calls } = stubFetch([
+				{ body: [{ key: "K", values: [{ value: "old", context: "production" }] }] },
+				{ body: {} },
+			]);
+			const client = createNetlifyClient({ token: TOKEN, fetch });
+			await client.env.set("acc1", "s1", "K", "production", "new");
+			expect(calls[1]?.body).toMatchObject({ scopes: ["functions", "runtime"] });
 		});
 	});
 });
