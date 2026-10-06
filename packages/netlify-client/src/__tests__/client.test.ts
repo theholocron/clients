@@ -21,10 +21,11 @@ describe("createNetlifyClient", () => {
 		expect(calls[0]?.url).toContain("https://api.netlify.com/api/v1");
 	});
 
-	it("exposes sites, deploys, and env resources", () => {
+	it("exposes sites, deploys, env, and user resources", () => {
 		const client = createNetlifyClient({ token: TOKEN });
 		expect(typeof client.sites.list).toBe("function");
 		expect(typeof client.deploys.get).toBe("function");
 		expect(typeof client.env.list).toBe("function");
+		expect(typeof client.user.get).toBe("function");
 	});
 });

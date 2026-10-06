@@ -111,6 +111,16 @@ describe("deploys", () => {
 	});
 });
 
+describe("user", () => {
+	it("gets the current user", async () => {
+		const { fetch, calls } = stubFetch([{ body: { id: "u1", email: "user@example.com" } }]);
+		const client = createNetlifyClient({ token: TOKEN, fetch });
+		const me = await client.user.get();
+		expect(me.email).toBe("user@example.com");
+		expect(calls[0]?.url).toContain("/user");
+	});
+});
+
 describe("env", () => {
 	it("lists env vars scoped to a site", async () => {
 		const { fetch, calls } = stubFetch([{ body: [{ key: "A", values: [{ value: "1", context: "production" }] }] }]);
