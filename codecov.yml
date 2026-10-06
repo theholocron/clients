@@ -84,6 +84,11 @@ component_management:
       paths:
         - packages/neon-client/**
 
+    - component_id: netlify-client
+      name: "netlify-client"
+      paths:
+        - packages/netlify-client/**
+
     - component_id: posthog-client
       name: "posthog-client"
       paths:
