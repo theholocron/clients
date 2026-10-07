@@ -34,6 +34,11 @@ component_management:
         target: 80%
         if_not_found: success
   individual_components:
+    - component_id: axiom-client
+      name: "axiom-client"
+      paths:
+        - packages/axiom-client/**
+
     - component_id: clerk-client
       name: "clerk-client"
       paths:
@@ -48,6 +53,11 @@ component_management:
       name: "confluence-client"
       paths:
         - packages/confluence-client/**
+
+    - component_id: discord-client
+      name: "discord-client"
+      paths:
+        - packages/discord-client/**
 
     - component_id: doppler-client
       name: "doppler-client"
@@ -103,6 +113,11 @@ component_management:
       name: "sentry-client"
       paths:
         - packages/sentry-client/**
+
+    - component_id: slack-client
+      name: "slack-client"
+      paths:
+        - packages/slack-client/**
 
     - component_id: vercel-client
       name: "vercel-client"
