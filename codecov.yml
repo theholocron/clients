@@ -39,6 +39,11 @@ component_management:
       paths:
         - packages/axiom-client/**
 
+    - component_id: checkly-client
+      name: "checkly-client"
+      paths:
+        - packages/checkly-client/**
+
     - component_id: clerk-client
       name: "clerk-client"
       paths:
