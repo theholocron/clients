@@ -16,8 +16,8 @@ catalogs:
       specifier: ^8.2.0
       version: 8.2.1
     '@theholocron/env-utils':
-      specifier: ^1.15.0
-      version: 1.15.0
+      specifier: ^1.15.1
+      version: 1.15.1
     '@theholocron/eslint-config':
       specifier: ^8.4.3
       version: 8.4.3
@@ -713,7 +713,7 @@ importers:
     dependencies:
       '@theholocron/env-utils':
         specifier: 'catalog:'
-        version: 1.15.0(dotenv@16.6.1)
+        version: 1.15.1(dotenv@16.6.1)
       '@theholocron/observability':
         specifier: 'catalog:'
         version: 0.3.0(@axiomhq/pino@2.0.0)(@sentry/node@10.70.0(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1)))(pino-pretty@13.1.3)(pino@10.3.1)(posthog-node@5.52.1)(vitest@5.0.0)
@@ -3168,11 +3168,14 @@ packages:
       '@astrojs/starlight': '>=0.30.0'
       astro: '>=5.0.0'
 
-  '@theholocron/env-utils@1.15.0':
-    resolution: {integrity: sha512-63qbu0mWJglOBrObL1C2zcGykRBxfPNy9SJGkScJsoPr6Vn4aVw02jrgQkXMcbrILt6K0uGsKtVU1pwZOE2/sQ==}
+  '@theholocron/env-utils@1.15.1':
+    resolution: {integrity: sha512-bcNG+SJjp9/rjMjFk0ZkuYBXqF6vn+/o7/NPX2BSsTrjTZk4PKfl2Aa5OSxcm/b6TPVCK5SqjLmIgT+E+wXYhQ==}
     engines: {node: '>=22'}
     peerDependencies:
       dotenv: '>=16'
+    peerDependenciesMeta:
+      dotenv:
+        optional: true
 
   '@theholocron/env-utils@1.8.0':
     resolution: {integrity: sha512-kotfcER0Wv1lE5ZJPaz6Hbk6VxZVyCOcDH69Ditya9Bo0EBTYTi6Ikkt0gO4+HfI8Yf08OzrmAryDQlt/auS6g==}
@@ -8911,8 +8914,8 @@ snapshots:
       astro: 7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.4.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0)
       gray-matter: 4.0.3
 
-  '@theholocron/env-utils@1.15.0(dotenv@16.6.1)':
-    dependencies:
+  '@theholocron/env-utils@1.15.1(dotenv@16.6.1)':
+    optionalDependencies:
       dotenv: 16.6.1
 
   '@theholocron/env-utils@1.8.0(dotenv@16.6.1)':
