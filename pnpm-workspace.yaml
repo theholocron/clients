@@ -6,6 +6,7 @@ catalog:
   "@theholocron/astro-config": ^8.2.0
   "@theholocron/commitlint-config": ^8.2.0
   "@theholocron/devmoji-config": ^8.2.0
+  "@theholocron/env-utils": ^1.15.1
   "@theholocron/eslint-config": ^8.4.3
   "@theholocron/lint-staged-config": ^8.4.4
   "@theholocron/observability": ^0.3.0
