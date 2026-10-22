@@ -5,6 +5,12 @@ export interface DiscordBotClientOptions {
 	baseUrl?: string;
 	/** Override fetch for testing. Defaults to globalThis.fetch. */
 	fetch?: typeof fetch;
+	/** Per-request deadline in milliseconds. Defaults to 15000. */
+	timeoutMs?: number;
+	/** Retries after a 429 (rate limit) before giving up. Defaults to 3. */
+	maxRetries?: number;
+	/** Wait between rate-limit retries; a test seam. Defaults to `setTimeout`. */
+	sleep?: (ms: number) => Promise<void>;
 }
 
 /** Discord channel `type` values this client creates or reads. */
@@ -55,7 +61,13 @@ export interface CreateChannelInput {
 	permission_overwrites?: DiscordPermissionOverwrite[];
 }
 
-export type ModifyChannelInput = Partial<Omit<CreateChannelInput, "type">>;
+/** `null` clears `topic` or detaches the channel from its category. */
+export interface ModifyChannelInput {
+	name?: string;
+	topic?: string | null;
+	parent_id?: string | null;
+	permission_overwrites?: DiscordPermissionOverwrite[];
+}
 
 export interface DiscordRole {
 	id: string;

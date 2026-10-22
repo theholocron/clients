@@ -84,11 +84,25 @@ console.log(hook.url); // a secret -- Discord returns it only for webhooks this 
 
 ### `createDiscordBotClient(opts)`
 
-| Option     | Type           | Default                       | Description                   |
-| ---------- | -------------- | ----------------------------- | ----------------------------- |
-| `botToken` | `string`       | _(required)_                  | Bot token                     |
-| `baseUrl`  | `string`       | `https://discord.com/api/v10` | Override base URL for testing |
-| `fetch`    | `typeof fetch` | `globalThis.fetch`            | Override fetch for testing    |
+| Option       | Type           | Default                       | Description                   |
+| ------------ | -------------- | ----------------------------- | ----------------------------- |
+| `botToken`   | `string`       | _(required)_                  | Bot token                     |
+| `baseUrl`    | `string`       | `https://discord.com/api/v10` | Override base URL for testing |
+| `fetch`      | `typeof fetch` | `globalThis.fetch`            | Override fetch for testing    |
+| `timeoutMs`  | `number`       | `15000`                       | Per-request deadline          |
+| `maxRetries` | `number`       | `3`                           | Retries after a 429           |
+
+`baseUrl` is a test seam: the bot token is sent to whatever host it names, so
+never derive it from untrusted input. Ids passed to any method must be Discord
+snowflakes (digits only); anything else throws before a request is made.
+
+A 429 is retried, up to `maxRetries` times, waiting for the `Retry-After` Discord
+sends; a wait longer than 10 seconds fails immediately instead. A request that
+runs past `timeoutMs` is aborted. Other errors are not retried, and the
+`create*` calls are not idempotent: if a response is lost after Discord created
+the resource, look it up by name before creating it again. A webhook created
+that way cannot have its URL read back, since Discord returns the token only on
+the create response.
 
 | Resource          | Methods                                                   |
 | ----------------- | --------------------------------------------------------- |
