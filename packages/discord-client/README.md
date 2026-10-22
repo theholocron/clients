@@ -1,6 +1,6 @@
 # @theholocron/discord-client
 
-A TypeScript client for the Discord webhooks API — reads a webhook's info and posts messages through it.
+A TypeScript client for Discord — posts messages through webhooks, and (with a bot token) provisions a server's channels, roles and webhooks.
 
 ## Installation
 
@@ -11,7 +11,10 @@ pnpm add @theholocron/discord-client
 ## Usage
 
 ```ts
-import { createDiscordClient, parseWebhookUrl } from "@theholocron/discord-client";
+import {
+	createDiscordClient,
+	parseWebhookUrl,
+} from "@theholocron/discord-client";
 
 const client = createDiscordClient();
 
@@ -52,3 +55,52 @@ into `{ id, token }`.
 ## License
 
 GPL-3.0 © [Newton Koumantzelis](https://github.com/iamnewton)
+
+## Bot client — provisioning a server
+
+`createDiscordBotClient` authenticates as a bot (`Authorization: Bot <token>`)
+and covers what you need to set a server up. It does not post messages; use
+`createDiscordClient().webhooks.execute` for that.
+
+```ts
+import {
+	ChannelType,
+	createDiscordBotClient,
+} from "@theholocron/discord-client";
+
+const bot = createDiscordBotClient({
+	botToken: process.env.DISCORD_BOT_TOKEN!,
+});
+
+const category = await bot.guilds.createChannel(guildId, {
+	name: "ALERTS",
+	type: ChannelType.Category,
+});
+const channel = await bot.guilds.createChannel(guildId, {
+	name: "alerts",
+	parent_id: category.id,
+});
+const hook = await bot.channels.createWebhook(channel.id, {
+	name: "repo-sync",
+});
+console.log(hook.url); // a secret -- Discord returns it only for webhooks this bot created
+```
+
+### `createDiscordBotClient(opts)`
+
+| Option     | Type           | Default                       | Description                   |
+| ---------- | -------------- | ----------------------------- | ----------------------------- |
+| `botToken` | `string`       | _(required)_                  | Bot token                     |
+| `baseUrl`  | `string`       | `https://discord.com/api/v10` | Override base URL for testing |
+| `fetch`    | `typeof fetch` | `globalThis.fetch`            | Override fetch for testing    |
+
+| Resource          | Methods                                                   |
+| ----------------- | --------------------------------------------------------- |
+| `client.users`    | `me()` — `GET /users/@me`, a cheap token check            |
+| `client.guilds`   | `get`, `channels`, `createChannel`, `roles`, `createRole` |
+| `client.channels` | `modify`, `webhooks`, `createWebhook`                     |
+
+The bot needs Manage Channels, Manage Roles and Manage Webhooks in the server.
+Discord only returns a webhook's `token`/`url` for webhooks the same
+application created, so a pre-existing webhook can be found by name but its URL
+cannot be read back.
