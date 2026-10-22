@@ -20,8 +20,7 @@ const MAX_RETRY_WAIT_MS = 10_000;
 
 /** Discord ids are snowflakes; anything else would be spliced into a URL path. */
 function id(value: string): string {
-	if (!/^\d{1,20}$/.test(value))
-		throw new Error(`invalid Discord id: ${JSON.stringify(value)}`);
+	if (!/^\d{1,20}$/.test(value)) throw new Error(`invalid Discord id: ${JSON.stringify(value)}`);
 	return value;
 }
 
@@ -33,9 +32,7 @@ async function retryDelayMs(res: Response): Promise<number> {
 		.clone()
 		.json()
 		.catch(() => ({}))) as { retry_after?: number };
-	return typeof body.retry_after === "number" && body.retry_after > 0
-		? Math.ceil(body.retry_after * 1000)
-		: 1000;
+	return typeof body.retry_after === "number" && body.retry_after > 0 ? Math.ceil(body.retry_after * 1000) : 1000;
 }
 
 /**
@@ -53,7 +50,7 @@ function guardedFetch(
 		timeoutMs: number;
 		maxRetries: number;
 		sleep: (ms: number) => Promise<void>;
-	},
+	}
 ): typeof fetch {
 	return async (input, init) => {
 		for (let attempt = 0; ; attempt++) {
@@ -99,9 +96,7 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 		fetch: guardedFetch(opts.fetch ?? globalThis.fetch, {
 			timeoutMs: opts.timeoutMs ?? DEFAULT_TIMEOUT_MS,
 			maxRetries: opts.maxRetries ?? DEFAULT_MAX_RETRIES,
-			sleep:
-				opts.sleep ??
-				((ms) => new Promise((resolve) => setTimeout(resolve, ms))),
+			sleep: opts.sleep ?? ((ms) => new Promise((resolve) => setTimeout(resolve, ms))),
 		}),
 	});
 
@@ -111,19 +106,11 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 			me: () => rest.request<DiscordUser>("/users/@me"),
 		},
 		guilds: {
-			get: (guildId: string) =>
-				rest.request<DiscordGuild>(`/guilds/${id(guildId)}`),
-			channels: (guildId: string) =>
-				rest.request<DiscordChannel[]>(
-					`/guilds/${id(guildId)}/channels`,
-				),
+			get: (guildId: string) => rest.request<DiscordGuild>(`/guilds/${id(guildId)}`),
+			channels: (guildId: string) => rest.request<DiscordChannel[]>(`/guilds/${id(guildId)}/channels`),
 			createChannel: (guildId: string, body: CreateChannelInput) =>
-				rest.request<DiscordChannel>(
-					`/guilds/${id(guildId)}/channels`,
-					{ method: "POST", body },
-				),
-			roles: (guildId: string) =>
-				rest.request<DiscordRole[]>(`/guilds/${id(guildId)}/roles`),
+				rest.request<DiscordChannel>(`/guilds/${id(guildId)}/channels`, { method: "POST", body }),
+			roles: (guildId: string) => rest.request<DiscordRole[]>(`/guilds/${id(guildId)}/roles`),
 			createRole: (guildId: string, body: CreateRoleInput) =>
 				rest.request<DiscordRole>(`/guilds/${id(guildId)}/roles`, {
 					method: "POST",
@@ -137,20 +124,13 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 					body,
 				}),
 			webhooks: async (channelId: string) =>
-				(
-					await rest.request<DiscordChannelWebhook[]>(
-						`/channels/${id(channelId)}/webhooks`,
-					)
-				).map(withUrl),
+				(await rest.request<DiscordChannelWebhook[]>(`/channels/${id(channelId)}/webhooks`)).map(withUrl),
 			createWebhook: async (channelId: string, body: { name: string }) =>
 				withUrl(
-					await rest.request<DiscordChannelWebhook>(
-						`/channels/${id(channelId)}/webhooks`,
-						{
-							method: "POST",
-							body,
-						},
-					),
+					await rest.request<DiscordChannelWebhook>(`/channels/${id(channelId)}/webhooks`, {
+						method: "POST",
+						body,
+					})
 				),
 		},
 	};

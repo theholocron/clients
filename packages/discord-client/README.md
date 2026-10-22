@@ -11,10 +11,7 @@ pnpm add @theholocron/discord-client
 ## Usage
 
 ```ts
-import {
-	createDiscordClient,
-	parseWebhookUrl,
-} from "@theholocron/discord-client";
+import { createDiscordClient, parseWebhookUrl } from "@theholocron/discord-client";
 
 const client = createDiscordClient();
 
@@ -59,25 +56,22 @@ and covers what you need to set a server up. It does not post messages; use
 `createDiscordClient().webhooks.execute` for that.
 
 ```ts
-import {
-	ChannelType,
-	createDiscordBotClient,
-} from "@theholocron/discord-client";
+import { ChannelType, createDiscordBotClient } from "@theholocron/discord-client";
 
 const bot = createDiscordBotClient({
-	botToken: process.env.DISCORD_BOT_TOKEN!,
+  botToken: process.env.DISCORD_BOT_TOKEN!,
 });
 
 const category = await bot.guilds.createChannel(guildId, {
-	name: "ALERTS",
-	type: ChannelType.Category,
+  name: "ALERTS",
+  type: ChannelType.Category,
 });
 const channel = await bot.guilds.createChannel(guildId, {
-	name: "alerts",
-	parent_id: category.id,
+  name: "alerts",
+  parent_id: category.id,
 });
 const hook = await bot.channels.createWebhook(channel.id, {
-	name: "repo-sync",
+  name: "repo-sync",
 });
 console.log(hook.url); // a secret -- Discord returns it only for webhooks this bot created
 ```

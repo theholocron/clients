@@ -19,17 +19,13 @@ function makeClient(responses: Parameters<typeof stubFetch>[0]) {
 
 describe("createDiscordBotClient", () => {
 	it("authenticates with the Bot scheme, not Bearer", async () => {
-		const { client, calls } = makeClient([
-			{ body: { id: "u1", username: "holonet", bot: true } },
-		]);
+		const { client, calls } = makeClient([{ body: { id: "u1", username: "holonet", bot: true } }]);
 		await client.users.me();
 		expect(calls[0]?.headers.authorization).toBe("Bot tok");
 	});
 
 	it("targets the default Discord base URL when no override is given", async () => {
-		const { fetch, calls } = stubFetch([
-			{ body: { id: "u1", username: "holonet" } },
-		]);
+		const { fetch, calls } = stubFetch([{ body: { id: "u1", username: "holonet" } }]);
 		await createDiscordBotClient({ botToken: "tok", fetch }).users.me();
 		expect(calls[0]?.url).toBe("https://discord.com/api/v10/users/@me");
 	});
@@ -37,9 +33,7 @@ describe("createDiscordBotClient", () => {
 
 describe("guilds", () => {
 	it("get: GET /guilds/:id", async () => {
-		const { client, calls } = makeClient([
-			{ body: { id: "111", name: "Holocron" } },
-		]);
+		const { client, calls } = makeClient([{ body: { id: "111", name: "Holocron" } }]);
 		expect(await client.guilds.get("111")).toEqual({
 			id: "111",
 			name: "Holocron",
@@ -51,9 +45,7 @@ describe("guilds", () => {
 	});
 
 	it("channels: GET /guilds/:id/channels", async () => {
-		const { client, calls } = makeClient([
-			{ body: [{ id: "222", name: "alerts", type: 0 }] },
-		]);
+		const { client, calls } = makeClient([{ body: [{ id: "222", name: "alerts", type: 0 }] }]);
 		expect(await client.guilds.channels("111")).toHaveLength(1);
 		expect(calls[0]).toMatchObject({
 			url: `${BASE}/guilds/111/channels`,
@@ -62,9 +54,7 @@ describe("guilds", () => {
 	});
 
 	it("createChannel: POST /guilds/:id/channels with the body", async () => {
-		const { client, calls } = makeClient([
-			{ body: { id: "c2", name: "sync", type: 0 } },
-		]);
+		const { client, calls } = makeClient([{ body: { id: "c2", name: "sync", type: 0 } }]);
 		await client.guilds.createChannel("111", {
 			name: "sync",
 			type: ChannelType.Text,
@@ -122,9 +112,7 @@ describe("guilds", () => {
 
 describe("channels", () => {
 	it("modify: PATCH /channels/:id", async () => {
-		const { client, calls } = makeClient([
-			{ body: { id: "222", name: "alerts", type: 0 } },
-		]);
+		const { client, calls } = makeClient([{ body: { id: "222", name: "alerts", type: 0 } }]);
 		await client.channels.modify("222", { parent_id: "333" });
 		expect(calls[0]).toMatchObject({
 			url: `${BASE}/channels/222`,
@@ -134,9 +122,7 @@ describe("channels", () => {
 	});
 
 	it("webhooks: GET /channels/:id/webhooks", async () => {
-		const { client, calls } = makeClient([
-			{ body: [{ id: "w1", name: "repo-sync", channel_id: "222" }] },
-		]);
+		const { client, calls } = makeClient([{ body: [{ id: "w1", name: "repo-sync", channel_id: "222" }] }]);
 		expect(await client.channels.webhooks("222")).toHaveLength(1);
 		expect(calls[0]).toMatchObject({
 			url: `${BASE}/channels/222/webhooks`,
@@ -169,9 +155,7 @@ describe("channels", () => {
 	});
 
 	it("surfaces a non-2xx response as a ProviderApiError carrying the status", async () => {
-		const { client } = makeClient([
-			{ status: 403, text: '{"message":"Missing Permissions"}' },
-		]);
+		const { client } = makeClient([{ status: 403, text: '{"message":"Missing Permissions"}' }]);
 		await expect(client.guilds.channels("111")).rejects.toMatchObject({
 			status: 403,
 		});
@@ -180,25 +164,19 @@ describe("channels", () => {
 
 describe("webhook url", () => {
 	it("derives the url from id + token when Discord omits it", async () => {
-		const { client } = makeClient([
-			{ body: { id: "w3", name: "x", channel_id: "222", token: "tk" } },
-		]);
+		const { client } = makeClient([{ body: { id: "w3", name: "x", channel_id: "222", token: "tk" } }]);
 		const hook = await client.channels.createWebhook("222", { name: "x" });
 		expect(hook.url).toBe("https://discord.com/api/webhooks/w3/tk");
 	});
 
 	it("leaves url undefined on a listed webhook this bot did not create (no token)", async () => {
-		const { client } = makeClient([
-			{ body: [{ id: "w4", name: "other", channel_id: "222" }] },
-		]);
+		const { client } = makeClient([{ body: [{ id: "w4", name: "other", channel_id: "222" }] }]);
 		const [hook] = await client.channels.webhooks("222");
 		expect(hook?.url).toBeUndefined();
 	});
 
 	it("lists webhooks with a derived url when a token is present", async () => {
-		const { client } = makeClient([
-			{ body: [{ id: "w5", name: "x", channel_id: "222", token: "tk" }] },
-		]);
+		const { client } = makeClient([{ body: [{ id: "w5", name: "x", channel_id: "222", token: "tk" }] }]);
 		const [hook] = await client.channels.webhooks("222");
 		expect(hook?.url).toBe("https://discord.com/api/webhooks/w5/tk");
 	});
@@ -209,12 +187,10 @@ describe("id validation", () => {
 		"rejects %j before any request is made",
 		async (bad) => {
 			const { client, calls } = makeClient([]);
-			expect(() => client.channels.modify(bad, { name: "x" })).toThrow(
-				/invalid Discord id/,
-			);
+			expect(() => client.channels.modify(bad, { name: "x" })).toThrow(/invalid Discord id/);
 			expect(() => client.guilds.get(bad)).toThrow(/invalid Discord id/);
 			expect(calls).toHaveLength(0);
-		},
+		}
 	);
 });
 
