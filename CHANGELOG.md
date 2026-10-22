@@ -1,3 +1,45 @@
+## [1.42.1](https://github.com/theholocron/clients/compare/v1.42.0...v1.42.1) (2026-10-16)
+
+## [1.42.0](https://github.com/theholocron/clients/compare/v1.41.0...v1.42.0) (2026-10-13)
+
+## [1.41.0](https://github.com/theholocron/clients/compare/v1.40.0...v1.41.0) (2026-10-13)
+
+## [1.40.0](https://github.com/theholocron/clients/compare/v1.39.0...v1.40.0) (2026-10-12)
+
+## [1.39.0](https://github.com/theholocron/clients/compare/v1.38.0...v1.39.0) (2026-10-08)
+
+## [1.38.0](https://github.com/theholocron/clients/compare/v1.37.1...v1.38.0) (2026-10-07)
+
+## [1.37.1](https://github.com/theholocron/clients/compare/v1.37.0...v1.37.1) (2026-10-06)
+
+## [1.37.0](https://github.com/theholocron/clients/compare/v1.36.0...v1.37.0) (2026-10-06)
+
+## [1.36.0](https://github.com/theholocron/clients/compare/v1.35.0...v1.36.0) (2026-10-03)
+
+## [1.35.0](https://github.com/theholocron/clients/compare/v1.34.0...v1.35.0) (2026-10-02)
+
+## [1.34.0](https://github.com/theholocron/clients/compare/v1.33.0...v1.34.0) (2026-10-01)
+
+## [1.33.0](https://github.com/theholocron/clients/compare/v1.32.1...v1.33.0) (2026-09-30)
+
+## [1.32.1](https://github.com/theholocron/clients/compare/v1.32.0...v1.32.1) (2026-09-30)
+
+## [1.32.0](https://github.com/theholocron/clients/compare/v1.31.0...v1.32.0) (2026-09-30)
+
+## [1.31.0](https://github.com/theholocron/clients/compare/v1.30.0...v1.31.0) (2026-09-26)
+
+## [1.30.0](https://github.com/theholocron/clients/compare/v1.29.0...v1.30.0) (2026-09-25)
+
+## [1.29.0](https://github.com/theholocron/clients/compare/v1.28.0...v1.29.0) (2026-09-24)
+
+## [1.28.0](https://github.com/theholocron/clients/compare/v1.27.0...v1.28.0) (2026-09-23)
+
+## [1.27.0](https://github.com/theholocron/clients/compare/v1.26.0...v1.27.0) (2026-09-23)
+
+## [1.26.0](https://github.com/theholocron/clients/compare/v1.25.0...v1.26.0) (2026-09-23)
+
+## [1.25.0](https://github.com/theholocron/clients/compare/v1.24.0...v1.25.0) (2026-09-22)
+
 ## [1.24.0](https://github.com/theholocron/clients/compare/v1.23.0...v1.24.0) (2026-09-20)
 
 ## [1.23.0](https://github.com/theholocron/clients/compare/v1.22.0...v1.23.0) (2026-09-17)

@@ -46,6 +46,29 @@ const config: KnipConfig = {
 		// module import — per-package vitest.config.ts files removed as
 		// redundant, same mechanism (epic #672 Phase 5)
 		"@theholocron/vitest-config",
+		// resolved by astromech's CLI --config splice from node_modules, not a
+		// module import — per-package tsdown.config.ts files removed as
+		// redundant, same mechanism (epic #672 Phase 5, holocron#762). `tsdown`
+		// itself is flagged alongside it: each package's own devDependency is
+		// what the resolved --config path's node_modules/.bin/tsdown actually
+		// runs, but with tsdown.config.ts gone, Knip's tsdown plugin has
+		// nothing to anchor an entry point to and stops seeing either as used.
+		"@theholocron/tsdown-config",
+		"tsdown",
+		// resolved by astromech's CLI --config splice from node_modules, not a
+		// module import — per-package eslint.config.ts files removed as
+		// redundant, same mechanism (epic #672 Phase 5, holocron#795/#848: the
+		// linterGroup dispatch that runs eslint needed its own fix before this
+		// was even possible, unlike vitest/tsdown/prettier/commitlint above).
+		// eslint itself and its plugins are flagged alongside the shared config
+		// package for the same reason tsdown is above — with eslint.config.ts
+		// gone, Knip's eslint plugin has nothing to anchor an entry point to.
+		"@theholocron/eslint-config",
+		"eslint",
+		"@vitest/eslint-plugin",
+		"eslint-plugin-n",
+		"eslint-plugin-simple-import-sort",
+		"globals",
 		// pinned as a pnpm override; not directly imported by root code
 		"@commitlint/config-conventional",
 		// passed as --config arg to lint-staged binary in .husky/pre-commit

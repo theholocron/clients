@@ -1,6 +1,6 @@
 {
   "name": "@theholocron/http-client",
-  "version": "1.24.0",
+  "version": "1.42.1",
   "description": "Shared HTTP primitives for theholocron — REST client factory, auth resolver, and error types",
   "keywords": [
     "typescript",
@@ -36,13 +36,14 @@
     "dist"
   ],
   "scripts": {
-    "delivery.build": "tsdown",
+    "delivery.build": "tsdown && node ../../scripts/check-bundle-size.mjs",
     "sourceQuality.staticAnalysis": "holocron run sourceQuality.staticAnalysis --",
     "test:watch": "vitest",
     "verification.typeSafety": "holocron run verification.typeSafety --",
     "verification.unitTests": "holocron run verification.unitTests --"
   },
   "dependencies": {
+    "@theholocron/env-utils": "catalog:",
     "@theholocron/observability": "catalog:"
   },
   "devDependencies": {
