@@ -52,10 +52,6 @@ Returns a client with one resource namespace:
 Parses a Discord webhook URL (e.g. `https://discord.com/api/webhooks/<id>/<token>`)
 into `{ id, token }`.
 
-## License
-
-GPL-3.0 © [Newton Koumantzelis](https://github.com/iamnewton)
-
 ## Bot client — provisioning a server
 
 `createDiscordBotClient` authenticates as a bot (`Authorization: Bot <token>`)
@@ -104,3 +100,7 @@ The bot needs Manage Channels, Manage Roles and Manage Webhooks in the server.
 Discord only returns a webhook's `token`/`url` for webhooks the same
 application created, so a pre-existing webhook can be found by name but its URL
 cannot be read back.
+
+## License
+
+GPL-3.0 © [Newton Koumantzelis](https://github.com/iamnewton)
