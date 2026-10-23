@@ -1,4 +1,5 @@
 packages:
+  - "."
   - "packages/*"
 
 # Shared dep versions used across packages.
