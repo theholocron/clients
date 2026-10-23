@@ -59,6 +59,7 @@ export interface ModifyGuildInput {
 	public_updates_channel_id?: string | null;
 	preferred_locale?: string;
 	description?: string | null;
+	/** The full list of mutable guild features (for example `COMMUNITY`); Discord ignores the ones it manages itself. */
 	features?: string[];
 }
 
@@ -69,6 +70,7 @@ export interface DiscordWelcomeChannel {
 	emoji_name?: string | null;
 }
 
+/** Whether the screen is on is the `WELCOME_SCREEN_ENABLED` entry in the guild's `features`; the object has no flag. */
 export interface DiscordWelcomeScreen {
 	description: string | null;
 	welcome_channels: DiscordWelcomeChannel[];
@@ -80,13 +82,24 @@ export interface ModifyWelcomeScreenInput {
 	welcome_channels?: DiscordWelcomeChannel[];
 }
 
+export interface DiscordEmoji {
+	id: string | null;
+	name: string | null;
+	animated?: boolean;
+}
+
 export interface DiscordOnboardingOption {
 	id?: string;
 	title: string;
 	description?: string | null;
 	channel_ids?: string[];
 	role_ids?: string[];
+	/** Discord returns the emoji as an object... */
+	emoji?: DiscordEmoji;
+	/** ...and takes it as these three fields (a custom emoji has `emoji_id`, a Unicode one only `emoji_name`). */
+	emoji_id?: string | null;
 	emoji_name?: string | null;
+	emoji_animated?: boolean;
 }
 
 export interface DiscordOnboardingPrompt {
@@ -190,6 +203,9 @@ export interface DiscordChannelWebhook {
 
 export interface CreateMessageInput {
 	content: string;
+	/** With `enforce_nonce`, Discord drops a repeat of the same nonce, so a retry after a lost response cannot post twice. */
+	nonce?: string | number;
+	enforce_nonce?: boolean;
 	/** Defaults to no mentions, so a pasted `@everyone` cannot ping anyone. */
 	allowed_mentions?: {
 		parse?: Array<"roles" | "users" | "everyone">;

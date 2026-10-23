@@ -52,8 +52,9 @@ into `{ id, token }`.
 ## Bot client — provisioning a server
 
 `createDiscordBotClient` authenticates as a bot (`Authorization: Bot <token>`)
-and covers what you need to set a server up. It does not post messages; use
-`createDiscordClient().webhooks.execute` for that.
+and covers what you need to set a server up. `channels.createMessage` posts as the
+bot (needs View Channel and Send Messages in that channel); to post through a
+channel webhook with no token, use `createDiscordClient().webhooks.execute`.
 
 ```ts
 import { ChannelType, createDiscordBotClient } from "@theholocron/discord-client";
@@ -112,7 +113,7 @@ features on, and `modifyOnboarding` is a `PUT` that replaces the whole config.
 `channels.createMessage` turns every mention off unless `allowed_mentions` says
 otherwise.
 
-The bot needs Manage Channels, Manage Roles, Manage Webhooks and (for server settings, welcome screen and onboarding) Manage Server in the server.
+The bot needs Manage Channels, Manage Roles, Manage Webhooks and (for server settings, welcome screen and onboarding) Manage Server in the server, plus View Channel and Send Messages in any channel it posts to with `channels.createMessage`.
 Discord only returns a webhook's `token`/`url` for webhooks the same
 application created, so a pre-existing webhook can be found by name but its URL
 cannot be read back.

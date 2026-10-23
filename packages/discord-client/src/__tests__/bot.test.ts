@@ -416,6 +416,12 @@ describe("server settings", () => {
 		});
 	});
 
+	it("modifyWelcomeScreen: a body with no channels is sent as is", async () => {
+		const { client, calls } = makeClient([{ body: { description: "hi", welcome_channels: [] } }]);
+		await client.guilds.modifyWelcomeScreen("111", { enabled: false });
+		expect(calls[0]?.body).toEqual({ enabled: false });
+	});
+
 	it("onboarding: GET and PUT /guilds/:id/onboarding", async () => {
 		const onboarding = {
 			prompts: [],
@@ -486,6 +492,65 @@ describe("server settings", () => {
 			url: `${BASE}/webhooks/777`,
 			method: "DELETE",
 		});
+	});
+
+	it("createMessage: an explicit undefined allowed_mentions still means no mentions", async () => {
+		const { client, calls } = makeClient([{ body: { id: "m1", channel_id: "222", content: "hi" } }]);
+		await client.channels.createMessage("222", {
+			content: "hi",
+			allowed_mentions: undefined,
+			nonce: "n1",
+			enforce_nonce: true,
+		});
+		expect(calls[0]?.body).toEqual({
+			content: "hi",
+			allowed_mentions: { parse: [] },
+			nonce: "n1",
+			enforce_nonce: true,
+		});
+	});
+
+	it("webhooks.delete: a 404 means it is already gone, any other error still throws", async () => {
+		const gone = makeClient([{ status: 404, body: { message: "Unknown Webhook" } }]);
+		await expect(gone.client.webhooks.delete("777")).resolves.toBeUndefined();
+		const denied = makeClient([{ status: 403, body: { message: "Missing Permissions" } }]);
+		await expect(denied.client.webhooks.delete("777")).rejects.toThrow(/403/);
+	});
+
+	it("rejects a malformed id inside a request body before any request is made", () => {
+		const { client, calls } = makeClient([]);
+		expect(() => client.guilds.modify("111", { system_channel_id: "x" })).toThrow(/invalid Discord id/);
+		expect(() => client.guilds.modify("111", { rules_channel_id: "x" })).toThrow(/invalid Discord id/);
+		expect(() =>
+			client.guilds.modifyWelcomeScreen("111", { welcome_channels: [{ channel_id: "x", description: "d" }] })
+		).toThrow(/invalid Discord id/);
+		expect(() =>
+			client.guilds.modifyOnboarding("111", {
+				enabled: true,
+				default_channel_ids: ["222", "no"],
+				prompts: [],
+			})
+		).toThrow(/invalid Discord id/);
+		expect(() =>
+			client.guilds.modifyOnboarding("111", {
+				enabled: true,
+				default_channel_ids: [],
+				prompts: [
+					{
+						type: 0,
+						title: "t",
+						single_select: false,
+						required: false,
+						in_onboarding: true,
+						options: [{ title: "o", role_ids: ["bad"] }],
+					},
+				],
+			})
+		).toThrow(/invalid Discord id/);
+		expect(() =>
+			client.channels.createMessage("222", { content: "x", allowed_mentions: { roles: ["bad"] } })
+		).toThrow(/invalid Discord id/);
+		expect(calls).toHaveLength(0);
 	});
 
 	it("rejects an id that is not a snowflake before any request is made", async () => {
