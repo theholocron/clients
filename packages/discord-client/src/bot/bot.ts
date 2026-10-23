@@ -3,14 +3,22 @@ import { createRestClient, type RestClient } from "@theholocron/http-client";
 import { DEFAULT_BASE_URL } from "../utils.js";
 import type {
 	CreateChannelInput,
+	CreateMessageInput,
 	CreateRoleInput,
 	DiscordBotClientOptions,
 	DiscordChannel,
 	DiscordChannelWebhook,
 	DiscordGuild,
+	DiscordMessage,
+	DiscordOnboarding,
 	DiscordRole,
 	DiscordUser,
+	DiscordWelcomeScreen,
 	ModifyChannelInput,
+	ModifyGuildInput,
+	ModifyRoleInput,
+	ModifyWebhookInput,
+	ModifyWelcomeScreenInput,
 } from "./bot.type.js";
 
 const DEFAULT_TIMEOUT_MS = 15_000;
@@ -107,6 +115,21 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 		},
 		guilds: {
 			get: (guildId: string) => rest.request<DiscordGuild>(`/guilds/${id(guildId)}`),
+			/** `PATCH /guilds/:id` — verification, notification defaults, content filter, system channels. */
+			modify: (guildId: string, body: ModifyGuildInput) =>
+				rest.request<DiscordGuild>(`/guilds/${id(guildId)}`, {
+					method: "PATCH",
+					body,
+				}),
+			welcomeScreen: (guildId: string) =>
+				rest.request<DiscordWelcomeScreen>(`/guilds/${id(guildId)}/welcome-screen`),
+			/** Needs the community features on. */
+			modifyWelcomeScreen: (guildId: string, body: ModifyWelcomeScreenInput) =>
+				rest.request<DiscordWelcomeScreen>(`/guilds/${id(guildId)}/welcome-screen`, { method: "PATCH", body }),
+			onboarding: (guildId: string) => rest.request<DiscordOnboarding>(`/guilds/${id(guildId)}/onboarding`),
+			/** `PUT` replaces the whole onboarding config, so send every prompt you want to keep. */
+			modifyOnboarding: (guildId: string, body: Omit<DiscordOnboarding, "guild_id">) =>
+				rest.request<DiscordOnboarding>(`/guilds/${id(guildId)}/onboarding`, { method: "PUT", body }),
 			channels: (guildId: string) => rest.request<DiscordChannel[]>(`/guilds/${id(guildId)}/channels`),
 			createChannel: (guildId: string, body: CreateChannelInput) =>
 				rest.request<DiscordChannel>(`/guilds/${id(guildId)}/channels`, { method: "POST", body }),
@@ -116,6 +139,8 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 					method: "POST",
 					body,
 				}),
+			modifyRole: (guildId: string, roleId: string, body: ModifyRoleInput) =>
+				rest.request<DiscordRole>(`/guilds/${id(guildId)}/roles/${id(roleId)}`, { method: "PATCH", body }),
 		},
 		channels: {
 			modify: (channelId: string, body: ModifyChannelInput) =>
@@ -125,6 +150,12 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 				}),
 			webhooks: async (channelId: string) =>
 				(await rest.request<DiscordChannelWebhook[]>(`/channels/${id(channelId)}/webhooks`)).map(withUrl),
+			/** `POST /channels/:id/messages` as the bot. Mentions are off unless `allowed_mentions` asks for them. */
+			createMessage: (channelId: string, body: CreateMessageInput) =>
+				rest.request<DiscordMessage>(`/channels/${id(channelId)}/messages`, {
+					method: "POST",
+					body: { allowed_mentions: { parse: [] }, ...body },
+				}),
 			createWebhook: async (channelId: string, body: { name: string }) =>
 				withUrl(
 					await rest.request<DiscordChannelWebhook>(`/channels/${id(channelId)}/webhooks`, {
@@ -132,6 +163,20 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 						body,
 					})
 				),
+		},
+		webhooks: {
+			/** `PATCH /webhooks/:id` — name and avatar of a webhook this bot manages. */
+			modify: async (webhookId: string, body: ModifyWebhookInput) =>
+				withUrl(
+					await rest.request<DiscordChannelWebhook>(`/webhooks/${id(webhookId)}`, { method: "PATCH", body })
+				),
+			/** `DELETE /webhooks/:id` — e.g. to roll back an orphan whose URL was never stored. */
+			delete: async (webhookId: string): Promise<void> => {
+				await rest.request<void>(`/webhooks/${id(webhookId)}`, {
+					method: "DELETE",
+					expectNoContent: true,
+				});
+			},
 		},
 	};
 }
