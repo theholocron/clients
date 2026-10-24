@@ -389,6 +389,26 @@ describe("server settings", () => {
 		});
 	});
 
+	it("member roles: read a member, add a role, remove a role", async () => {
+		const { client, calls } = makeClient([
+			{ body: { user: { id: "333" }, roles: ["91"] } },
+			{ status: 204 },
+			{ status: 204 },
+		]);
+		expect((await client.guilds.member("111", "333")).roles).toEqual(["91"]);
+		await client.guilds.addMemberRole("111", "333", "92");
+		await client.guilds.removeMemberRole("111", "333", "91");
+		expect(calls[0]).toMatchObject({ url: `${BASE}/guilds/111/members/333`, method: "GET" });
+		expect(calls[1]).toMatchObject({ url: `${BASE}/guilds/111/members/333/roles/92`, method: "PUT" });
+		expect(calls[2]).toMatchObject({ url: `${BASE}/guilds/111/members/333/roles/91`, method: "DELETE" });
+	});
+
+	it("member roles: an id that is not a snowflake is refused before any request", async () => {
+		const { client, calls } = makeClient([]);
+		expect(() => client.guilds.addMemberRole("111", "../x", "92")).toThrow(/invalid Discord id/);
+		expect(calls).toHaveLength(0);
+	});
+
 	it("application: GET and PATCH /applications/@me", async () => {
 		const { client, calls } = makeClient([
 			{ body: { id: "9", name: "Holonet", description: "old", tags: [] } },

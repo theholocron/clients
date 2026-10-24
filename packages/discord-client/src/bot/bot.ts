@@ -10,6 +10,7 @@ import type {
 	DiscordChannel,
 	DiscordChannelWebhook,
 	DiscordGuild,
+	DiscordGuildMember,
 	DiscordMessage,
 	DiscordOnboarding,
 	DiscordRole,
@@ -166,6 +167,21 @@ export function createDiscordBotClient(opts: DiscordBotClientOptions) {
 				}),
 			modifyRole: (guildId: string, roleId: string, body: ModifyRoleInput) =>
 				rest.request<DiscordRole>(`/guilds/${id(guildId)}/roles/${id(roleId)}`, { method: "PATCH", body }),
+			/** `GET /guilds/:id/members/:id` — one member and the roles they hold. A 404 means they are not in the server. */
+			member: (guildId: string, userId: string) =>
+				rest.request<DiscordGuildMember>(`/guilds/${id(guildId)}/members/${id(userId)}`),
+			/** `PUT /guilds/:id/members/:id/roles/:id` — gives the member the role; giving one they have is a no-op. */
+			addMemberRole: (guildId: string, userId: string, roleId: string): Promise<void> =>
+				rest.request<void>(`/guilds/${id(guildId)}/members/${id(userId)}/roles/${id(roleId)}`, {
+					method: "PUT",
+					expectNoContent: true,
+				}),
+			/** `DELETE /guilds/:id/members/:id/roles/:id` — takes the role away; taking one they lack is a no-op. */
+			removeMemberRole: (guildId: string, userId: string, roleId: string): Promise<void> =>
+				rest.request<void>(`/guilds/${id(guildId)}/members/${id(userId)}/roles/${id(roleId)}`, {
+					method: "DELETE",
+					expectNoContent: true,
+				}),
 		},
 		channels: {
 			modify: (channelId: string, body: ModifyChannelInput) =>

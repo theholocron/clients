@@ -159,6 +159,14 @@ export interface ModifyChannelInput {
 	permission_overwrites?: DiscordPermissionOverwrite[];
 }
 
+/** A member of a server. Only what provisioning needs: who they are and which roles they hold. */
+export interface DiscordGuildMember {
+	user?: { id: string; username?: string };
+	/** Ids of the roles the member holds. */
+	roles: string[];
+	nick?: string | null;
+}
+
 export interface DiscordRole {
 	id: string;
 	name: string;
